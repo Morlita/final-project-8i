@@ -1,0 +1,35 @@
+:root {
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252F;
+    --secondary-light-color: #F5F5F9;
+}
+
+.tag-component{
+    width: 15%;
+    border: 1px solid var(--main-light-color);
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    padding: 10px;
+    margin-left: 10px;
+}
+
+p{
+    display: inline;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--secondary-dark-color);
+}
+
+h2{
+    color: var(--main-dark-color);
+    display: flex;
+    justify-content: center;
+}
