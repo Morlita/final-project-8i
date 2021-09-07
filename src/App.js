@@ -1,5 +1,5 @@
 import './App.css';
-import Categories from './Components/Categories';
+import CategoriesCards from './Components/CategoriesCards';
 
 import {
   BrowserRouter as Router,
@@ -8,13 +8,14 @@ import {
   // Link
 } from "react-router-dom";
 
+
 function App() {
   return (
     <Router>
       <div>
         <Switch>
           <Route path='/' exact>
-            <Categories />
+            <CategoriesCards />
           </Route>
         </Switch>
       </div>
