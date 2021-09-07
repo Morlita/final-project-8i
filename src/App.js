@@ -1,5 +1,6 @@
 import './App.css';
 import CategoriesCards from './Components/CategoriesCards';
+import Tags from './Components/Tags/Tags';
 
 import {
   BrowserRouter as Router,
@@ -8,7 +9,6 @@ import {
   // Link
 } from "react-router-dom";
 
-
 function App() {
   return (
     <Router>
@@ -16,6 +16,7 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <CategoriesCards />
+            <Tags />
           </Route>
         </Switch>
       </div>
