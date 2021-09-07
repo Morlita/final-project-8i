@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <CategoriesCards />
-            <Tags/>
+            <Tags />
           </Route>
         </Switch>
       </div>
