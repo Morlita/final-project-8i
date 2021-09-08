@@ -1,6 +1,6 @@
 function Footer (){
     return (
-        <div className="Footer mt-3 text-center text-white p-3">
+        <div className="Footer mt-3 text-center p-3">
             Footer
         </div>
     );

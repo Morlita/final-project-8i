@@ -1,9 +1,9 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
-import meatImg from '../Images/meat.jpg'
-import veggieImg from '../Images/veggie.jpg'
-import dessertImg from '../Images/dessert.jpg'
+import meatImg from './Images/meat.jpg'
+import veggieImg from './Images/veggie.jpg'
+import dessertImg from './Images/dessert.jpg'
 
 function CategoriesCards() {
 
