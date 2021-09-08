@@ -2,9 +2,6 @@ import './App.css';
 import CategoriesCards from './Components/CategoriesCards/CategoriesCards';
 import Tags from './Components/Tags/Tags';
 import Navbar from './Components/Navbar/Navbar';
-import Main from './Components/Main/Main';
-import Login from './Components/Login/Login';
-import Signin from './Components/Signin/Signin';
 import Footer from './Components/Footer/Footer';
 
 import {
@@ -23,15 +20,6 @@ function App() {
             <CategoriesCards />
             <Tags />
           </Route>
-          <Route path="/login">
-              <Login/>
-          </Route>
-          <Route path="/signin">
-            <Signin/>
-          </Route>
-          <Route path="/main">
-            <Main/>
-          </Route> 
         </Switch>
         <Footer />
       </div>
