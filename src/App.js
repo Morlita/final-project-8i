@@ -1,5 +1,4 @@
 import './App.css';
-import './Components/CarouselSlider/CarouselSlider.scss';
 import CategoriesCards from './Components/CategoriesCards/CategoriesCards';
 import Tags from './Components/Tags/Tags';
 import Navbar from './Components/Navbar/Navbar';

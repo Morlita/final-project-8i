@@ -14,73 +14,103 @@ import food6 from './CarouselImg/foodpic (6).jpg'
 function CarouselSlider() {
     let settings = {
         dot: true,
+        lazyload: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
-        cssEase: "linear"
+        pauseOnHover: true,
+        autoplay: true,
+        cssEase: "linear",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+
     }
 
 
     return (
         <Slider {...settings}>
-            <div className="card-wrapper car-slider">
+            <div className="card-wrapper car-slider px-1">
                 <div className="card">
                     <div className="card-image">
                         <img src={food1} alt="" />
                     </div>
                     <div className="details">
-                        <h2>Galletas de Chocolate <span className= 'category text-muted'>Postre</span> </h2>
+                        <h4 className='text-center'>Galletas de Chocolate <span className='category text-muted'>Postre</span> </h4>
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper car-slider">
+            <div className="card-wrapper car-slider px-1">
                 <div className="card">
                     <div className="card-image">
                         <img src={food2} alt="" />
                     </div>
                     <div className="details">
-                        <h2>Avocado Toast <span className= 'category text-muted'>Veggie</span> </h2>
+                        <h4 className='text-center'>Avocado Toast <span className='category text-muted'>Veggie</span> </h4>
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper car-slider">
+            <div className="card-wrapper car-slider px-1">
                 <div className="card">
                     <div className="card-image">
                         <img src={food3} alt="" />
                     </div>
                     <div className="details">
-                        <h2>Tarta de arándanos <span className= 'category text-muted'>Postre</span> </h2>
+                        <h4 className='text-center'>Tarta de arándanos <span className='category text-muted'>Postre</span> </h4>
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper car-slider">
+            <div className="card-wrapper car-slider px-1">
                 <div className="card">
                     <div className="card-image">
                         <img src={food4} alt="" />
                     </div>
                     <div className="details">
-                        <h2>Bife con puré <span className= 'category text-muted'>Con carne</span> </h2>
+                        <h4 className='text-center'>Bife con puré <span className='category text-muted'>Con carne</span> </h4>
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper car-slider">
+            <div className="card-wrapper car-slider px-1">
                 <div className="card">
                     <div className="card-image">
                         <img src={food5} alt="" />
                     </div>
                     <div className="details">
-                        <h2>Pizza de vegetales <span className= 'category text-muted'>Veggie</span> </h2>
+                        <h4 className='text-center'>Pizza de vegetales <span className='category text-muted'>Veggie</span> </h4>
                     </div>
                 </div>
             </div>
-            <div className="card-wrapper car-slider">
+            <div className="card-wrapper car-slider px-1">
                 <div className="card">
                     <div className="card-image">
                         <img src={food6} alt="" />
                     </div>
                     <div className="details">
-                        <h2>Ñoquis de papa <span className= 'category text-muted'>Veggie</span> </h2>
+                        <h4 className='text-center'>Ñoquis de papa <span className='category text-muted'>Veggie</span> </h4>
                     </div>
                 </div>
             </div>
