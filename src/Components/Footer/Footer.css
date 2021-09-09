@@ -8,18 +8,11 @@
   --secondary-light-color: #f5f5f9;
 }
 
-.navbar {
-  background-color: var(--accesory-accent-color);
+.rounded-circle {
+  height: 6vh;
 }
 
-.rounded-pill {
-  background-color: var(--secondary-light-color);
-}
-
-a{
-  color: var(--main-dark-color) !important;
-}
-
-form {
-  width: 70%
+footer {
+    height: 12vh;
+    background-color: var(--main-dark-color);
 }
