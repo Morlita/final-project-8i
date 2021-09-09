@@ -8,3 +8,7 @@
   --secondary-light-color: #F5F5F9;  
 }
 
+*{
+  margin: 0;
+  padding: 0;
+}

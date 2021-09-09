@@ -1,4 +1,5 @@
 import './App.css';
+import './Components/CarouselSlider/CarouselSlider.scss';
 import CategoriesCards from './Components/CategoriesCards/CategoriesCards';
 import Tags from './Components/Tags/Tags';
 import Navbar from './Components/Navbar/Navbar';
@@ -19,7 +20,10 @@ function App() {
         <Switch>
           <Route path='/' exact>
             <CategoriesCards />
-            <CarouselSlider />
+            <div className="container my-3 carousel">
+              <h2 className="slider_title">Favoritos de todos los tiempos</h2>
+              <CarouselSlider />
+            </div>
             <Tags />
           </Route>
         </Switch>
