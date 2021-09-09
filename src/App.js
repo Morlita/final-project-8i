@@ -9,6 +9,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import UploadRecipeBanner from './Components/UploadBanner/UploadBanner';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/' exact>
             <CategoriesCards />
             <Tags />
+            <UploadRecipeBanner />
           </Route>
         </Switch>
         <Footer />
