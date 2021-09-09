@@ -9,8 +9,8 @@ function UploadRecipeBanner() {
                 <div className="card-img-overlay">
                     <div className="container h-100 d-flex flex-column justify-content-end">
                         <div className="">
-                            <h3 className='col-5 mx-auto text-center h4'>Si sos experto en Creme Brulee, o simplemente haces mejor sanguchito del barrio</h3>
-                            <h1 className="card-title col-8 mx-auto text-center h2 pb-3">Compartí con nosotros tu receta en tres simples pasos!</h1>
+                            <h2 className='col-5 mx-auto text-center h4'>Si sos experto en Creme Brulee, o simplemente haces mejor sanguchito del barrio</h2>
+                            <h1 className="card-title col-8 mx-auto text-center h3 pb-3">Compartí con nosotros tu receta en tres simples pasos!</h1>
                         </div>
                         <div className="d-flex">
                             <div className='col-md-4 p-2'>

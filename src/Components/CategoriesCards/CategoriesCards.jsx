@@ -24,19 +24,22 @@ function CategoriesCards() {
 
     return (
         <div className='container'>
-            <div className="row p-4 gy-3">
-                {dishCategories.map(({ category, img, alt }, index) => (
-                    <div className="col-12 col-md-4" key={index}>
-                        <Link to="">  
-                            <div class="card bg-dark text-white shadow border-0">
-                                <img src={img} class="card-img" alt={alt}></img>
-                                <div class="card-img-overlay d-flex flex-column justify-content-center">
-                                    <h4 class="card-title text-center ">{category.toUpperCase()}</h4>
+            <div className="container my-3 carousel">
+                            <h2 className="slider_title">Categorías</h2>
+                <div className="row gy-3">
+                    {dishCategories.map(({ category, img, alt }, index) => (
+                        <div className="col-12 col-md-4" key={index}>
+                            <Link to="">
+                                <div class="card bg-dark text-white shadow border-0">
+                                    <img src={img} class="card-img" alt={alt}></img>
+                                    <div class="card-img-overlay d-flex flex-column justify-content-center">
+                                        <h4 class="card-title text-center ">{category.toUpperCase()}</h4>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
-                    </div>
-                ))}
+                            </Link>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

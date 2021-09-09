@@ -6,7 +6,7 @@ function Tags() {
 
     return (
         <div className="d-flex justify-content-sm-center justify-content-md-start">
-            <div className="container col-12 col-md-4 col-lg-3 col-xxl-2 p-2 m-2 border border-3 border-secondary rounded">
+            <div className="container col-12  p-2 m-2 border border-3 border-secondary rounded">
                 <h2 className="text-center">hashtags</h2>
                 <div>
                     {tags.map((item, index) => (

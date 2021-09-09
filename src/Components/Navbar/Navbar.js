@@ -4,8 +4,8 @@ import './Navbar.css';
 function Navbar() {
     return (
         <nav class="navbar navbar-expand-md sticky-top">
-            <div class="container-fluid">    
-                <a class="navbar-brand text-dark align-self-center" href="#">RecetApp</a>         
+            <div class="container-fluid">     
+                <Link className="navbar-brand text-white h1" to="/">RecetApp</Link>        
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -20,8 +20,8 @@ function Navbar() {
                         </ul>
                     </div>
                     <form class="d-flex align-items-center mt-2">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success rounded-pill" type="submit">Search</button>
                     </form>
                     <div className="d-flex align-middle text-center mt-2" >
                         <div className="rounded-pill">
