@@ -17,17 +17,20 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <Switch>
-          <Route path='/' exact>
-            <UploadRecipeBanner />
-            <CategoriesCards />
-            <div className="container my-3 carousel">
-              <h2 className="slider_title">Favoritos de todos los tiempos</h2>
-              <CarouselSlider />
-            </div>
-            <Tags />
-          </Route>
-        </Switch>
+        <div className="container">
+          <Switch>
+            <Route path='/' exact>
+              <UploadRecipeBanner />
+              <CategoriesCards />
+              <div className="container my-3 carousel">
+                <h2 className="slider_title">Favoritos de todos los tiempos</h2>
+                <CarouselSlider />
+              </div>
+              <Tags />
+            </Route>
+          </Switch>
+
+        </div>
         <Footer />
       </div>
     </Router>
