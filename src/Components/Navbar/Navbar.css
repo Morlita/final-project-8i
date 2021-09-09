@@ -9,13 +9,17 @@
 }
 
 .navbar {
-  background-color: var(--secondary-dark-color);
+  background-color: var(--accesory-accent-color);
 }
 
 .rounded-pill {
-  background-color: var(--main-light-color);
+  background-color: var(--secondary-light-color);
 }
 
 a{
   color: var(--main-dark-color) !important;
+}
+
+form {
+  width: 70%
 }
