@@ -1,5 +1,5 @@
 import React from 'react';
-import bannerLarge from '../../Images/bannerImg.jpg'
+import bannerLarge from './Images/bannerImg.jpg';
 
 function UploadRecipeBanner() {
     return (

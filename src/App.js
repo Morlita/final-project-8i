@@ -18,9 +18,9 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact>
+            <UploadRecipeBanner />
             <CategoriesCards />
             <Tags />
-            <UploadRecipeBanner />
           </Route>
         </Switch>
         <Footer />
