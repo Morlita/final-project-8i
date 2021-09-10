@@ -1,0 +1,28 @@
+:root {
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252F;
+    --secondary-light-color: #F5F5F9;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+}
+
+input:checked {
+    background-color: var(--main-accent-color);
+}
+p{
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--secondary-dark-color);
+}
+
+h2{
+    color: var(--main-dark-color);
+}

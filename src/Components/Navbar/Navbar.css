@@ -1,0 +1,25 @@
+:root {
+  --main-dark-color: #2b4356;
+  --main-light-color: #dddceb;
+  --main-accent-color: #e75150;
+  --accesory-accent-color: #fee883;
+  --accesory-light-color: #ebaf8d;
+  --secondary-dark-color: #18252f;
+  --secondary-light-color: #f5f5f9;
+}
+
+.navbar {
+  background-color: var(--accesory-accent-color);
+}
+
+.rounded-pill {
+  background-color: var(--secondary-light-color);
+}
+
+a{
+  color: var(--main-dark-color) !important;
+}
+
+form {
+  width: 70%
+}
