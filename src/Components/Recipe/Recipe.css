@@ -1,0 +1,10 @@
+
+.recipe-component img {
+    height: 50vh;
+    object-fit: cover;
+}
+
+.recipe-component .vl {
+    border-right: 1px solid black;
+    height: auto;
+}

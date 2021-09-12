@@ -8,6 +8,7 @@ import food3 from './CarouselImg/foodpic (3).jpg'
 import food4 from './CarouselImg/foodpic (4).jpg'
 import food5 from './CarouselImg/foodpic (5).jpg'
 import food6 from './CarouselImg/foodpic (6).jpg'
+import { Link } from 'react-router-dom'
 
 
 
@@ -55,34 +56,40 @@ function CarouselSlider() {
     return (
         <Slider {...settings}>
             <div className="card-wrapper car-slider px-1">
-                <div className="card">
-                    <div className="card-image">
-                        <img src={food1} alt="" />
+                <Link to='/recipe'>
+                    <div className="card">
+                        <div className="card-image">
+                            <img src={food1} alt="" />
+                        </div>
+                        <div className="details">
+                            <h4 className='text-center'>Galletas de Chocolate <span className='category text-muted'>Postre</span> </h4>
+                        </div>
                     </div>
-                    <div className="details">
-                        <h4 className='text-center'>Galletas de Chocolate <span className='category text-muted'>Postre</span> </h4>
-                    </div>
-                </div>
+                </Link>
             </div>
             <div className="card-wrapper car-slider px-1">
-                <div className="card">
-                    <div className="card-image">
-                        <img src={food2} alt="" />
+                <Link to='/recipe'>
+                    <div className="card">
+                        <div className="card-image">
+                            <img src={food2} alt="" />
+                        </div>
+                        <div className="details">
+                            <h4 className='text-center'>Avocado Toast <span className='category text-muted'>Veggie</span> </h4>
+                        </div>
                     </div>
-                    <div className="details">
-                        <h4 className='text-center'>Avocado Toast <span className='category text-muted'>Veggie</span> </h4>
-                    </div>
-                </div>
+                </Link>
             </div>
             <div className="card-wrapper car-slider px-1">
-                <div className="card">
-                    <div className="card-image">
-                        <img src={food3} alt="" />
+                <Link to='/recipe'>
+                    <div className="card">
+                        <div className="card-image">
+                            <img src={food3} alt="" />
+                        </div>
+                        <div className="details">
+                            <h4 className='text-center'>Tarta de arándanos <span className='category text-muted'>Postre</span> </h4>
+                        </div>
                     </div>
-                    <div className="details">
-                        <h4 className='text-center'>Tarta de arándanos <span className='category text-muted'>Postre</span> </h4>
-                    </div>
-                </div>
+                </Link>
             </div>
             <div className="card-wrapper car-slider px-1">
                 <div className="card">
