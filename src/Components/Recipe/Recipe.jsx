@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import foodpic1 from '../CarouselSlider/CarouselImg/foodpic (1).jpg'
 import './Recipe.css'
 
-function Recipe() {
+function Recipe( props ) {
+    // así o paso el id en la ruta??
+    
+    const [recipe, setRecipe] = useState({})
+
+    useEffect(()=> {
+        fetch(`http://localhost:5000/recipes/${props.id}`)
+            .then(response=> response.json())
+            .then(data=> setRecipe(data))
+    }, [])
+
+    // recipe.img, recipe.name, etc
 
     return (
         <div className='container recipe-component py-2'>
