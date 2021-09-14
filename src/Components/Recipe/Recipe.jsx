@@ -5,13 +5,14 @@ import './Recipe.css'
 
 function Recipe( props ) {
     // así o paso el id en la ruta??
-    
+
     const [recipe, setRecipe] = useState({})
 
     useEffect(()=> {
         fetch(`http://localhost:5000/recipes/${props.id}`)
             .then(response=> response.json())
             .then(data=> setRecipe(data))
+            .catch(err => {console.log(err)})
     }, [])
 
     // recipe.img, recipe.name, etc
