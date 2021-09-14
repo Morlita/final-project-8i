@@ -1,6 +1,7 @@
 import React from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import CategoriesCards from '../CategoriesCards/CategoriesCards'
+import CommentSection from '../CommentSection/CommentSection'
 import Tags from '../Tags/Tags'
 import UploadRecipeBanner from '../UploadBanner/UploadBanner'
 
@@ -10,6 +11,9 @@ function Main() {
             <div className="row">
                 <div className="h-75 d-inline-block">
                     <UploadRecipeBanner />
+                </div>
+                <div className="comments">
+                    <CommentSection />
                 </div>
             </div>
             <div className="row row-cols-1 row-cols-md-4">
