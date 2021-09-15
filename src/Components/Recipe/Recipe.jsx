@@ -3,19 +3,27 @@ import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import foodpic1 from '../CarouselSlider/CarouselImg/foodpic (1).jpg'
 import './Recipe.css'
 
-function Recipe( props ) {
-    // así o paso el id en la ruta??
+function Recipe() {
+    
 
     const [recipe, setRecipe] = useState({})
 
-    useEffect(()=> {
-        fetch(`http://localhost:5000/recipes/${props.id}`)
+    const idURL = window.location.pathname.split("/").pop();
+
+    const getRecipes = async ()=> {
+        await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${idURL}`)
             .then(response=> response.json())
             .then(data=> setRecipe(data))
             .catch(err => {console.log(err)})
+    }
+
+    useEffect(()=> {
+        getRecipes();
     }, [])
 
-    // recipe.img, recipe.name, etc
+    const {category, createdAt, img, ingredients, likes, otherImgs, steps, tags, time, timeFreezer, timeFridge, title, updatedAt, v , id} = recipe;
+
+    console.log('ingr:', ingredients)
 
     return (
         <div className='container recipe-component py-2'>
@@ -24,7 +32,7 @@ function Recipe( props ) {
                     <div className="card border-0">
                         <img src={foodpic1} className='rounded' alt="" />
                         <div className="card-img-overlay d-flex align-items-end ms-3">
-                            <h1 className="h3">Galletas de Chocolate <span>5 likes</span> <span>20-25 minutos</span> </h1>
+                            <h1 className="h3">{title} <span>{likes} likes</span> <span>{time}</span> </h1>
                         </div>
                     </div>
                 </div>
@@ -32,21 +40,18 @@ function Recipe( props ) {
                     <div className="col col-md-4">
                         <h4 className='p-2 ms-2'>Ingredientes</h4>
                         <ul className='py-2'>
-                            <li>Manteca <span className='float-end'>100 grs.</span> </li>
-                            <li>Harina <span className='float-end'>150 grs.</span> </li>
-                            <li>Azúcar <span className='float-end'>50 grs.</span> </li>
-                            <li>Chips de chocolate <span className='float-end'>100 grs.</span> </li>
+                            {/* {ingredients.map((ingr, index)=> (
+                                <li key={index}>{ingr} <span className='float-end'>100 grs.</span> </li>
+                            ))} */}
                         </ul>
                     </div>
                     <div className="col-md-1 vl d-sm-none d-md-block"></div>
                     <div className="col col-md-7">
                         <h4 className='p-2 ms-2'>Preparación</h4>
                         <ol className='py-2'>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto libero dolore harum excepturi magni culpa rerum ipsam et ea, aut maxime eos autem quibusdam numquam possimus quae corporis a consequuntur!</li>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto libero dolore harum excepturi magni culpa rerum ipsam et ea, aut maxime eos autem quibusdam numquam possimus quae corporis a consequuntur!</li>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto libero dolore harum excepturi magni culpa rerum ipsam et ea, aut maxime eos autem quibusdam numquam possimus quae corporis a consequuntur!</li>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto libero dolore harum excepturi magni culpa rerum ipsam et ea, aut maxime eos autem quibusdam numquam possimus quae corporis a consequuntur!</li>
-                            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto libero dolore harum excepturi magni culpa rerum ipsam et ea, aut maxime eos autem quibusdam numquam possimus quae corporis a consequuntur!</li>
+                            {/* {steps.map((step, index)=> (
+                                <li key={index}>{step}</li>
+                            ))}    */}                         
                         </ol>
                     </div>
                 </div>
