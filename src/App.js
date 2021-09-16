@@ -2,6 +2,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import Main from './Components/Main/Main';
+import Login from './Components/LogIn/LogIn';
 
 
 import {
@@ -19,6 +20,9 @@ function App() {
           <Switch>
             <Route path='/' exact>
               <Main />
+            </Route>
+            <Route path='/login' exact>
+              <Login />
             </Route>
           </Switch>
         </div>
