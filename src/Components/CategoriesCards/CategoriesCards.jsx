@@ -1,5 +1,4 @@
 
-import React from 'react'
 import {Link} from 'react-router-dom'
 import meatImg from './Images/meat.jpg'
 import veggieImg from './Images/veggie.jpg'
@@ -20,7 +19,7 @@ function CategoriesCards() {
         img: dessertImg,
         alt: 'dessert category'
     }]
-
+    
 
     return (
         <div className='container'>
