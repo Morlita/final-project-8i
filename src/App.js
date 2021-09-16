@@ -8,8 +8,7 @@ import Login from './Components/LogIn/LogIn';
 import Recipe from './Components/Recipe/Recipe';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import UserProfile from './Components/UserProfile/UserProfile';
-
-
+import Admin from './Components/Admin/AdminRecipes/AdminRecipes';
 
 
 import {
@@ -43,6 +42,9 @@ function App() {
             </Route>
             <Route path="/userprofile">
               <UserProfile />
+            </Route>
+            <Route path='/admin' exact>
+              <Admin />
             </Route>
           </Switch>
         </div>
