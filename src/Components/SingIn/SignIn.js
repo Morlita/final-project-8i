@@ -63,9 +63,9 @@ function Signin (){
                         <label className="form-check-label" for="exampleCheck1">Remenber me</label>
                     </div>
                     <div>
-                    <button type="button" class="btn btn-primary m-3" onClick={Guardar}>Sign in</button>
+                    <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Sign in</button>
                     <Link to="/">
-                        <button type="button" class="btn btn-primary">Done</button>
+                        <button type="button" className="btn btn-primary">Done</button>
                     </Link>
                     </div>
                 </form>
