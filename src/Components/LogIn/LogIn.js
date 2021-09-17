@@ -1,4 +1,4 @@
-import React ,{useState, useEffect} from "react";
+import React ,{useState} from "react";
 import { Link } from 'react-router-dom';
 
 function Login (){
@@ -10,23 +10,29 @@ function Login (){
 
     const setUserObj = (event) =>{
         setUsuario({...usuario, [event.target.name]:event.target.value});
+        console.log(event.target.value)
     }
 
     const Guardar = ()=>{
-        useEffect(()=>{
-            fetch('https://polar-reaches-30197.herokuapp.com/user/login'),{
-                Headers:{
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                method:"POST",
-                body:JSON.stringify({
-                    email: usuario.email,
-                    password: usuario.password
-                })
-        }
-       
-    },[])}
+
+            const data = JSON.stringify({
+                email: usuario.email,
+                password: usuario.password
+            })
+
+              fetch('https://polar-reaches-30197.herokuapp.com/user/login', {
+                  headers:{
+                      "Accept": "application/json",
+                      "Content-Type": "application/json",
+                      
+                  },
+                  method:"POST",
+                  body: data
+              }).then(Response => {
+                console.log(Response)
+              })
+              
+}
 
     return (
         <div>
@@ -48,9 +54,9 @@ function Login (){
                         <label className="form-check-label" for="exampleCheck1">Remenber me</label>
                     </div>
                     <div>
-                    <button type="button" class="btn btn-primary m-3" onClick={Guardar}>Log in</button>
+                    <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Log in</button>
                     <Link to="/">
-                        <button type="button" class="btn btn-primary">Done</button>
+                        <button type="button" className="btn btn-primary">Done</button>
                     </Link>
                     </div>
                 </form>
