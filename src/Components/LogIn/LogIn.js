@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Login (){
 
+    const formLogIn = document.querySelector("#formLogIn")
+
     const [usuario,setUsuario] = useState({
         email:"",
         password:""
@@ -10,7 +12,6 @@ function Login (){
 
     const setUserObj = (event) =>{
         setUsuario({...usuario, [event.target.name]:event.target.value});
-        console.log(event.target.value)
     }
 
     const Guardar = ()=>{
@@ -23,16 +24,17 @@ function Login (){
               fetch('https://polar-reaches-30197.herokuapp.com/user/login', {
                   headers:{
                       "Accept": "application/json",
-                      "Content-Type": "application/json",
-                      
+                      "Content-Type": "application/json"
                   },
                   method:"POST",
                   body: data
-              }).then(Response => {
-                console.log(Response)
-              })
-              
-}
+              }).then(Response => 
+                  Response.json()
+                ).then(data => localStorage.setItem("registerLogIn",JSON.stringify(data.token)))
+                .then(formLogIn.reset());
+                
+                        
+    }
 
     return (
         <div>
@@ -56,7 +58,7 @@ function Login (){
                     <div>
                     <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Log in</button>
                     <Link to="/">
-                        <button type="button" className="btn btn-primary">Done</button>
+                        <button id="done" type="button" className="btn btn-primary">Done</button>
                     </Link>
                     </div>
                 </form>
