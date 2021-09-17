@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Signin (){
 
+    const formUsuario = document.querySelector("#formUsuario")
+
     const [usuario,setUsuario] = useState({
         name: "",
         lastName: "",
@@ -29,8 +31,26 @@ function Signin (){
             alert("contraseña invalida")
         }
         else{
-            localStorage.setItem("usuarios", JSON.stringify(usuario));
-            document.querySelector("#formUsuario").reset();
+            
+            const data = JSON.stringify({
+                email: usuario.email,
+                password: usuario.password,
+                name: usuario.name,
+                lastName: usuario.lastName,
+                role:"user"
+            })
+
+              fetch('https://polar-reaches-30197.herokuapp.com/user/', {
+                  headers:{
+                      "Accept": "application/json",
+                      "Content-Type": "application/json"
+                  },
+                  method:"POST",
+                  body: data
+              })
+                  
+                alert("registro exitoso");
+                formUsuario.reset();
         }
         
     }
