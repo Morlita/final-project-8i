@@ -3,7 +3,7 @@ import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import CategoriesCards from '../CategoriesCards/CategoriesCards'
 import Tags from '../Tags/Tags'
 import UploadRecipeBanner from '../UploadBanner/UploadBanner'
-import Card from '../Card/Card'
+import CardMediana from '../CardMediana/CardMediana'
 
 function Main() {
     return (
@@ -30,7 +30,7 @@ function Main() {
                     <div className="container">
                         <div className="row">
                         <h2 className="slider_title">recetas random</h2>
-                            <Card/>
+                            <CardMediana/>
                         </div>
                     </div>
                 </div>
