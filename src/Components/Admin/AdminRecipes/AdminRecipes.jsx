@@ -3,7 +3,6 @@ import Modal from '../../Modal/Modal';
 
 function Admin() {  
     const [recipes, setRecipes] = useState([]);
-    const [recipeNumber, setRecipeNumber] = useState(Number);
 
     /* List all recipes */
     useEffect(() => {
@@ -12,19 +11,12 @@ function Admin() {
             .then(data  => setRecipes(data));
     }, []);
 
-    /*setTimeout(() => { 
-        const method = recipes.length; 
-        setRecipeNumber(method);
-        for (let i = 0; i < method; i++) {
-            const recetas = recipes[i].steps;
-            console.log(recetas)
-        }
-    }, 1000);*/
-    
-
-    
-
-    
+    /*SETEAR EL INDEX*/
+    let [reference, setReference] = useState(0);
+    const setIndice = (index) => {
+        reference = index;
+        setReference(index);
+    }
 
     return(
         <div>
@@ -44,10 +36,16 @@ function Admin() {
                     {recipes.map((item, index) => (
                         <tr key={index}>
                             <td>{item.title}</td> 
-                            <td>{item.steps}</td>
+                            <td>
+                                <ol>
+                                    {item.steps.map((item, index) => (
+                                        <li key={index}>{item}</li>
+                                    ))}
+                                </ol>
+                            </td>
                             <td>Pepito</td>
                             <td>
-                                <button type="button" className="btn btn-primary w-20 me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" className="btn btn-primary w-20 me-3" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setIndice(index)}>
                                     Más Info
                                 </button>
                                 <button className="btn btn-success w-20 me-3">
@@ -71,7 +69,7 @@ function Admin() {
                     ))}
                 </tbody>
             </table>
-            <Modal />
+            <Modal completeRecipe={recipes} index={reference}/>
         </div>
     )
 }
