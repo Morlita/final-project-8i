@@ -1,10 +1,11 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import Card from "../Card/Card";
 
 function CardMediana(){
 
-    const [cards, setCards] = useState({})
-    
+    const [cards, setCards] = useState([])
+
+    useEffect(()=>{
        
         fetch("https://polar-reaches-30197.herokuapp.com/recipes/", { // se ejecuta 2 veces
             headers:{
@@ -17,11 +18,10 @@ function CardMediana(){
                 setCards(data) // lo setea como objeto vacio
                 console.log(cards) // muestra un objeto vacio
             })
-
+        },[])
         return (
             
-            <div>
-                
+            <div >
                 {cards.map((item,index)=>(
                     <Card key={item._id} title={item.title} time={item.time} img={item.img} likes={item.likes} />
                 ))}
@@ -30,6 +30,8 @@ function CardMediana(){
 
             
         );
+    
+   
    }
     
 
