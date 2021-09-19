@@ -1,5 +1,4 @@
 function Modal(recipe) {
-  debugger
   console.log("Reseta", recipe.recipe.steps)
   
     return(
@@ -17,19 +16,19 @@ function Modal(recipe) {
               </div>
               <h5 className="fw-bold">Procedimiento:</h5>
               <ol>
-                {/*setTimeout(() => { 
-                  recipe.recipe.steps.map((item, index) => (
-                    <li key={index}>{item}</li>
+                {
+                  recipe.recipe.steps && recipe.recipe.steps.map((item, index) => (
+                    <li key={index} className="text-capitalize">{item}</li>
                   ))
-                }, 3000)*/} 
+                }
               </ol>
             </div>
             <div>
               <h5 className="fw-bold">Ingredientes:</h5>
               <ul>
-                {/*recipe.recipe.ingredients.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))*/}
+                {recipe.recipe.ingredients && recipe.recipe.ingredients.map((item, index) => (
+                  <li key={index} className="text-capitalize">{item}</li>
+                ))}
               </ul>
             </div>
             <div>
@@ -50,9 +49,9 @@ function Modal(recipe) {
             <div>
               <h5 className="fw-bold">Tags:</h5>
               <ul>
-                {/*recipe.recipe.ingredients.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))*/}
+                {recipe.recipe.tags && recipe.recipe.tags.map((item, index) => (
+                  <li key={index} className="text-capitalize">{item}</li>
+                ))}
               </ul>
             </div>
             <div>

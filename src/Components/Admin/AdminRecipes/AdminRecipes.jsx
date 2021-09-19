@@ -4,11 +4,16 @@ import Modal from '../../Modal/Modal';
 function Admin() {  
     const [recipes, setRecipes] = useState([]);
 
+    const getRecipes = async () => {
+        await fetch('https://polar-reaches-30197.herokuapp.com/recipes')
+        .then(response => response.json())
+        .then(data  => setRecipes(data))
+        .catch(err => alert('Algo salio mal', err))
+    }
+
     /* List all recipes */
     useEffect(() => {
-        fetch('https://polar-reaches-30197.herokuapp.com/recipes')
-            .then(response => response.json())
-            .then(data  => setRecipes(data));
+        getRecipes();
     }, []);
 
     /*SETEAR EL INDEX*/
