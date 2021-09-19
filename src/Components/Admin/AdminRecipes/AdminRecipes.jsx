@@ -14,8 +14,8 @@ function Admin() {
     /*SETEAR EL INDEX*/
     let [reference, setReference] = useState(0);
     const setIndice = (index) => {
-        reference = index;
-        setReference(index);
+        reference = recipes[index];
+        setReference(reference);
     }
 
     return(
@@ -69,7 +69,7 @@ function Admin() {
                     ))}
                 </tbody>
             </table>
-            <Modal completeRecipe={recipes} index={reference}/>
+            <Modal recipe={reference}/>
         </div>
     )
 }
