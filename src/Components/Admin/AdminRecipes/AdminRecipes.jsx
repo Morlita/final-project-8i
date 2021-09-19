@@ -12,7 +12,7 @@ function Admin() {
     }, []);
 
     /*SETEAR EL INDEX*/
-    let [reference, setReference] = useState(0);
+    let [reference, setReference] = useState('');
     const setIndice = (index) => {
         reference = recipes[index];
         setReference(reference);

@@ -1,5 +1,7 @@
 function Modal(recipe) {
-  console.log(recipe.recipe)
+  debugger
+  console.log("Reseta", recipe.recipe.steps)
+  
     return(
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -15,9 +17,11 @@ function Modal(recipe) {
               </div>
               <h5 className="fw-bold">Procedimiento:</h5>
               <ol>
-                {/*recipe.recipe.steps.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))*/}
+                {/*setTimeout(() => { 
+                  recipe.recipe.steps.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))
+                }, 3000)*/} 
               </ol>
             </div>
             <div>
