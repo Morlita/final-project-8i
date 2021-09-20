@@ -3,6 +3,7 @@ import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import CategoriesCards from '../CategoriesCards/CategoriesCards'
 import Tags from '../Tags/Tags'
 import UploadRecipeBanner from '../UploadBanner/UploadBanner'
+import CardMediana from '../CardMediana/CardMediana'
 
 function Main() {
     return (
@@ -26,10 +27,10 @@ function Main() {
                             <CarouselSlider />
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="container my-3 mx-3 carousel">
-                            <h2 className="slider_title">Favoritos de todos los tiempos</h2>
-                            <CarouselSlider />
+                    <div className="container">
+                        <div className="row">
+                        <h2 className="slider_title">recetas random</h2>
+                            <CardMediana/>
                         </div>
                     </div>
                 </div>
