@@ -21,10 +21,12 @@ function CardMediana(){
         },[])
         return (
             
-            <div >
-                {cards.map((item,index)=>(
-                    <Card key={item._id} title={item.title} time={item.time} img={item.img} likes={item.likes} />
-                ))}
+            <div className='container'>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">                    
+                    {cards.map((item)=>(
+                        <Card key={item._id} title={item.title} time={item.time} img={item.img} likes={item.likes}/>
+                    ))}
+                </div>
 
             </div>
 
