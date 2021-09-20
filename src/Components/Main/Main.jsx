@@ -1,9 +1,10 @@
 import React from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
+import CategoriesCardComponent from '../CategoriesCardComponent/CategoriesCardComponent'
 import CategoriesCards from '../CategoriesCards/CategoriesCards'
 import Tags from '../Tags/Tags'
 import UploadRecipeBanner from '../UploadBanner/UploadBanner'
-import CardMediana from '../CardMediana/CardMediana'
+
 
 function Main() {
     return (
@@ -30,7 +31,7 @@ function Main() {
                     <div className="container">
                         <div className="row">
                         <h2 className="slider_title">recetas random</h2>
-                            <CardMediana/>
+                            <CategoriesCardComponent />
                         </div>
                     </div>
                 </div>
