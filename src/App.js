@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 import Main from './Components/Main/Main';
 import Recipe from './Components/Recipe/Recipe';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 
 
 import {
@@ -14,6 +15,7 @@ import {
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div>
         <Navbar />
         <div className="container">

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 
-function CarouselSlider() {
+function CarouselSlider({reloadFlag, setReloadFlag}) {
     let settings = {
         dot: true,
         lazyload: true,
@@ -56,13 +56,18 @@ function CarouselSlider() {
             .catch(err => { console.log(err) })
     }, [])
 
+    const handleClick = ()=> {
+        if(setReloadFlag){
+            setReloadFlag(!reloadFlag)
+        }
+    }
 
     return (
         <Slider {...settings}>
             {carousel.map(({title, _id, category, img}, index) => (
 
                 <div className="card-wrapper car-slider px-1" key={index}>
-                    <Link to={`/recipe/${_id}`}>
+                    <Link to={`/recipe/${_id}`} onClick={handleClick}>
                         <div className="card">
                             <div className="card-image">
                                 <img src={food2} alt="recipe" />
