@@ -18,16 +18,16 @@ function Signin (){
 
     const Guardar = ()=>{
 
-        if(usuario.name == "" || usuario.name.length > 30){
+        if(usuario.name === "" || usuario.name.length > 30){
             alert("Nombre invalido")
         }
-        else if(usuario.lastName == "" || usuario.lastName.length > 30){
+        else if(usuario.lastName === "" || usuario.lastName.length > 30){
             alert("appellido invalido")
         }
-        else if(usuario.email == "" || !usuario.email.includes("@")){
+        else if(usuario.email === "" || !usuario.email.includes("@")){
             alert("email invalido")
         }
-        else if(usuario.password == "" || usuario.password.length < 6){
+        else if(usuario.password === "" || usuario.password.length < 6){
             alert("contraseña invalida")
         }
         else{

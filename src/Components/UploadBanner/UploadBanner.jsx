@@ -29,8 +29,8 @@ function UploadRecipeBanner() {
                             </div>
                         </div>
                         <div className="p-2">
-                            <div class="d-grid col-6 mx-auto">
-                                <button class="btn btn-success bg-gradient mb-1" type="button">Registrate y comenzá ahora!!</button>
+                            <div className="d-grid col-6 mx-auto">
+                                <button className="btn btn-success bg-gradient mb-1" type="button">Registrate y comenzá ahora!!</button>
                             </div>
                         </div>
                     </div>

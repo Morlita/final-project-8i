@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
-import CategoriesCardComponent from '../CategoriesCardComponent/CategoriesCardComponent'
-import CategoriesCards from '../CategoriesCards/CategoriesCards'
+import Categories from '../Categories/Categories'
 import Tags from '../Tags/Tags'
 import UploadRecipeBanner from '../UploadBanner/UploadBanner'
 
 
 function Main() {
+
+    const [recipes, setRecipes] = useState([]);
+
+    const getRecipes = async () => {
+        try {
+            const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/`);
+            const data = await resp.json();
+            setRecipes(data);
+                        
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+    
+
+    useEffect(() => {
+        getRecipes()
+       
+    }, [])
+    
+ 
+    // tengo que pasarle la info a cada carousel con esta data
+
     return (
         <div className='container'>
             <div className="row">
@@ -20,18 +43,18 @@ function Main() {
                 </div>
                 <div className="col-md-9">
                     <div className="row">
-                        <CategoriesCards />
+                        <Categories />
                     </div>
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
-                            <h2 className="slider_title">Favoritos de todos los tiempos</h2>
+                            <h2 className="slider_title">Recetas favoritas de todos los tiempos</h2>
                             <CarouselSlider />
                         </div>
                     </div>
-                    <div className="container">
-                        <div className="row">
-                        <h2 className="slider_title">recetas random</h2>
-                            <CategoriesCardComponent />
+                    <div className="row">
+                        <div className="container my-3 mx-3 carousel">
+                            <h2 className="slider_title">Inspirate con nuestras recetas!</h2>
+                            <CarouselSlider />
                         </div>
                     </div>
                 </div>

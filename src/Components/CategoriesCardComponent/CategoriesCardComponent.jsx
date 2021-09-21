@@ -24,7 +24,7 @@ function CategoriesCardComponent() {
     return (
 
         <div className='container'>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                 {cards && cards.map(({_id, title, time, img, likes}) => (
                     <MediumCard id={_id} title={title} time={time} img={img} likes={likes} />
                 ))}
