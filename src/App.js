@@ -11,6 +11,9 @@ import UserProfile from './Components/UserProfile/UserProfile';
 import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
+import AddRecipe from './Components/AddRecipe/AddRecipe';
+
+
 
 
 import {
@@ -56,6 +59,9 @@ function App() {
             <Route path='/admin/users' exact>
               <Admin />
               <AdminUsers />
+            </Route>
+            <Route path='/addRecipe' >
+              <AddRecipe />
             </Route>
           </Switch>
         </div>
