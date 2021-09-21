@@ -1,0 +1,37 @@
+:root{
+    --font: 1.3rem;
+    --line: calc(var(--font) * 2);
+    --move: calc(-1 * var(--line))
+}
+
+.recipe-component .vl {
+    border-right: 1px solid black;
+    height: auto;
+}
+
+
+.item > img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    display:block; /* to get rid of the whitespace */
+}
+
+.label {
+    font-size: var(--font) !important;
+    line-height: var(--line) !important;
+    padding: 0 1rem;
+    margin: 0;
+    color: white;
+    background-color: hsla(0, 0%, 0%, 0.48);
+    height: var(--line);
+    /* margin-top: var(--move);
+    position:relative; */
+
+    transform: translateY(var(--move)) !important;
+    margin-bottom: var(--move) !important;
+
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow:hidden;
+}

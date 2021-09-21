@@ -25,10 +25,10 @@ function Navbar() {
                     </form>
                     <div className="d-flex align-middle text-center mt-2" >
                         <div className="rounded-pill">
-                            <Link className="nav-link" to="signin">Sing In</Link>
+                            <Link className="nav-link" to="/signin">Sing In</Link>
                         </div>  
                         <div className="rounded-pill ms-2">
-                            <Link className="nav-link" to="login">Log In</Link>
+                            <Link className="nav-link" to="/login">Log In</Link>
                         </div> 
                     </div>
                 </div>
