@@ -28,7 +28,7 @@ function App() {
             <Route path='/' exact>
               <Main />
             </Route>
-            <Route path='/categories' >
+            <Route path='/categories/:category' >
               <CategoriesComponent />
             </Route>
             <Route path="/signin">

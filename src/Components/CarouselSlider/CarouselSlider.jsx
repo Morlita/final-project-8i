@@ -48,11 +48,15 @@ function CarouselSlider({reloadFlag, setReloadFlag}) {
     }
 
     const [carousel, setCarousel] = useState([])
+    const [shuffledRecipes, setShuffledRecipes] = useState([])
 
     useEffect(() => {
         fetch(`https://polar-reaches-30197.herokuapp.com/recipes/`)
             .then(response => response.json())
-            .then(data => setCarousel(data))
+            .then(data => {
+                setCarousel(data);
+                setShuffledRecipes(data);
+            })
             .catch(err => { console.log(err) })
     }, [])
 
@@ -61,9 +65,25 @@ function CarouselSlider({reloadFlag, setReloadFlag}) {
             setReloadFlag(!reloadFlag)
         }
     }
+    /* const shuffleRecipes = (array) => {
+        let i = array.length - 1;
+        for (; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    const randomRecipes = shuffleRecipes(shuffledRecipes)
+
+    console.log('recipes', carousel);
+    console.log('shuffled', randomRecipes); */
 
     return (
         <Slider {...settings}>
+            
             {carousel.map(({title, _id, category, img}, index) => (
 
                 <div className="card-wrapper car-slider px-1" key={index}>
