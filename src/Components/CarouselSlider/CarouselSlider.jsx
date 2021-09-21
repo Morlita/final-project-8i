@@ -65,7 +65,7 @@ function CarouselSlider({reloadFlag, setReloadFlag}) {
             setReloadFlag(!reloadFlag)
         }
     }
-    const shuffleRecipes = (array) => {
+    /* const shuffleRecipes = (array) => {
         let i = array.length - 1;
         for (; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -79,7 +79,7 @@ function CarouselSlider({reloadFlag, setReloadFlag}) {
     const randomRecipes = shuffleRecipes(shuffledRecipes)
 
     console.log('recipes', carousel);
-    console.log('shuffled', randomRecipes);
+    console.log('shuffled', randomRecipes); */
 
     return (
         <Slider {...settings}>
