@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import { useParams } from "react-router-dom";
-import MediumCard from '../Card/MediumCard'
+import MediumCard from '../MediumCard/MediumCard'
 
 
 function CategoriesComponent() {
