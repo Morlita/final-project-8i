@@ -11,8 +11,15 @@ import UserProfile from './Components/UserProfile/UserProfile';
 import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
+<<<<<<< HEAD
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
 import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
+=======
+import AddRecipe from './Components/AddRecipe/AddRecipe';
+
+
+
+>>>>>>> adf58ac (First creation of the add Recipe)
 
 import {
   BrowserRouter as Router,
@@ -61,6 +68,9 @@ function App() {
             </Route>
             <Route path='/admin/tags' render={() => {
               return user && user.role === "admin" ? <div><Admin /><AdminTags /></div>: <Redirect to="/"/>}}>              
+            </Route>
+            <Route path='/addRecipe' >
+              <AddRecipe />
             </Route>
           </Switch>
         </div>
