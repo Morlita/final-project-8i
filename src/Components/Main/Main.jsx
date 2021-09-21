@@ -18,17 +18,27 @@ function Main() {
         } catch (error) {
             console.log(error);
         }
-    }
-    
-    
+    }   
 
     useEffect(() => {
         getRecipes()
        
     }, [])
     
- 
-    // tengo que pasarle la info a cada carousel con esta data
+    /* const shuffleRecipes = (array) => {
+        let i = array.length - 1;
+        for (; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    const randomRecipes = shuffleRecipes(shuffledRecipes) */
+    
+    // tengo que pasarle la info a cada carousel con esta data, me falta lo de los que tienen más likes
 
     return (
         <div className='container'>
@@ -48,13 +58,13 @@ function Main() {
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
                             <h2 className="slider_title">Recetas favoritas de todos los tiempos</h2>
-                            <CarouselSlider />
+                            <CarouselSlider carouselArr={recipes}/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
                             <h2 className="slider_title">Inspirate con nuestras recetas!</h2>
-                            <CarouselSlider />
+                            <CarouselSlider carouselArr={recipes}/>
                         </div>
                     </div>
                 </div>
