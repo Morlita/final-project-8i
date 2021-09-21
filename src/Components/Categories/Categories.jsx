@@ -15,7 +15,7 @@ function CategoriesCards() {
         img: veggieImg,
         alt: 'veggie category'
     }, {
-        category: 'Postres',
+        category: 'Dulces',
         img: dessertImg,
         alt: 'dessert category'
     }]

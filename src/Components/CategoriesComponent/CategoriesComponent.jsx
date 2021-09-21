@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import { useParams } from "react-router-dom";
+import MediumCard from '../Card/MediumCard'
 
 
 function CategoriesComponent() {
@@ -20,15 +21,16 @@ function CategoriesComponent() {
         getRecipesByCategory();
     }, [])
     
-    console.log('arr', categoryCards);
 
     return (
         <div className='container'>
-            <div className="row">
-                <h1>Todas nuestras recetas <span>{}</span></h1>
+            <div className="row p-3 text-center my-2">
+                <h1>Todas nuestras recetas <span className='text-capitalize'>{category}</span></h1>
             </div>
-            <div className="row">
-                Ca
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-2">
+                {categoryCards && categoryCards.map(({_id, title, time, img, likes}) => (
+                    <MediumCard id={_id} title={title} time={time} img={img} likes={likes} />
+                ))}
             </div>
             <div className="row">
                 <h3>Otras recetas {}</h3>
