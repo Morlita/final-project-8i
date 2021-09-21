@@ -7,9 +7,9 @@ function UploadRecipeBanner() {
             <div className="card border-0" style={{ heigth: 20 }}>
                 <img src={bannerLarge} className="card-img" alt="upload your recipe in three simple steps" ></img>
                 <div className="card-img-overlay">
-                    <div className="container h-100 d-flex flex-column justify-content-end">
+                    <div className="container h-100 d-flex flex-column justify-content-end .d-none .d-lg-block">
                         <div className="">
-                            <h2 className='col-5 mx-auto text-center h4'>Si sos experto en Creme Brulee, o simplemente haces mejor sanguchito del barrio</h2>
+                            <h2 className='col-5 mx-auto text-center h4'>Si sos experto en Creme Brulee, o simplemente haces el mejor sanguchito del barrio</h2>
                             <h1 className="card-title col-8 mx-auto text-center h3 pb-3">Compartí con nosotros tu receta en tres simples pasos!</h1>
                         </div>
                         <div className="d-flex">
