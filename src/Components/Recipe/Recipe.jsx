@@ -84,7 +84,7 @@ function Recipe() {
             <hr />
             <div className="container">
                 <h3 className='p-2'>También te puede interesar...</h3>
-                <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
+                <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} />
             </div>
         </div>
     )

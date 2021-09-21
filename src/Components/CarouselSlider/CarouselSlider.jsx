@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 
-function CarouselSlider({reloadFlag, setReloadFlag}) {
+function CarouselSlider({reloadFlag, setReloadFlag, carouselArr}) {
     let settings = {
         dot: true,
         lazyload: true,
@@ -47,46 +47,17 @@ function CarouselSlider({reloadFlag, setReloadFlag}) {
 
     }
 
-    const [carousel, setCarousel] = useState([])
-    const [shuffledRecipes, setShuffledRecipes] = useState([])
-
-    useEffect(() => {
-        fetch(`https://polar-reaches-30197.herokuapp.com/recipes/`)
-            .then(response => response.json())
-            .then(data => {
-                setCarousel(data);
-                setShuffledRecipes(data);
-            })
-            .catch(err => { console.log(err) })
-    }, [])
-
     const handleClick = ()=> {
         if(setReloadFlag){
             setReloadFlag(!reloadFlag)
         }
     }
-    /* const shuffleRecipes = (array) => {
-        let i = array.length - 1;
-        for (; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    }
-
-    const randomRecipes = shuffleRecipes(shuffledRecipes)
-
-    console.log('recipes', carousel);
-    console.log('shuffled', randomRecipes); */
+    
 
     return (
-        <Slider {...settings}>
-            
-            {carousel.map(({title, _id, category, img}, index) => (
-
-                <div className="card-wrapper car-slider px-1" key={index}>
+        <Slider {...settings}>            
+            {carouselArr && carouselArr.map(({title, _id, category, img}) => (
+                <div className="card-wrapper car-slider px-1" key={_id}>
                     <Link to={`/recipe/${_id}`} onClick={handleClick}>
                         <div className="card">
                             <div className="card-image">
