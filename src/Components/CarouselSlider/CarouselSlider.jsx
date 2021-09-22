@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 
 
-function CarouselSlider({reloadFlag, setReloadFlag}) {
+function CarouselSlider({reloadFlag, setReloadFlag, carouselArr}) {
     let settings = {
         dot: true,
         lazyload: true,
@@ -47,26 +47,17 @@ function CarouselSlider({reloadFlag, setReloadFlag}) {
 
     }
 
-    const [carousel, setCarousel] = useState([])
-
-    useEffect(() => {
-        fetch(`https://polar-reaches-30197.herokuapp.com/recipes/`)
-            .then(response => response.json())
-            .then(data => setCarousel(data))
-            .catch(err => { console.log(err) })
-    }, [])
-
     const handleClick = ()=> {
         if(setReloadFlag){
             setReloadFlag(!reloadFlag)
         }
     }
+    
 
     return (
-        <Slider {...settings}>
-            {carousel.map(({title, _id, category, img}, index) => (
-
-                <div className="card-wrapper car-slider px-1" key={index}>
+        <Slider {...settings}>            
+            {carouselArr && carouselArr.map(({title, _id, category, img}) => (
+                <div className="card-wrapper car-slider px-1" key={_id}>
                     <Link to={`/recipe/${_id}`} onClick={handleClick}>
                         <div className="card">
                             <div className="card-image">

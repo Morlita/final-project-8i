@@ -39,7 +39,7 @@ function Recipe() {
                 <div className="row p-2">
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
                         <h6 className='me-auto'>
-                            <span><i class="bi bi-person-circle fs-4 m-1"></i></span>
+                            <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
                             By <span className='fst-italic'>Euge Arias Fagalde</span>
                         </h6>
                         <Share />
@@ -50,7 +50,7 @@ function Recipe() {
                 <div className="row  py-3 grid">
                     <div className="card border-0 item">
                         <img src={foodpic1} className='rounded' alt="" />
-                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i class="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i class="bi bi-star p-1"></i> {likes}</span> </h1>
+                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i class="bi bi-star p-1"></i> {likes}</span> </h1>
                     </div>
                 </div>
                 <div className="row">
@@ -84,7 +84,7 @@ function Recipe() {
             <hr />
             <div className="container">
                 <h3 className='p-2'>También te puede interesar...</h3>
-                <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
+                <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} />
             </div>
         </div>
     )

@@ -15,15 +15,15 @@ function AddComment() {
     return (
         <div className='container d-flex justify-content-center'>
             <form action="" className=''>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" onChange={getData}></textarea>
+                <div className="form-floating">
+                    <textarea className="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" onChange={getData}></textarea>
                     <label for="floatingAddComment">Danos tu opinión!</label>
-                    <div id="floatingAddComment" class="form-text">
+                    <div id="floatingAddComment" className="form-text">
                         Tu comentario nos interesa! Contanos qué te pareció la receta (máx. 500 caracteres).
                     </div>
                 </div>
                 <div className="text-center mt-2">
-                    <button type="submit" class="btn btn-outline-secondary rounded-pill" onClick={()=> setComment(true)}>Enviar comentario</button>
+                    <button type="submit" className="btn btn-outline-secondary rounded-pill" onClick={()=> setComment(true)}>Enviar comentario</button>
                 </div>
             </form>
         </div>
