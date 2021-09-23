@@ -1,7 +1,7 @@
 function AddInputSteps({ remove }) {
   return (
     <div className="d-flex flex-column form-contact align-items-center d-inline w-50">
-      <label htmlFor="">Pasos </label>
+      <label htmlFor="">Paso </label>
       <div className="d-flex justify-content-end w-100">
         <textarea type="text" name="name" className="w-100" ></textarea>
 
