@@ -5,8 +5,12 @@ import AddInputIngredients from "./AddInputIngredients";
 function AddRecipe() {
   const [recipe, setRecipe] = useState({
     title: '',
+    time: '',
+    timeFreezer: '',
+    timeFridge: ''
 });
 
+  
     /*STEPS */
   const defaultStateSteps = {
     step: "",
@@ -40,17 +44,18 @@ function AddRecipe() {
     setRowIngredients(copyRowIngredients);
   };
 
-
+  /*SET INFORMATION */
   const setRecipes = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
-};
+    console.log(recipe)
+  };
 
   return (
     <div className="App">
       <h1>Crea tu receta</h1>
         <div className="d-flex flex-column form-contact align-items-center">
             <label htmlFor="" className="mb-1">Nombre</label>
-            <input type="text" name="name" className="w-50 mb-3" value={recipe.title} onChange={setRecipes}/>
+            <input type="text" name="title" className="w-50 mb-3" value={recipe.title} onChange={setRecipes}/>
 
             {rowSteps.map((row, index) => (
                 <AddInputSteps {...row} remove={() => handleRemoveSteps(index)} key={index} />
@@ -74,13 +79,13 @@ function AddRecipe() {
 
 
             <label htmlFor=""  className="mb-1">Tiempo Estimado de Preparacion</label>
-            <input type="number" name="value" className="w-50 mb-3" />
+            <input type="number" name="time" className="w-50 mb-3" value={recipe.time} onChange={setRecipes}/>
 
             <label htmlFor=""  className="mb-1">Tiempo Estimado de Duracion en el Freezer</label>
-            <input type="number" name="rateUSD" className="w-50 mb-3" />
+            <input type="number" name="timeFreezer" className="w-50 mb-3" value={recipe.timeFreezer} onChange={setRecipes}/>
 
             <label htmlFor=""  className="mb-1">Tiempo Estimado de Duracion en la Heladera</label>
-            <input type="number" name="notas" className="w-50 mb-3" />
+            <input type="number" name="timeFridge" className="w-50 mb-3" value={recipe.timeFridge} onChange={setRecipes}/>
 
             <label htmlFor="">Categoria</label>
             <select className="mb-5">
