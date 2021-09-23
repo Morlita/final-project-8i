@@ -1,9 +1,9 @@
 import React ,{useState} from "react";
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 function Login (){
 
-    const formLogIn = document.querySelector("#formLogIn")
+    let history = useHistory()
 
     const [usuario,setUsuario] = useState({
         email:"",
@@ -28,10 +28,16 @@ function Login (){
                   },
                   method:"POST",
                   body: data
-              }).then(Response => 
-                  Response.json()
-                ).then(data => localStorage.setItem("registerLogIn",JSON.stringify(data.token)))
-                .then(formLogIn.reset());
+              }).then(response => {
+                  if(response.status === 400 || response.status === 401 ){
+                      alert("usuario o contraseña incorrectos")
+                  }else{
+                    response.json()
+                    localStorage.setItem("registerLogIn",JSON.stringify(response.token))
+                    history.push("/")
+                  }
+                })
+                
                 
                         
     }
@@ -41,7 +47,7 @@ function Login (){
             <div>
                 <h1 className="text-center">RecetApp</h1>
                 <br/>
-                <h3 className="text-center">sign in</h3>
+                <h3 className="text-center">Log in</h3>
                 <form id ="formLogIn">
                     <div className="mb-3">
                         <label for="exampleInputEmail1" className="form-label">Email address</label>
@@ -57,9 +63,6 @@ function Login (){
                     </div>
                     <div>
                     <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Log in</button>
-                    <Link to="/">
-                        <button id="done" type="button" className="btn btn-primary">Done</button>
-                    </Link>
                     </div>
                 </form>
             </div>
