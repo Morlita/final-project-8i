@@ -7,6 +7,7 @@ import Signin from './Components/SingIn/SignIn';
 import Login from './Components/LogIn/LogIn';
 import Recipe from './Components/Recipe/Recipe';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
+import UserProfile from './Components/UserProfile/UserProfile';
 
 
 
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path='/recipe' >
               <Recipe />
+            </Route>
+            <Route path="/userprofile">
+              <UserProfile />
             </Route>
           </Switch>
         </div>
