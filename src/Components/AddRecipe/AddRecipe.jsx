@@ -3,6 +3,9 @@ import AddInputSteps from "./AddInputSteps";
 import AddInputIngredients from "./AddInputIngredients";
 
 function AddRecipe() {
+  const [recipe, setRecipe] = useState({
+    title: '',
+});
 
     /*STEPS */
   const defaultStateSteps = {
@@ -38,12 +41,16 @@ function AddRecipe() {
   };
 
 
+  const setRecipes = (event) => {
+    setRecipe({ ...recipe, [event.target.name]: event.target.value });
+};
+
   return (
     <div className="App">
       <h1>Crea tu receta</h1>
         <div className="d-flex flex-column form-contact align-items-center">
             <label htmlFor="" className="mb-1">Nombre</label>
-            <input type="text" name="name" className="w-50 mb-3" />
+            <input type="text" name="name" className="w-50 mb-3" value={recipe.title} onChange={setRecipes}/>
 
             {rowSteps.map((row, index) => (
                 <AddInputSteps {...row} remove={() => handleRemoveSteps(index)} key={index} />
