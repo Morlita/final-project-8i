@@ -23,7 +23,7 @@ function App() {
       <ScrollToTop />
       <div>
         <Navbar />
-        <div className="container">
+        <div>
           <Switch>
             <Route path='/' exact>
               <Main />

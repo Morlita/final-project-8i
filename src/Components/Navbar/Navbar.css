@@ -9,17 +9,10 @@
 }
 
 .navbar {
-  background-color: var(--accesory-accent-color);
+  background-color: var(--main-dark-color);
+  height: 64px;
 }
 
-.rounded-pill {
-  background-color: var(--secondary-light-color);
-}
-
-a{
-  color: var(--main-dark-color) !important;
-}
-
-form {
-  width: 70%
+.navbar a{
+  color: var(--main-light-color);
 }
