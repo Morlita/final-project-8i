@@ -12,6 +12,7 @@ function Admin() {
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><Link class="dropdown-item" to="/admin/recipes">Recetas</Link></li>
                     <li><Link class="dropdown-item" to="/admin/users">Usuarios</Link></li>
+                    <li><Link class="dropdown-item" to="/admin/tags">Tags</Link></li>
                 </ul>
             </li>
         </div>
