@@ -25,12 +25,12 @@ function AdminUsers() {
     /*Delete*/
     const remove = (index) => {
         fetch(`https://polar-reaches-30197.herokuapp.com/user/${users[index]._id}`, {
+            method: 'DELETE',
             headers:{
                 "Content-Type": "application/json",
                 "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ"
             },
-            method: 'DELETE',
-            body: JSON.stringify(null) 
+            body: JSON.stringify() 
         })
             .then(response => setFetchFlag(response.json()));
     };
