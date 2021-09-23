@@ -7,12 +7,12 @@ function Navbar() {
     return (
         <nav className="navbar navbar-dark navbar-expand-md sticky-top ">
             <div className="container-fluid">     
-                <Link className="navbar-brand text-white h1" to="/">RecetApp</Link>        
+                <Link className="text-white h2 text-decoration-none p-2" to="/">RecetApp</Link>        
                 <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse d-md-flex align-items-center justify-content-end p-2" id="navbarSupportedContent">
-                    <form className="d-flex align-items-center mt-2">
+                    <form className="d-flex align-items-center">
                         <input className="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-light rounded-pill" type="submit">Search</button>
                     </form>
@@ -25,7 +25,7 @@ function Navbar() {
                             <li><Link className="dropdown-item" to="/categories/dulces">Dulces</Link></li>
                         </ul>
                     </div>
-                    <div className="d-flex align-middle text-center mt-2" >
+                    <div className="d-flex align-middle text-center" >
                         <div className="">
                             <Link className="nav-link" to="/signin">Registrarme</Link>
                         </div>  

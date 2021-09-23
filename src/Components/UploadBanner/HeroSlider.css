@@ -1,3 +1,14 @@
+:root {
+	--main-dark-color: #2b4356;
+	--main-light-color: #dddceb;
+	--main-accent-color: #e75150;
+	--accesory-accent-color: #fee883;
+	--accesory-light-color: #ebaf8d;
+	--secondary-dark-color: #18252F;
+	--secondary-light-color: #F5F5F9;  
+  }
+
+
 .banner{
 	position: relative;
 	width: 100%;
@@ -25,14 +36,15 @@
 	margin: 0;
 	padding: 0;
 	padding-bottom: 30px;
-	font-size: 40px;
+	font-size: 50px;
+	color: var(--accesory-light-color);
 	text-align: center;
 }
 .banner-content a{
 	text-decoration: none;
 	color: #FFF;
 	padding: 9px 20px;
-	border: 1px solid #FFF;
+	border: 2px solid #FFF;
 	text-transform: uppercase;
 	transition: all .3s ease-in-out;
 }
