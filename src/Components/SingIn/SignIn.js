@@ -1,9 +1,9 @@
 import React ,{useState} from "react";
-import { Link } from 'react-router-dom';
+import {useHistory } from 'react-router-dom';
 
 function Signin (){
 
-    const formUsuario = document.querySelector("#formUsuario")
+    let history = useHistory()
 
     const [usuario,setUsuario] = useState({
         name: "",
@@ -47,10 +47,18 @@ function Signin (){
                   },
                   method:"POST",
                   body: data
+              }).then(response => {
+                  if(response.status === 200){
+                    alert("registro exitoso");
+                    history.push("/")
+                  }
+                  else{
+                      alert("ocurrio un error")
+                  }
               })
+              
                   
-                alert("registro exitoso");
-                formUsuario.reset();
+               
         }
         
     }
@@ -84,13 +92,11 @@ function Signin (){
                     </div>
                     <div>
                     <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Sign in</button>
-                    <Link to="/">
-                        <button type="button" className="btn btn-primary">Done</button>
-                    </Link>
                     </div>
                 </form>
             </div>
         </div>
+
     );
 }
 
