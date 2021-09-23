@@ -16,7 +16,19 @@ function Admin() {
     /* List all recipes */
     useEffect(() => {
         getRecipes();
+        getRecipesByAccepted();
     }, [fetchFlag]);
+
+    console.log(recipes)
+
+    const [acept, setAcept] = useState([]);
+    const getRecipesByAccepted = async () => {
+        const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/search?search=false&field=accepted`)
+        const data = await resp.json();
+        setAcept(data)
+        console.log("HOLA", acept)
+    }
+
 
     const getUsers = async () => {
         await fetch('http://polar-reaches-30197.herokuapp.com/user', {
@@ -28,8 +40,6 @@ function Admin() {
         .then(data  => setUsers(data))
         .catch(err => alert('Algo salio mal', err))
     }
-
-    console.log(users)
     
     /* List all users */
     useEffect(() => {
@@ -52,7 +62,6 @@ function Admin() {
             .then(response => setFetchFlag(response.json()));
     };
 
-    console.log(recipes)
     return(
         <div>
             <h3>Recetas</h3>

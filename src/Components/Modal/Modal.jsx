@@ -1,5 +1,4 @@
 function Modal(recipe) {
-  console.log("Reseta", recipe.recipe.steps)
   
     return(
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
