@@ -5,14 +5,17 @@ function AdminUsers() {
     const [fetchFlag, setFetchFlag] = useState('');
 
     const getUsers = async () => {
-        await fetch('http://polar-reaches-30197.herokuapp.com/user', {
+        await fetch('https://polar-reaches-30197.herokuapp.com/user', {
             headers:{
                 "Content-Type": "application/json",
                 "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ"
             }})
         .then(response => response.json())
         .then(data  => setUsers(data))
-        .catch(err => alert('Algo salio mal', err))
+        .catch(err => {
+            console.log(err)
+            alert('Algo salio mal');
+        })
     }
 
     console.log(users)
