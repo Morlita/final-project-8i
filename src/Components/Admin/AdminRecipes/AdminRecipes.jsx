@@ -5,6 +5,10 @@ function Admin() {
   const [recipes, setRecipes] = useState([]);
   //const [users, setUsers] = useState([]);
   const [fetchFlag, setFetchFlag] = useState("");
+  let [reference, setReference] = useState("");
+
+  recipes.sort((a,b) => a.accepted > b.accepted)
+  console.log("RECIPES", recipes)
 
   const getRecipes = async () => {
     await fetch("https://polar-reaches-30197.herokuapp.com/recipes")
@@ -24,7 +28,7 @@ function Admin() {
   console.log(recipes);
 
   /*SETEAR EL INDEX*/
-  let [reference, setReference] = useState("");
+  
   const setIndice = (index) => {
     reference = recipes[index];
     setReference(reference);
