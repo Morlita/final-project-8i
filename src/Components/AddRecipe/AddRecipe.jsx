@@ -8,7 +8,8 @@ function AddRecipe() {
     time: '',
     timeFreezer: '',
     timeFridge: '',
-    category: ''
+    category: '',
+    img: ''
 });
 
 console.log(recipe)
@@ -89,6 +90,9 @@ console.log(recipe)
 
             <label htmlFor=""  className="mb-1">Tiempo Estimado de Duracion en la Heladera</label>
             <input type="number" name="timeFridge" className="w-50 mb-3" value={recipe.timeFridge} onChange={setRecipes}/>
+
+            <label htmlFor="" className="mb-1">Imagen</label>
+            <input type="img" name="img" className="w-50 mb-3" value={recipe.img} onChange={setRecipes}/>
 
             <label htmlFor="">Categoria</label>
             <select className="mb-5">
