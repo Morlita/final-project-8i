@@ -7,7 +7,8 @@ function AddRecipe() {
     title: '',
     time: '',
     timeFreezer: '',
-    timeFridge: ''
+    timeFridge: '',
+    category: ''
 });
 
 console.log(recipe)

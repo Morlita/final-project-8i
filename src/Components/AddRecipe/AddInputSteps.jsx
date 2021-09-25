@@ -1,4 +1,10 @@
 function AddInputSteps({ remove }) {
+    /*SET INFORMATION */
+    const setRecipes = (event) => {
+      setRecipe({ ...recipe, [event.target.name]: event.target.value });
+      console.log(recipe)
+    };
+
   return (
     <div className="d-flex flex-column form-contact align-items-center d-inline w-50">
       <label htmlFor="">Paso </label>
