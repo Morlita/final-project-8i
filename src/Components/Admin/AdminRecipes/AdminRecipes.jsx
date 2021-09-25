@@ -80,7 +80,7 @@ function Admin() {
           <tr>
             <th scope="col">Titulo</th>
             <th scope="col">Pasos</th>
-            <th scope="col">Usuario</th>
+            <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -95,7 +95,7 @@ function Admin() {
                   ))}
                 </ol>
               </td>
-              <td className="col col-sm-2">Pepito</td>
+              <td className="col col-sm-2">{item.accepted}</td>
               <td className="col-1 col-lg-3">
                 {console.log(recipes[index].accepted)}
                 {recipes[index].accepted == "pending" ? (
