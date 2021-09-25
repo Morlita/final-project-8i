@@ -10,6 +10,8 @@ function AddRecipe() {
     timeFridge: ''
 });
 
+console.log(recipe)
+
   
     /*STEPS */
   const defaultStateSteps = {
