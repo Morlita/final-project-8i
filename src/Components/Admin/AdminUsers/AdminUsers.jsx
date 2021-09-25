@@ -17,8 +17,6 @@ function AdminUsers() {
             alert('Algo salio mal');
         })
     }
-
-    console.log(users)
     
     /* List all users */
     useEffect(() => {
