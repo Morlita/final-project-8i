@@ -6,6 +6,7 @@ import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'
 import AddToFav from '../Buttons/AddToFav'
 import AddComment from '../AddComment/AddComment'
+import moment from 'moment'
 
 
 function Recipe() {
@@ -77,7 +78,7 @@ function Recipe() {
             <article className='container'>
                 <h6> <span></span>Conservación en freezer: <span>{timeFreezer}</span></h6>
                 <h6> <span></span>Conservación en heladera: <span>{timeFridge}</span> </h6>
-                <h6> <span></span>Subido el <span>{createdAt}</span> </h6>
+                <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY, HH:MM')}</span> </h6>
             </article>
             <hr />
             <AddComment />
