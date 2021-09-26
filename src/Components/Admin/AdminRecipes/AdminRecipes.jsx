@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from "../../Modal/Modal";
+import ButtonAccept from "../ButtonAccept/ButtonAccept";
+import ButtonReject from "../ButtonReject/ButtonReject";
 
 function Admin() {
   const [recipes, setRecipes] = useState([]);
@@ -8,7 +10,6 @@ function Admin() {
   let [reference, setReference] = useState("");
 
   recipes.sort((a, b) => a.accepted > b.accepted);
-  console.log("RECIPES", recipes);
 
   const getRecipes = async () => {
     await fetch("https://polar-reaches-30197.herokuapp.com/recipes")
@@ -40,38 +41,14 @@ function Admin() {
       `https://polar-reaches-30197.herokuapp.com/recipes/${recipes[index]._id}`,
       {
         method: "DELETE",
-        body: JSON.stringify(null),
+        body: JSON.stringify(),
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+        },
       }
     ).then((response) => setFetchFlag(response.json()));
-  };
-
-  const accept = (recipe) => {
-    fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "x-access-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
-      },
-      body: JSON.stringify({ ...recipe, accepted: "accepted" }),
-    }).then((response) => {
-      setFetchFlag(response.json());
-      console.log(recipe);
-    });
-  };
-
-  const reject = (recipe) => {
-    fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        "x-access-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
-      },
-      body: JSON.stringify({ ...recipe, accepted: "rejected" }),
-    }).then((response) => {
-      setFetchFlag(response.json());
-    });
   };
 
   return (
@@ -101,75 +78,16 @@ function Admin() {
               </td>
               <td className="col col-sm-2">{item.accepted}</td>
               <td className="col-1 col-lg-3">
-                {console.log(recipes[index].accepted)}
                 {recipes[index].accepted == "pending" ? (
                   <div className="d-flex">
-                    <button
-                      className="btn btn-success w-20 me-3 mb-1"
-                      onClick={() => accept(item)}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-check-lg"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
-                      </svg>
-                    </button>
-                    <button
-                      className="btn btn-secondary w-20 me-3 mb-1"
-                      onClick={() => reject(item)}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        class="bi bi-x-lg"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-                      </svg>
-                    </button>
+                    <ButtonAccept recipe={item} setFetchFlag={setFetchFlag}/>
+                    <ButtonReject recipe={item} setFetchFlag={setFetchFlag}/>
                   </div>
                 ) : recipes[index].accepted == "rejected" ? (
-                  <button
-                    className="btn btn-success w-20 me-3 mb-1"
-                    onClick={() => accept(item)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-check-lg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M13.485 1.431a1.473 1.473 0 0 1 2.104 2.062l-7.84 9.801a1.473 1.473 0 0 1-2.12.04L.431 8.138a1.473 1.473 0 0 1 2.084-2.083l4.111 4.112 6.82-8.69a.486.486 0 0 1 .04-.045z" />
-                    </svg>
-                  </button>
+                  <ButtonAccept recipe={item} setFetchFlag={setFetchFlag}/>
                 ) : (
-                  <button
-                    className="btn btn-secondary w-20 me-3 mb-1"
-                    onClick={() => reject(item)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-x-lg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z" />
-                    </svg>
-                  </button>
+                  <ButtonReject recipe={item} setFetchFlag={setFetchFlag}/>
                 )}
-
-                {}
 
                 <button
                   type="button"

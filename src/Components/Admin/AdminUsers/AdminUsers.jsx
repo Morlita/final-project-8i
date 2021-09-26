@@ -50,7 +50,7 @@ function AdminUsers() {
           <tr>
             <th scope="col">Nombre</th>
             <th scope="col">Apellido</th>
-            <th scope="col" className="d-none d-sm-table-cell">
+            <th scope="col" className="d-none d-md-table-cell">
               Email
             </th>
             <th scope="col">Rol</th>
@@ -62,7 +62,7 @@ function AdminUsers() {
             <tr key={index}>
               <td>{item.name}</td>
               <td>{item.lastName}</td>
-              <td className="d-none d-sm-table-cell">{item.email}</td>
+              <td className="d-none d-md-table-cell">{item.email}</td>
               <td>{item.role}</td>
               <td>
                 <button
