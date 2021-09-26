@@ -1,3 +1,5 @@
+import moment from "moment";
+
 function Modal(recipe) {
   return (
     <div
@@ -101,13 +103,13 @@ function Modal(recipe) {
             <div>
               <h5 className="d-inline fw-bold">
                 Creado:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.createdAt}</p>
+                <p className="d-inline fw-normal">{moment(recipe.recipe.createdAt).format("DD/MM/YYYY, HH:MM")}</p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Ultima Actualizacion:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.updatedAt}</p>
+                <p className="d-inline fw-normal">{moment(recipe.recipe.updateAt).format("DD/MM/YYYY, HH:MM")}</p>
               </h5>
             </div>
           </div>
