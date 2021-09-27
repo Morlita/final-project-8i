@@ -1,11 +1,11 @@
 function AddInputIngredients({ remove }) {
   return (
-    <div className="d-flex flex-column form-contact align-items-center d-inline w-50">
+    <div className="d-flex flex-column form-contact w-100 w-md-50">
       <label htmlFor="">Ingrediente </label>
-      <div className="d-flex justify-content-end w-100">
+      <div className="d-flex">
         <input type="text" name="name" className="w-50 me-2"></input>
         <input type="number" placeholder=" Cantidad" className="w-25 me-2"/>
-        <select>
+        <select className="w-25">
             <option value="Kg">Kg</option>
             <option value="G">G</option>
             <option value="Unidad">Unidad</option>

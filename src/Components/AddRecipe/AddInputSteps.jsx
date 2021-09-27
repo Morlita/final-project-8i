@@ -1,10 +1,20 @@
+import React, { useState } from "react";
 function AddInputSteps({ remove }) {
 
+  const [step, setStep] = useState({
+    steps: []
+  });
+
+  const setSteps = (event) => {
+    setStep({ ...step, steps: event.target.value });
+    console.log(step);
+  };
+
   return (
-    <div className="d-flex flex-column form-contact align-items-center d-inline w-50">
+    <div className="d-flex flex-column form-contact w-100 w-md-50">
       <label htmlFor="">Paso </label>
       <div className="d-flex justify-content-end w-100">
-        <textarea type="text" name="name" className="w-100" onChange={setRecipes}></textarea>
+        <textarea type="text" name="steps" className="w-100" value={step.steps} onChange={setSteps}></textarea>
 
         <button type="button" class="btn btn-danger ms-2" onClick={remove}>
           <svg
