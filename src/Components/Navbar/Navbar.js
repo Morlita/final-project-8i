@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom';
+import React, {useState} from 'react'
 import './Navbar.css';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Navbar() {
     // hacer que cambie cuando cambia el link
+    const [search, setSearch] = useState("");
+
+    const handleChange = (event) => {
+        setSearch(event.target.value)
+        console.log(search)
+    }
+
+    <SearchBar search={search}/>
 
     return (
         <nav className="navbar navbar-dark navbar-expand-md sticky-top ">
@@ -13,8 +23,8 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse d-md-flex align-items-center justify-content-end p-2" id="navbarSupportedContent">
                     <form className="d-flex align-items-center">
-                        <input className="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-light rounded-pill" type="submit">Search</button>
+                        <input className="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" value={search} onChange={handleChange}/>
+                        <Link className="btn btn-outline-light rounded-pill" type="submit">Search</Link>
                     </form>
                     <div className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias
