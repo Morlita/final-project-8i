@@ -53,6 +53,7 @@ function AddRecipe() {
 
   const handleOnAddIngredients = () => {
     setRowIngredients(rowIngredients.concat(defaultStateIngredients));
+    
   };
 
   const handleRemoveIngredients = (index) => {
