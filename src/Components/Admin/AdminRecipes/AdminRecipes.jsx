@@ -9,7 +9,18 @@ function Admin() {
   const [fetchFlag, setFetchFlag] = useState("");
   let [reference, setReference] = useState("");
 
-  recipes.sort((a, b) => a.accepted > b.accepted);
+  recipes &&
+    recipes.sort((a, b) => {
+      if (a.accepted > b.accepted) {
+        return 1;
+      } else if (a.accepted < b.accepted) {
+        return -1;
+      }
+
+      return 0;
+    });
+
+    console.log("SORT", recipes)
 
   const getRecipes = async () => {
     await fetch("https://polar-reaches-30197.herokuapp.com/recipes")
@@ -80,13 +91,13 @@ function Admin() {
               <td className="col-1 col-lg-3">
                 {recipes[index].accepted == "pending" ? (
                   <div className="d-flex">
-                    <ButtonAccept recipe={item} setFetchFlag={setFetchFlag}/>
-                    <ButtonReject recipe={item} setFetchFlag={setFetchFlag}/>
+                    <ButtonAccept recipe={item} setFetchFlag={setFetchFlag} />
+                    <ButtonReject recipe={item} setFetchFlag={setFetchFlag} />
                   </div>
                 ) : recipes[index].accepted == "rejected" ? (
-                  <ButtonAccept recipe={item} setFetchFlag={setFetchFlag}/>
+                  <ButtonAccept recipe={item} setFetchFlag={setFetchFlag} />
                 ) : (
-                  <ButtonReject recipe={item} setFetchFlag={setFetchFlag}/>
+                  <ButtonReject recipe={item} setFetchFlag={setFetchFlag} />
                 )}
 
                 <button
