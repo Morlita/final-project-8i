@@ -13,6 +13,10 @@ import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
 import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
+import SearchBar from './Components/SearchBar/SearchBar';
+
+
+
 
 import {
   BrowserRouter as Router,
@@ -61,6 +65,9 @@ function App() {
             </Route>
             <Route path='/admin/tags' render={() => {
               return user && user.role === "admin" ? <div><Admin /><AdminTags /></div>: <Redirect to="/"/>}}>              
+            </Route>
+            <Route path="/search/:searchURL">
+              <SearchBar />
             </Route>
           </Switch>
         </div>
