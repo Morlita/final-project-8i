@@ -13,6 +13,8 @@ function AddRecipe() {
     steps: ""
   });
 
+  const [steps, setSteps] = useState([]);
+
   console.log(recipe);
 
   /*ADD A NEW STEP */
@@ -29,6 +31,15 @@ function AddRecipe() {
     const copyRowSteps = [...rowSteps];
     copyRowSteps.splice(index, 1);
     setRowSteps(copyRowSteps);
+  };
+
+  const handleInput = (event) => {
+    console.log(event.target.dataset)
+    const prueba = steps;
+    prueba[event.target.dataset.index] = event.target.value; 
+    console.log("PRUEBAA", prueba)
+    setSteps(prueba);
+    console.log(steps);
   };
 
   /*ADD A NEW INGREDIENT */
@@ -73,10 +84,11 @@ function AddRecipe() {
 
         {rowSteps.map((row, index) => (
           <AddInputSteps
-            {...row}
             remove={() => handleRemoveSteps(index)}
+            index={index}
             key={index}
-            onChange={setRecipes}
+            handleInput={handleInput}
+            value={steps[index]}
           />
         ))}
 
