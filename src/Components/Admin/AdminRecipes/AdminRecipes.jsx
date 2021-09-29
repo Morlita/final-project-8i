@@ -23,8 +23,6 @@ function Admin() {
     getRecipes();
   }, [fetchFlag]);
 
-  console.log(recipes);
-
   /*Set Index*/
 
   const setIndex = (index) => {
@@ -36,10 +34,6 @@ function Admin() {
     const accept = recipes.filter(p => p.accepted == "accepted");
     const reject = recipes.filter(p => p.accepted == "rejected");
     const pendant = recipes.filter(p => p.accepted == "pending");
-
-  console.log("Accepted", accept);
-  console.log('Pending', pendant)
-  console.log('Rejected', reject)
 
   /*Delete*/
   const remove = (index) => {
@@ -58,7 +52,7 @@ function Admin() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h3>Recetas</h3>
 
       {/*TABLA */}

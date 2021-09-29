@@ -51,7 +51,7 @@ function Recipe() {
                 <div className="row  py-3 grid">
                     <div className="card border-0 item">
                         <img src={foodpic1} className='rounded' alt="" />
-                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i class="bi bi-star p-1"></i> {likes}</span> </h1>
+                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i className="bi bi-star p-1"></i> {likes}</span> </h1>
                     </div>
                 </div>
                 <div className="row">

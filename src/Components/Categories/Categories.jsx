@@ -29,10 +29,10 @@ function CategoriesCards() {
                     {dishCategories.map(({ category, img, alt }, index) => (
                         <div className="col-12 col-md-4" key={index}>
                             <Link to={`/categories/${category}`}>
-                                <div class="card bg-dark text-white shadow border-0">
-                                    <img src={img} class="card-img" alt={alt}></img>
-                                    <div class="card-img-overlay d-flex flex-column justify-content-center">
-                                        <h4 class="card-title text-center ">{category.toUpperCase()}</h4>
+                                <div className="card bg-dark text-white shadow border-0">
+                                    <img src={img} className="card-img" alt={alt}></img>
+                                    <div className="card-img-overlay d-flex flex-column justify-content-center">
+                                        <h4 className="card-title text-center ">{category.toUpperCase()}</h4>
                                     </div>
                                 </div>
                             </Link>
