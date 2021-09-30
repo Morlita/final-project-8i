@@ -32,16 +32,28 @@ function AddRecipe() {
   };
 
   const handleRemoveSteps = (index) => {
+    debugger
     const copyRowSteps = [...rowSteps];
     copyRowSteps.splice(index, 1);
+    steps.splice(index, 1)
     setRowSteps(copyRowSteps);
   };
 
   const handleInputSteps = (event) => {
     const prueba = steps;
     prueba[event.target.dataset.index] = event.target.value;
+    console.log("PRUEBA2", prueba)
     setSteps(prueba);
+    console.log("PRUEBA", prueba)
+    console.log("STEPS", steps)
   };
+
+  const updateSteps = (index, text) => {
+    const newSteps = steps
+    newSteps[index] = text
+    setSteps(newSteps)
+    console.log("NEW STEPS", newSteps)
+  }
 
   /* Add Img */
   const defaultStateImg = {
@@ -114,6 +126,7 @@ function AddRecipe() {
             key={index}
             handleInputSteps={handleInputSteps}
             value={steps[index]}
+            updateSteps={updateSteps}
           />
         ))}
 
