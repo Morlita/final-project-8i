@@ -1,5 +1,6 @@
 import React ,{useState} from "react";
 import {useHistory } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 
 function Signin (){
 
@@ -14,6 +15,18 @@ function Signin (){
 
     const setUserObj = (event) =>{
         setUsuario({...usuario, [event.target.name]:event.target.value});
+    }
+
+    let parametros = {
+        name: usuario.name,
+        email: usuario.email
+    }
+
+    let sendEmail = ()=>{
+        emailjs.send('gmail', 'template_e0meufb', parametros, "user_CjWnZrzaDNFhrMVuulGpr")
+    .then(function(response) {
+       alert("registro exitoso, revisa tu casilla de correo")
+    });
     }
 
     const Guardar = ()=>{
@@ -49,16 +62,13 @@ function Signin (){
                   body: data
               }).then(response => {
                   if(response.status === 200){
-                    alert("registro exitoso");
+                    sendEmail();
                     history.push("/")
                   }
                   else{
                       alert("ocurrio un error")
                   }
-              })
-              
-                  
-               
+              })      
         }
         
     }
