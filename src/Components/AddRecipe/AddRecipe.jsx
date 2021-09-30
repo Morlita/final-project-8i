@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddInputSteps from "./AddInputSteps";
-import AddInputIngredients from "./AddInputIngredients";
+import AddImage from "./AddImage";
 
 function AddRecipe() {
   const [recipe, setRecipe] = useState({
@@ -10,14 +10,18 @@ function AddRecipe() {
     timeFridge: "",
     category: "",
     img: "",
-    steps: ""
+    steps: "",
+    otherImgs: ""
   });
-
   const [steps, setSteps] = useState([]);
+  const [otherImgs, setOtherImgs] = useState([]);
 
-  console.log(recipe);
+  /*Set Information */
+  const setRecipes = (event) => {
+    setRecipe({ ...recipe, [event.target.name]: event.target.value });
+  };
 
-  /*ADD A NEW STEP */
+  /* Add Step */
   const defaultStateSteps = {
     step: "",
   };
@@ -33,46 +37,64 @@ function AddRecipe() {
     setRowSteps(copyRowSteps);
   };
 
-  const handleInput = (event) => {
-    console.log(event.target.dataset)
+  const handleInputSteps = (event) => {
     const prueba = steps;
-    prueba[event.target.dataset.index] = event.target.value; 
-    console.log("PRUEBAA", prueba)
+    prueba[event.target.dataset.index] = event.target.value;
     setSteps(prueba);
-    console.log(steps);
   };
 
-  /*ADD A NEW INGREDIENT */
-  const defaultStateIngredients = {
-    ingredient: "",
-    cuantity: "",
+  /* Add Img */
+  const defaultStateImg = {
+    step: "",
   };
-  const [rowIngredients, setRowIngredients] = useState([
-    defaultStateIngredients,
-  ]);
+  const [rowImg, setRowImg] = useState([defaultStateImg]);
 
-  const handleOnAddIngredients = () => {
-    setRowIngredients(rowIngredients.concat(defaultStateIngredients));
-    
+  const handleOnAddImg = () => {
+    setRowImg(rowImg.concat(defaultStateImg));
   };
 
-  const handleRemoveIngredients = (index) => {
-    const copyRowIngredients = [...rowIngredients];
-    copyRowIngredients.splice(index, 1);
-    setRowIngredients(copyRowIngredients);
+  const handleRemoveImg = (index) => {
+    const copyRowImg = [...rowImg];
+    copyRowImg.splice(index, 1);
+    setRowImg(copyRowImg);
   };
 
-  /*COPY INFORMATION */
-  const setRecipes = (event) => {
-    setRecipe({ ...recipe, [event.target.name]: event.target.value });
-    console.log(recipe);
+  const handleInputImg = (event) => {
+    const prueba2 = otherImgs;
+    prueba2[event.target.dataset.index] = event.target.value;
+    setOtherImgs(prueba2);
+    console.log(otherImgs);
+  };
+
+  /*Add Recipe */
+  const add = () => {
+    setRecipe(recipe.steps = steps)
+    setRecipe(recipe.otherImgs = otherImgs)
+    if (
+      recipe.title === "" ||
+      recipe.time === "" ||
+      recipe.timeFreezer === "" ||
+      recipe.timeFridge === "" ||
+      recipe.img === "" 
+    ) {
+      alert("Complete todos los campos");
+    } else if (
+      recipe.time.length > 4 ||
+      recipe.timeFreezer.length > 4 ||
+      recipe.timeFridge.length > 4
+    ) {
+      alert("Los tiempos tienen que ser menos de 4 digitos");
+    } else {
+      console.log("Receta", recipe);
+    }
   };
 
   return (
     <div className="App">
       <h1>Crea tu receta</h1>
       <div className="d-flex flex-column form-contact">
-        <label htmlFor="" className="mb-1">
+        {/* Recipe´s Name */}
+        <label htmlFor="title" className="mb-1">
           Nombre
         </label>
         <input
@@ -81,14 +103,16 @@ function AddRecipe() {
           className="w-100 w-md-50 mb-3"
           value={recipe.title}
           onChange={setRecipes}
+          maxLength="50"
         />
 
+        {/* Recipe's Steps */}
         {rowSteps.map((row, index) => (
           <AddInputSteps
             remove={() => handleRemoveSteps(index)}
             index={index}
             key={index}
-            handleInput={handleInput}
+            handleInputSteps={handleInputSteps}
             value={steps[index]}
           />
         ))}
@@ -109,17 +133,72 @@ function AddRecipe() {
           </svg>
         </button>
 
-        {rowIngredients.map((row, index) => (
-          <AddInputIngredients
-            {...row}
-            remove={() => handleRemoveIngredients(index)}
+        {/* Recipe´s Preparation Time */}
+        <label htmlFor="time" className="mb-1">
+          Tiempo Estimado de Preparacion
+        </label>
+        <input
+          type="number"
+          name="time"
+          className="w-100 w-md-50 mb-3"
+          value={recipe.time}
+          onChange={setRecipes}
+          placeholder="5.30  2 horas  30 minutos"
+        />
+
+        {/* Recipe´s Freezer Time */}
+        <label htmlFor="timeFreezer" className="mb-1">
+          Tiempo Estimado de Duracion en el Freezer
+        </label>
+        <input
+          type="number"
+          name="timeFreezer"
+          className="w-100 w-md-50 mb-3"
+          value={recipe.timeFreezer}
+          onChange={setRecipes}
+          placeholder="5.30  2 horas  30 minutos"
+        />
+
+        {/* Recipe´s Fridge Time */}
+        <label htmlFor="timeFridge" className="mb-1">
+          Tiempo Estimado de Duracion en la Heladera
+        </label>
+        <input
+          type="number"
+          name="timeFridge"
+          className="w-100 w-md-50 mb-3"
+          value={recipe.timeFridge}
+          onChange={setRecipes}
+          placeholder="5.30  2 horas  30 minutos"
+        />
+
+        {/* Recipe´s Img */}
+        <label htmlFor="img" className="mb-1">
+          Imagen
+        </label>
+        <input
+          type="img"
+          name="img"
+          className="w-100 w-md-50 mb-3"
+          value={recipe.img}
+          onChange={setRecipes}
+          maxLength="600"
+        />
+
+        {/* Recipe's Other Imgs */}
+        {rowImg.map((row, index) => (
+          <AddImage
+            remove={() => handleRemoveImg(index)}
+            index={index}
             key={index}
+            handleInputImg={handleInputImg}
+            value={otherImgs[index]}
           />
         ))}
 
         <button
           className="btn btn-primary mt-3 mb-5 w-100 w-md-50"
-          onClick={handleOnAddIngredients}
+          onClick={handleOnAddImg}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -133,58 +212,22 @@ function AddRecipe() {
           </svg>
         </button>
 
-        <label htmlFor="" className="mb-1">
-          Tiempo Estimado de Preparacion
-        </label>
-        <input
-          type="number"
-          name="time"
-          className="w-100 w-md-50 mb-3"
-          value={recipe.time}
+        {/* Recipe´s Category */}
+        <label htmlFor="category">Categoria</label>
+        <select
+          className="mb-5 w-100 w-md-50"
+          name="category"
+          value={recipe.category}
           onChange={setRecipes}
-        />
-
-        <label htmlFor="" className="mb-1">
-          Tiempo Estimado de Duracion en el Freezer
-        </label>
-        <input
-          type="number"
-          name="timeFreezer"
-          className="w-100 w-md-50 mb-3"
-          value={recipe.timeFreezer}
-          onChange={setRecipes}
-        />
-
-        <label htmlFor="" className="mb-1">
-          Tiempo Estimado de Duracion en la Heladera
-        </label>
-        <input
-          type="number"
-          name="timeFridge"
-          className="w-100 w-md-50 mb-3"
-          value={recipe.timeFridge}
-          onChange={setRecipes}
-        />
-
-        <label htmlFor="" className="mb-1">
-          Imagen
-        </label>
-        <input
-          type="img"
-          name="img"
-          className="w-100 w-md-50 mb-3"
-          value={recipe.img}
-          onChange={setRecipes}
-        />
-
-        <label htmlFor="">Categoria</label>
-        <select className="mb-5 w-100 w-md-50" name="category" value={recipe.category} onChange={setRecipes}>
+        >
           <option value="Con carne">Con carne</option>
           <option value="Veggie">Veggie</option>
           <option value="Dulces">Dulces</option>
         </select>
 
-        <a className="btn btn-primary w-25 mt-3 mb-5">Agregar</a>
+        <a className="btn btn-primary w-25 mt-3 mb-5" onClick={add}>
+          Agregar
+        </a>
       </div>
     </div>
   );

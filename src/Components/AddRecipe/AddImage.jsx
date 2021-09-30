@@ -1,9 +1,9 @@
-function AddImage({ remove }) {
+function AddImage({ remove, handleInputImg, value, index }) {
     return (
-      <div className="d-flex flex-column form-contact align-items-center d-inline w-50">
-        <label htmlFor="">Imagen </label>
+      <div className="d-flex flex-column form-contact d-inline w-100">
+        <label htmlFor="otherImgs">Mas Imagenes </label>
         <div className="d-flex justify-content-end w-100">
-          <input type="img" name="name" className="w-100" ></input>
+          <input type="img" name="otherImgs" className="w-100" data-index={index} value={value} onChange={handleInputImg} maxLength="700"></input>
   
           <button type="button" class="btn btn-danger ms-2" onClick={remove}>
             <svg
