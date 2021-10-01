@@ -30,7 +30,7 @@ function Navbar() {
                             <Link className="nav-link" to="/signin">Registrarme</Link>
                         </div>  
                         <div className="ms-2">
-                            <Link className="nav-link" to="/login"><span><i class="bi bi-person-circle"></i></span> Ingresar</Link>
+                            <Link className="nav-link" to="/login"><span><i className="bi bi-person-circle"></i></span> Ingresar</Link>
                         </div> 
                     </div>
                 </div>

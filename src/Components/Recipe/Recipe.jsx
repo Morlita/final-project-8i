@@ -6,6 +6,7 @@ import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'
 import AddToFav from '../Buttons/AddToFav'
 import AddComment from '../AddComment/AddComment'
+import moment from 'moment'
 
 
 function Recipe() {
@@ -50,7 +51,7 @@ function Recipe() {
                 <div className="row  py-3 grid">
                     <div className="card border-0 item">
                         <img src={foodpic1} className='rounded' alt="" />
-                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i class="bi bi-star p-1"></i> {likes}</span> </h1>
+                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i className="bi bi-star p-1"></i> {likes}</span> </h1>
                     </div>
                 </div>
                 <div className="row">
@@ -77,7 +78,7 @@ function Recipe() {
             <article className='container'>
                 <h6> <span></span>Conservación en freezer: <span>{timeFreezer}</span></h6>
                 <h6> <span></span>Conservación en heladera: <span>{timeFridge}</span> </h6>
-                <h6> <span></span>Subido el <span>{createdAt}</span> </h6>
+                <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY, HH:MM')}</span> </h6>
             </article>
             <hr />
             <AddComment />

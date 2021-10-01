@@ -22,7 +22,7 @@ function AddToFav({recipeId}) {
 
     return (
         <div>
-            <button type="button" className="btn rounded-pill btn-outline-danger m-1 shadow" onClick={handleAddToFav}><i class="bi bi-folder-plus"></i> <span className='d-none d-md-block'>Agregar a favoritos</span></button> 
+            <button type="button" className="btn rounded-pill btn-outline-danger m-1 shadow" onClick={handleAddToFav}><i className="bi bi-folder-plus"></i> <span className='d-none d-md-block'>Agregar a favoritos</span></button> 
         </div>
     )
 }

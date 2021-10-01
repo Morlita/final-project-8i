@@ -29,7 +29,7 @@ function CategoriesComponent() {
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-2">
                 {categoryCards && categoryCards.map(({ _id, title, time, img, likes }) => (
-                    <MediumCard id={_id} title={title} time={time} img={img} likes={likes} />
+                    <MediumCard key={_id} id={_id} title={title} time={time} img={img} likes={likes} />
                 ))}
             </div>
             <div className="row">

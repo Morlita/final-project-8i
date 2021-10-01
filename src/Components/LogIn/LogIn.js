@@ -44,22 +44,22 @@ function Login (){
 
     return (
         <div>
-            <div>
+            <div className="container">
                 <h1 className="text-center">RecetApp</h1>
                 <br/>
                 <h3 className="text-center">Log in</h3>
                 <form id ="formLogIn">
                     <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                         <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" onChange={setUserObj}/>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Password</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                         <input type="password" className="form-control" id="exampleInputPassword1" name="password" onChange={setUserObj}/>
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                        <label className="form-check-label" for="exampleCheck1">Remenber me</label>
+                        <label className="form-check-label" htmlFor="exampleCheck1">Remenber me</label>
                     </div>
                     <div>
                     <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Log in</button>

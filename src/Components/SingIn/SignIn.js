@@ -1,5 +1,6 @@
 import React ,{useState} from "react";
 import {useHistory } from 'react-router-dom';
+import emailjs from 'emailjs-com';
 
 function Signin (){
 
@@ -14,6 +15,18 @@ function Signin (){
 
     const setUserObj = (event) =>{
         setUsuario({...usuario, [event.target.name]:event.target.value});
+    }
+
+    let parametros = {
+        name: usuario.name,
+        email: usuario.email
+    }
+
+    let sendEmail = ()=>{
+        emailjs.send('gmail', 'template_e0meufb', parametros, "user_CjWnZrzaDNFhrMVuulGpr")
+    .then(function(response) {
+       alert("registro exitoso, revisa tu casilla de correo")
+    });
     }
 
     const Guardar = ()=>{
@@ -49,46 +62,43 @@ function Signin (){
                   body: data
               }).then(response => {
                   if(response.status === 200){
-                    alert("registro exitoso");
+                    sendEmail();
                     history.push("/")
                   }
                   else{
                       alert("ocurrio un error")
                   }
-              })
-              
-                  
-               
+              })      
         }
         
     }
 
     return (
         <div>
-            <div>
+            <div className="container">
                 <h1 className="text-center">RecetApp</h1>
                 <br/>
                 <h3 className="text-center">sign in</h3>
                 <form id ="formUsuario">
                     <div className="mb-3">
-                        <label for="name" className="form-label">Name</label>
+                        <label htmlFor="name" className="form-label">Name</label>
                         <input type="text" className="form-control" id="name" name="name" aria-describedby="Username" onChange={setUserObj} />
                     </div>
                     <div className="mb-3">
-                        <label for="lastName" className="form-label">Last Name</label>
+                        <label htmlFor="lastName" className="form-label">Last Name</label>
                         <input type="text" className="form-control" id="lastName" name="lastName" aria-describedby="Username" onChange={setUserObj}/>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
                         <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" onChange={setUserObj}/>
                     </div>
                     <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Password</label>
+                        <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                         <input type="password" className="form-control" id="exampleInputPassword1" name="password" onChange={setUserObj}/>
                     </div>
                     <div className="mb-3 form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                        <label className="form-check-label" for="exampleCheck1">Remenber me</label>
+                        <label className="form-check-label" htmlFor="exampleCheck1">Remenber me</label>
                     </div>
                     <div>
                     <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Sign in</button>

@@ -54,7 +54,7 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
     return (
         
         <div>
-            <button type="button" className={`btn rounded-pill m-1 shadow ${ hasLiked? 'btn-danger': 'btn-outline-danger'}`} onClick={handleLike}><i class="bi bi-heart"></i> <span className='d-none d-md-block'>Me gusta!</span></button>
+            <button type="button" className={`btn rounded-pill m-1 shadow ${ hasLiked? 'btn-danger': 'btn-outline-danger'}`} onClick={handleLike}><i className="bi bi-heart"></i> <span className='d-none d-md-block'>Me gusta!</span></button>
         </div>
     )
 }

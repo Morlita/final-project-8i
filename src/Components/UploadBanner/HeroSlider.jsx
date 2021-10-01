@@ -3,8 +3,8 @@ import './HeroSlider.css'
 
 function HeroSlider() {
     return (
-        <section class="banner">
-            <div class="banner-content">
+        <section className="banner">
+            <div className="banner-content">
                 <h1>Bienvenido a RecetApp</h1>
                 <div className='text-center p-3 mt-3'>
                     <h5>Podes descubrir, guardar, y editar recetas!</h5>
