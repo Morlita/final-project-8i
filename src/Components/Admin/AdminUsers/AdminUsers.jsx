@@ -42,7 +42,7 @@ function AdminUsers() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Usuarios</h2>
       {/*TABLA */}
       <table className="table">
