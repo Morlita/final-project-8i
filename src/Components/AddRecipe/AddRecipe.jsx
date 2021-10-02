@@ -39,19 +39,19 @@ function AddRecipe() {
     setRowSteps(copyRowSteps);
   };
 
-  const handleInputSteps = (event) => {
+  /*const handleInputSteps = (event) => {
     const prueba = steps;
     prueba[event.target.dataset.index] = event.target.value;
     console.log("PRUEBA2", prueba)
     setSteps(prueba);
     console.log("PRUEBA", prueba)
     console.log("STEPS", steps)
-  };
+  };*/
 
   const updateSteps = (index, text) => {
     const newSteps = steps
     newSteps[index] = text
-    setSteps(newSteps)
+    newSteps != [] ? setSteps(newSteps) : alert("Complete todos los campos")
     console.log("NEW STEPS", newSteps)
   }
 
@@ -87,7 +87,8 @@ function AddRecipe() {
       recipe.time === "" ||
       recipe.timeFreezer === "" ||
       recipe.timeFridge === "" ||
-      recipe.img === "" 
+      recipe.img === "" ||
+      recipe.steps.length === 0
     ) {
       alert("Complete todos los campos");
     } else if (
@@ -124,7 +125,6 @@ function AddRecipe() {
             remove={() => handleRemoveSteps(index)}
             index={index}
             key={index}
-            handleInputSteps={handleInputSteps}
             value={steps[index]}
             updateSteps={updateSteps}
           />
