@@ -1,21 +1,33 @@
 import React, { useState } from "react";
 
+<<<<<<< HEAD
 function AddInputSteps({ remove, value, index, updateSteps }) {
   console.log("VALUE", value)
   const [step, setStep] = useState('');
+=======
+function AddInputSteps({ remove, index, updateSteps }) {
+  const [step, setStep] = useState("");
+>>>>>>> d6dabbb (Changes on the otherImgs prop)
 
   const stepValue = (event) => {
     setStep(event.target.value);
     console.log("QQQQQQ", step);
     updateSteps(index, step);
-  }
-
+  };
 
   return (
     <div className="d-flex flex-column form-contact w-100 w-md-50">
       <label htmlFor="">Paso </label>
       <div className="d-flex justify-content-end w-100">
-        <textarea type="text" name="step" className="w-100" data-index={index} value={step} onChange={stepValue} maxLength="500"></textarea>
+        <textarea
+          type="text"
+          name="step"
+          className="w-100"
+          data-index={index}
+          value={step}
+          onChange={stepValue}
+          maxLength="500"
+        ></textarea>
 
         <button type="button" class="btn btn-danger ms-2" onClick={remove}>
           <svg
