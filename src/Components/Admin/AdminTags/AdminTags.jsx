@@ -20,9 +20,26 @@ function AdminTags() {
       });
   };
 
+  /*Delete*/
+  const remove = (index) => {
+    debugger
+    fetch(
+      `https://polar-reaches-30197.herokuapp.com/tags/${tags[index]._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+        },
+        body: JSON.stringify(),
+      }
+    ).then((response) => setFetchFlag(response.json()));
+  };
+
   console.log(tags)
 
-  /* List all users */
+  /* List all Tags */
   useEffect(() => {
     getTags();
   }, [fetchFlag]);
@@ -44,6 +61,7 @@ function AdminTags() {
               <td>
                 <button
                   className="btn btn-danger w-20 mb-1"
+                  onClick={() => remove(index)}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
