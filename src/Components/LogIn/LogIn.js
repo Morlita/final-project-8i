@@ -28,14 +28,11 @@ function Login (){
                   },
                   method:"POST",
                   body: data
-              }).then(response => {
-                  if(response.status === 400 || response.status === 401 ){
-                      alert("usuario o contraseña incorrectos")
-                  }else{
-                    response.json()
-                    localStorage.setItem("registerLogIn",JSON.stringify(response.token))
+              }).then(response => response.json()
+              ).then(data =>{
+                    console.log(data);
+                    localStorage.setItem("registerLogIn",JSON.stringify(data))
                     history.push("/")
-                  }
                 })
                 
                 
