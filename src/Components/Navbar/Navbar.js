@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import Logo from './Logo/kitchen-utensils-white.png'
 
 function Navbar() {
     // hacer que cambie cuando cambia el link
@@ -7,7 +8,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-dark navbar-expand-md sticky-top shadow-lg">
             <div className="container-fluid">
-                <Link className="h2 text-decoration-none p-2 recetapp-logo" to="/">RecetApp</Link>
+                <Link className="h2 text-decoration-none p-2 recetapp-logo" to="/"> <img src={Logo} alt="Logo" className='p-2 mt-1'/> RecetApp </Link>
                 <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
