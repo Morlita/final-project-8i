@@ -6,8 +6,8 @@ function Tags() {
 
     return (
         <div className="d-flex justify-content-sm-center justify-content-md-start">
-            <div className="container col-12  p-2 m-2 border border-3 border-secondary rounded">
-                <h2 className="text-center">hashtags</h2>
+            <div className="container col-12  mt-5 p-2 m-2 rounded tag-acordeon">
+                <h2 className="text-center p-2">Filtros</h2>
                 <div>
                     {tags.map((item, index) => (
                         <div key={index} className='d-flex align-items-center justify-content-between p-2'>

@@ -23,7 +23,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div>
+      <div className='main-background'>
         <Navbar />
         <div>
           <Switch>
