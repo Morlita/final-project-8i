@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import meatImg from './Images/meat.jpg'
 import veggieImg from './Images/veggie.jpg'
 import dessertImg from './Images/dessert.jpg'
+import "./Categories.css"
 
 function CategoriesCards() {
 
@@ -22,9 +23,8 @@ function CategoriesCards() {
     
 
     return (
-        <div className='container'>
-            <div className="container my-3 carousel">
-                            <h2 className="slider_title">Categorías</h2>
+        <div className='container category'>
+            <div className="container my-5 carousel category-content">
                 <div className="row gy-3">
                     {dishCategories.map(({ category, img, alt }, index) => (
                         <div className="col-12 col-md-4" key={index}>

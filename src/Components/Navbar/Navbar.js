@@ -5,19 +5,21 @@ function Navbar() {
     // hacer que cambie cuando cambia el link
 
     return (
-        <nav className="navbar navbar-dark navbar-expand-md sticky-top ">
-            <div className="container-fluid">     
-                <Link className="text-white h2 text-decoration-none p-2" to="/">RecetApp</Link>        
+        <nav className="navbar navbar-dark navbar-expand-md sticky-top shadow-lg">
+            <div className="container-fluid">
+                <Link className="h2 text-decoration-none p-2 recetapp-logo" to="/">RecetApp</Link>
                 <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse d-md-flex align-items-center justify-content-end p-2" id="navbarSupportedContent">
                     <form className="d-flex align-items-center">
-                        <input className="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-light rounded-pill" type="submit">Search</button>
+                        <div class="button-in btn rounded-pill">
+                            <input className="" type="search" placeholder="Buscar receta..." aria-label="Search" />
+                            <button className="search-button" type="submit"><i class="bi bi-search text-white"></i></button>
+                        </div>
                     </form>
                     <div className="nav-item dropdown">
-                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias
+                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías
                         </a>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><Link className="dropdown-item" to="/categories/Con%20carne">Con carne</Link></li>
@@ -27,15 +29,15 @@ function Navbar() {
                     </div>
                     <div className="d-flex align-middle text-center" >
                         <div className="">
-                            <Link className="nav-link" to="/signin">Registrarme</Link>
-                        </div>  
+                            <Link className="nav-link btn rounded-pill register-buttton" to="/signin">Registrarme</Link>
+                        </div>
                         <div className="ms-2">
                             <Link className="nav-link" to="/login"><span><i className="bi bi-person-circle"></i></span> Ingresar</Link>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>   
+        </nav>
     );
 }
 

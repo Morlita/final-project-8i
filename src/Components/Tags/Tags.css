@@ -26,3 +26,6 @@ p{
 h2{
     color: var(--main-dark-color);
 }
+.tag-acordeon{
+    background: var(--secondary-light-color);
+}

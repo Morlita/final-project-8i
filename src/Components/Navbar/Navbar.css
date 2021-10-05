@@ -10,9 +10,25 @@
 
 .navbar {
   background-color: var(--main-dark-color);
-  height: 64px;
+  height: 75px;
 }
 
 .navbar a{
   color: var(--main-light-color);
+}
+
+.navbar .register-buttton {
+  /* border: 1px solid var(--main-accent-color); */
+  color: var(--main-accent-color);
+  font-weight: bold;
+}
+
+.button-in{
+  border:1px solid var(--main-light-color) !important;
+  justify-content: space-between;
+}
+
+.button-in input, button {
+  background-color:transparent;
+  border:0;
 }
