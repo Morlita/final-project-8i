@@ -3,6 +3,7 @@ import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import Categories from '../Categories/Categories'
 import Tags from '../Tags/Tags'
 import HeroSlider from '../UploadBanner/HeroSlider'
+import "./Main.css"
 
 
 function Main() {
@@ -43,7 +44,7 @@ function Main() {
 
         <div>
             <HeroSlider />
-            <div className='container'>
+            <div className='container main-container'>
                 <div className="row row-cols-1 row-cols-md-4">
                     <div className="col-md-3">
                         <Tags />
