@@ -4,6 +4,9 @@ import emailjs from 'emailjs-com';
 
 function Signin (){
 
+    const emailRegexp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const LettersRegexp = /[a-z]/g
+
     let history = useHistory()
 
     const [usuario,setUsuario] = useState({
@@ -31,16 +34,16 @@ function Signin (){
 
     const Guardar = ()=>{
 
-        if(usuario.name === "" || usuario.name.length > 30){
+        if(usuario.name.length < 2 || usuario.name.length > 25 || LettersRegexp.test(usuario.name) === false ){
             alert("Nombre invalido")
         }
-        else if(usuario.lastName === "" || usuario.lastName.length > 30){
+        else if(usuario.lastName.length < 3 || usuario.lastName.length > 25 || LettersRegexp.test(usuario.lastName) === false ){
             alert("appellido invalido")
         }
-        else if(usuario.email === "" || !usuario.email.includes("@")){
+        else if(usuario.email === "" || emailRegexp.test(usuario.email) === false){
             alert("email invalido")
         }
-        else if(usuario.password === "" || usuario.password.length < 6){
+        else if(usuario.password.length < 6){
             alert("contraseña invalida")
         }
         else{
