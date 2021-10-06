@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 
 function AddInputIngredients({ remove, index, updateIngredients }) {
-  const [ingredient, setIngredient] = useState("");
+  const [ingredient, setIngredient] = useState({
+    ingredient: "",
+    quantity: "",
+    unit: "Kg"
+  });
 
   const ingredientValue = (event) => {
-    setIngredient(event.target.value);
+    setIngredient({ ...ingredient, [event.target.name]: event.target.value });
     updateIngredients(index, ingredient);
+    console.log("INGREDIENTE", ingredient)
   };
 
   return (
@@ -17,7 +22,7 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           name="ingredient"
           className="w-50 me-2"
           data-index={index}
-          value={ingredient}
+          value={ingredient.ingredient}
           onChange={ingredientValue}
           maxLength="100"
         ></input>
@@ -26,14 +31,18 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           placeholder=" Cantidad"
           className="w-25 me-2"
           type="text"
-          name="ingredient"
+          name="quantity"
           className="w-50 me-2"
           data-index={index}
-          value={ingredient}
+          value={ingredient.quantity}
           onChange={ingredientValue}
-          maxLength="100"
         />
-        <select className="w-25">
+        <select className="w-25"
+          name="unit"
+          data-index={index}
+          value={ingredient.unit}
+          onChange={ingredientValue}
+        >
           <option value="Kg">Kg</option>
           <option value="G">G</option>
           <option value="Unidad">Unidad</option>
