@@ -15,7 +15,7 @@ function AddRecipe() {
     otherImgs: "",
     ingredients: []
   });
-  const [steps, setSteps] = useState([]);
+  const [step, setSteps] = useState([]);
   const [otherImgs, setOtherImgs] = useState([]);
   const [ingredients, setIngredients] = useState([]);
 
@@ -37,12 +37,12 @@ function AddRecipe() {
   const handleRemoveSteps = (index) => {
     const copyRowSteps = [...rowSteps];
     copyRowSteps.splice(index, 1);
-    steps.splice(index, 1);
+    step.splice(index, 1);
     setRowSteps(copyRowSteps);
   };
 
   const updateSteps = (index, text) => {
-    const newSteps = steps;
+    const newSteps = step;
     newSteps[index] = text;
     newSteps != [] ? setSteps(newSteps) : alert("Complete todos los campos");
     console.log("NEW STEPS", newSteps);
@@ -98,28 +98,23 @@ function AddRecipe() {
 
   /*Add Recipe */
   const add = () => {
-    console.log("STEPS", steps)
-    setRecipe({...recipe, steps: steps, otherImgs: otherImgs});
+    setRecipe({...recipe, steps: step, otherImgs: otherImgs})
     if (
       recipe.title === "" ||
       recipe.time === "" ||
       recipe.timeFreezer === "" ||
       recipe.timeFridge === "" ||
       recipe.img === "" 
-      //recipe.steps.length === 0
     ) {
       alert("Complete todos los campos");
-      console.log("PRUEBA", recipe);
-    } /*else if (
+    } else if (
       recipe.time.length > 4 ||
       recipe.timeFreezer.length > 4 ||
       recipe.timeFridge.length > 4
     ) {
       alert("Los tiempos tienen que ser menos de 4 digitos");
-    }*/ else {
-      setTimeout(() => {
-        console.log("Receta", recipe);
-      }, 5000);
+    } else {
+      console.log("Receta", recipe);
     }
   };
 
@@ -173,7 +168,7 @@ function AddRecipe() {
             remove={() => handleRemoveSteps(index)}
             index={index}
             key={index}
-            value={steps[index]}
+            value={step[index]}
             updateSteps={updateSteps}
           />
         ))}
