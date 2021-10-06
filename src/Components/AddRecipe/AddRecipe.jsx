@@ -92,23 +92,24 @@ function AddRecipe() {
   const updateIngredients = (index, text) => {
     const newIngredient = ingredients;
     newIngredient[index] = text;
-    newIngredient != [] ? setIngredients(newIngredient) : alert("Complete todos los campos");
+    //newIngredient != [] ? setIngredients(newIngredient) : alert("Complete todos los campos");
     console.log("NEW Ingredients", newIngredient);
   };
 
   /*Add Recipe */
   const add = () => {
-    setRecipe((recipe.steps = steps));
-    setRecipe((recipe.otherImgs = otherImgs));
+    console.log("STEPS", steps)
+    setRecipe({...recipe, steps: steps, otherImgs: otherImgs});
     if (
       recipe.title === "" ||
       recipe.time === "" ||
       recipe.timeFreezer === "" ||
       recipe.timeFridge === "" ||
-      recipe.img === "" ||
-      recipe.steps.length === 0
+      recipe.img === "" 
+      //recipe.steps.length === 0
     ) {
       alert("Complete todos los campos");
+      console.log("PRUEBA", recipe);
     } /*else if (
       recipe.time.length > 4 ||
       recipe.timeFreezer.length > 4 ||
@@ -116,7 +117,9 @@ function AddRecipe() {
     ) {
       alert("Los tiempos tienen que ser menos de 4 digitos");
     }*/ else {
-      console.log("Receta", recipe);
+      setTimeout(() => {
+        console.log("Receta", recipe);
+      }, 5000);
     }
   };
 
@@ -283,9 +286,9 @@ function AddRecipe() {
           <option value="Dulces">Dulces</option>
         </select>
 
-        <a className="btn btn-primary w-25 mt-3 mb-5" onClick={add}>
+        <button className="btn btn-primary w-25 mt-3 mb-5" onClick={add}>
           Agregar
-        </a>
+        </button>
       </div>
     </div>
   );
