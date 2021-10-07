@@ -8,9 +8,44 @@
     --secondary-light-color: #f5f5f9;
   }
 
-.main-container{
-    background: var(--main-light-color);
+
+.carousel-row .tags{
+  background-color: var(--main-light-color);
 }
-.carousel-row{
+.carousel{
   background-color: var(--main-dark-color);
+}
+
+.carousel-row .favs{
+  box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  -webkit-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  -moz-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  border-radius: 5px;
+}
+
+.carousel-row .favs h2, .favs i{
+  color: var(--accesory-accent-color);
+  font-weight: bold;
+}
+
+.carousel-row .all h2, .all i{
+  color: var(--accesory-light-color);
+  font-weight: bold;
+}
+
+.carousel-row .all{
+  box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  -webkit-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  -moz-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  border-radius: 5px;
+}
+
+.favs button{
+  border: 2px solid #fee883;
+  color: var(--accesory-accent-color);
+}
+
+.all button {
+  border: 2px solid #ebaf8d;
+  color: var(--accesory-light-color);
 }

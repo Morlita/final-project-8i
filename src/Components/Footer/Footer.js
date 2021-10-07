@@ -6,7 +6,7 @@ import './Footer.css';
 
 function Footer() {
     return (
-        <footer className="mt-3 social-footer container  text-uppercase">
+        <footer className="mt-3 pt-3 social-footer container  text-uppercase">
             <div className="row">
                 <div className="d-flex justify-content-center">
                     <i class="h1 m-1 p-3 bi bi-facebook"></i>
@@ -19,9 +19,9 @@ function Footer() {
             <div className="row">
                 <div className="d-flex justify-content-center h5">                    
                         <Link to='/' className='mx-2 text-decoration-none text-white'>Home</Link>
-                        <Link to='' className='mx-2 text-decoration-none text-white'>Categorías</Link>
-                        <Link to='' className='mx-2 text-decoration-none text-white'>Destacadas</Link>
+                        <Link to='/#categories' className='mx-2 text-decoration-none text-white'>Categorías</Link>
                         <Link to='' className='mx-2 text-decoration-none text-white'>Filtros</Link>                    
+                        <Link to='' className='mx-2 text-decoration-none text-white'>Destacadas</Link>
                 </div>
             </div>
             <div className="row mt-2">
