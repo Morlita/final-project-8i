@@ -13,7 +13,8 @@ function AddRecipe() {
     img: "",
     steps: "",
     otherImgs: "",
-    ingredients: ""
+    ingredients: "",
+    tags: []
   });
   const [step, setSteps] = useState([]);
   const [otherImgs, setOtherImgs] = useState([]);
@@ -98,7 +99,6 @@ function AddRecipe() {
 
   /*Add Recipe */
   const add = () => {
-    setRecipe({...recipe, steps: step, otherImgs: otherImgs, ingredients: ingredients})
     if (
       recipe.title === "" ||
       recipe.time === "" ||
@@ -109,17 +109,26 @@ function AddRecipe() {
       alert("Complete todos los campos");
       return;
     } 
-    if (
-      recipe.time.length > 4 ||
-      recipe.timeFreezer.length > 4 ||
-      recipe.timeFridge.length > 4
-    ) {
-      alert("Los tiempos tienen que ser menos de 4 digitos");
-      return
-    } else {
-      console.log("Receta", recipe);
+     else {
+      fetch('https://polar-reaches-30197.herokuapp.com/recipes', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json',
+                'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ'
+            },
+            method: 'POST',
+            body: JSON.stringify({...recipe, steps: step, otherImgs: otherImgs, ingredients: ingredients})
+        })
+        .then(response => response.json())
+        .then(data => setRecipe[{...recipe, data}])
+        .catch((err) => {
+          console.log(err)
+          alert("Algo salio mal")
+        })
     }
   };
+
+  console.log("AGREGAR", recipe)
 
   return (
     <div className="App">
@@ -197,7 +206,8 @@ function AddRecipe() {
           Tiempo Estimado de Preparacion
         </label>
         <input
-          type="number"
+          type="text"
+          maxLength="15"
           name="time"
           className="w-100 w-md-50 mb-3"
           value={recipe.time}
@@ -210,7 +220,8 @@ function AddRecipe() {
           Tiempo Estimado de Duracion en el Freezer
         </label>
         <input
-          type="number"
+          type="text"
+          maxLength="15"
           name="timeFreezer"
           className="w-100 w-md-50 mb-3"
           value={recipe.timeFreezer}
@@ -223,7 +234,8 @@ function AddRecipe() {
           Tiempo Estimado de Duracion en la Heladera
         </label>
         <input
-          type="number"
+          type="text"
+          maxLength="15"
           name="timeFridge"
           className="w-100 w-md-50 mb-3"
           value={recipe.timeFridge}

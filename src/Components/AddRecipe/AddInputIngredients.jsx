@@ -8,9 +8,10 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
   });
 
   const ingredientValue = (event) => {
-    setIngredient({ ...ingredient, [event.target.name]: event.target.value });
-    updateIngredients(index, ingredient);
-    console.log("INGREDIENTE", ingredient)
+    const value = { ...ingredient, [event.target.name]: event.target.value }
+    setIngredient(value);
+    updateIngredients(index, value);
+    console.log("INGREDIENTE", value)
   };
 
   return (
