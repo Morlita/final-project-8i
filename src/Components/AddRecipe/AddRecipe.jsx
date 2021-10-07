@@ -14,7 +14,8 @@ function AddRecipe() {
     steps: "",
     otherImgs: "",
     ingredients: "",
-    tags: []
+    tags: [],
+    user: "61422ef3257c69006799ed27"
   });
   const [step, setSteps] = useState([]);
   const [otherImgs, setOtherImgs] = useState([]);
