@@ -1,6 +1,6 @@
 import moment from "moment";
 
-function Modal(recipe) {
+function ModalInfo(recipe) {
   return (
     <div
       className="modal fade"
@@ -128,4 +128,4 @@ function Modal(recipe) {
   );
 }
 
-export default Modal;
+export default ModalInfo;
