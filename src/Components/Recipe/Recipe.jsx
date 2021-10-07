@@ -35,7 +35,7 @@ function Recipe() {
     // USER viene el id del usuario, tengo que hacer un get de usuarios para saber el nombre...
 
     return (
-        <div className='container recipe-component py-2'>
+        <div className='container recipe-component py-2 rounded'>
             <article className='container'>
                 <div className="row p-2">
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">

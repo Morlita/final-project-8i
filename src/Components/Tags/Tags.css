@@ -8,24 +8,35 @@
     --secondary-light-color: #F5F5F9;
 }
 
-input[type=checkbox] {
+.tag-acordeon input[type=checkbox] {
     transform: scale(1.5);
     -ms-transform: scale(1.5);
     -webkit-transform: scale(1.5);
 }
 
-input:checked {
+.tag-acordeon input:checked {
     background-color: var(--main-accent-color);
 }
-p{
+/* .tag-acordeon p{
     font-size: 20px;
     line-height: 1.5;
     color: var(--secondary-dark-color);
-}
+} */
 
-h2{
+.tag-acordeon h4{
     color: var(--main-dark-color);
 }
 .tag-acordeon{
-    background: var(--secondary-light-color);
+    background: var(--main-light-color);
+    margin: auto;
+}
+
+.tag-acordeon button{
+    /* background-color: var(--main-dark-color); */
+}
+.tag-acordeon i{
+    /* color: #fee883; */
+}
+.tag-acordeon .accordion-button::after{
+    
 }
