@@ -5,23 +5,39 @@ function Tags() {
     const tags = ['Entrada', 'Plato principal', 'Dulce', 'Ensalada', 'Sopa', 'Tarta', 'Vegano', 'Vegetariano', 'Rápido y fácil', 'Plato Frío', 'Plato Caliente', 'Picante', 'Light', 'Para golosos', 'Sin TAAC', 'Parrilla', 'Agridulce', 'Desayuno', 'Snack', 'Económico', 'Salsa', 'Para niños'];
 
     return (
-        <div className="d-flex justify-content-sm-center justify-content-md-start">
-            <div className="container col-12  mt-5 p-2 m-2 rounded tag-acordeon">
-                <h2 className="text-center p-2">Filtros</h2>
-                <div>
-                    {tags.map((item, index) => (
-                        <div key={index} className='d-flex align-items-center justify-content-between p-2'>
-                            <div className='d-flex align-items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-hash" viewBox="0 0 16 16">
-                                    <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z" />
-                                </svg>
-                                <p className="m-0">{item}</p>
-                            </div>
-                            <div className='d-flex align-middle text-center'>
-                                <input  type="checkbox" />
+        <div className="d-flex justify-content-sm-center justify-content-md-start text-uppercase tag-acordeon w-75 rounded">
+            <div className="container pb-5">
+                <h4 className="text-center p-2">También podes usar nuestros filtros...</h4>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i className="bi bi-funnel h5"></i>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                {tags.map((item, index) => (
+                                    <div key={index} className='d-flex align-items-center justify-content-between p-2'>
+                                        <div className='d-flex align-items-center'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-hash" viewBox="0 0 16 16">
+                                                <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z" />
+                                            </svg>
+                                            <p className="m-0">{item}</p>
+                                        </div>
+                                        <div className='d-flex align-middle text-center'>
+                                            <input type="checkbox" />
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                     ))}
+                    </div>
+                </div>
+
+                <div>
+
                 </div>
             </div>
         </div>

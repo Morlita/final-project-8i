@@ -11,6 +11,8 @@
 .navbar {
   background-color: var(--main-dark-color);
   height: 75px;
+  font-family: 'Pompiere', cursive;
+  font-size: 1.8rem;
 }
 
 .navbar a{
@@ -21,6 +23,7 @@
   /* border: 1px solid var(--main-accent-color); */
   color: var(--main-accent-color);
   font-weight: bold;
+  font-size: 1.8rem;
 }
 
 .button-in{
@@ -31,4 +34,7 @@
 .button-in input, button {
   background-color:transparent;
   border:0;
+}
+.recetapp-logo img {
+  max-height: 70px;
 }

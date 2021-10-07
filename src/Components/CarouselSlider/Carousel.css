@@ -7,10 +7,22 @@
     --secondary-dark-color: #18252F;
     --secondary-light-color: #F5F5F9;  
   }
-  
+ 
+
+/*   .slick-slider {
+    min-height: 0;
+    min-width: 0;
+  }
+ */
+ .carousel { 
+   overflow: hidden; 
+   min-width: 100%; 
+   width: 0;
+  }
+
   .slider_title {
     font-size: 1.5rem;
-    color: var(--main-light-color);
+    /* color: var(--main-light-color); */
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 2vw;
@@ -157,11 +169,11 @@
   }
   
   .car-slider .carousel .slick-next {
-    right: -55px;
+    right: -10px;
   }
   
   .car-slider .carousel .slick-prev {
-    left: -55px;
+    left: -10px;
   }
 
   /* in case we add more features to the carousel cards */

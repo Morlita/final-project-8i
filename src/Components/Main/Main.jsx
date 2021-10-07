@@ -3,6 +3,7 @@ import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import Categories from '../Categories/Categories'
 import Tags from '../Tags/Tags'
 import HeroSlider from '../UploadBanner/HeroSlider'
+import "./Main.css"
 
 
 function Main() {
@@ -43,29 +44,30 @@ function Main() {
 
         <div>
             <HeroSlider />
-            <div className='container'>
-                <div className="row row-cols-1 row-cols-md-4">
-                    <div className="col-md-3">
-                        <Tags />
-                    </div>
-                    <div className="col-md-9">
-                        <div className="row">
-                            <Categories />
-                        </div>
-                        <div className="row">
-                            <div className="container my-3 mx-3 carousel">
-                                <h2 className="slider_title">Recetas favoritas de todos los tiempos</h2>
-                                <CarouselSlider carouselArr={recipes} />
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="container my-3 mx-3 carousel">
-                                <h2 className="slider_title">Inspirate con nuestras recetas!</h2>
-                                <CarouselSlider carouselArr={recipes} />
-                            </div>
-                        </div>
+            <div className='container main-container'>
+                <div className="row">
+                    <Categories />
+                </div>
+                <div className="row pt-3 rounded tags pb-5">
+                    <Tags />
+                </div>
+                <div className="row carousel-row">
+                    <div className="container py-4 px-5 carousel my-4 favs">
+                        <h2 className="slider_title mb-0">Estas son las más votadas de todos los tiempos!</h2>
+                        <h3 className="text-center mb-3"><i class="bi bi-star"></i></h3>
+                        <CarouselSlider carouselArr={recipes} />
+                        <div className="p-1 my-2 d-grid col-4 mx-auto"><button type="button" className="btn rounded pill">Ver todas las favoritas</button></div>
                     </div>
                 </div>
+                <div className="row carousel-row">
+                    <div className="container py-4 px-5 carousel my-4 all">
+                        <h2 className="slider_title mb-0">Y si buscas inspiración... aquí están todas las recetas!</h2>
+                        <h3 className="text-center mb-3"><i class="bi bi-journal-bookmark"></i></h3>
+                        <CarouselSlider carouselArr={recipes} />
+                        <div className="p-1 my-2 d-grid col-4 mx-auto"><button type="button" className="btn rounded pill">Ver todas las recetas</button></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     )

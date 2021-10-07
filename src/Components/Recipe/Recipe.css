@@ -1,14 +1,26 @@
 :root{
     --font: 1.3rem;
     --line: calc(var(--font) * 2);
-    --move: calc(-1 * var(--line))
+    --move: calc(-1 * var(--line));
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252F;
+    --secondary-light-color: #F5F5F9;  
 }
 
+.recipe-component{
+    background: var(--secondary-light-color);
+}
 .recipe-component .vl {
     border-right: 1px solid black;
     height: auto;
 }
-
+.recipe-component .card {
+    background-color: var(--secondary-light-color);
+}
 
 .item > img {
     width: 100%;
