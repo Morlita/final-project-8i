@@ -13,9 +13,9 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse d-md-flex align-items-center justify-content-end p-2" id="navbarSupportedContent">
                     <form className="d-flex align-items-center">
-                        <div class="button-in btn rounded-pill">
+                        <div className="button-in btn rounded-pill">
                             <input className="" type="search" placeholder="Buscar receta..." aria-label="Search" />
-                            <button className="search-button" type="submit"><i class="bi bi-search text-white"></i></button>
+                            <button className="search-button" type="submit"><i className="bi bi-search text-white"></i></button>
                         </div>
                     </form>
                     <div className="nav-item dropdown">

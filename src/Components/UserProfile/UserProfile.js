@@ -5,44 +5,51 @@ import Tags from "../Tags/Tags";
 
 function UserProfile(){
 
-    const [recipes, setRecipes] = useState([]);
-    
-    const getRecipes = async () => {
-        try {
-            const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/`);
-            const data = await resp.json();
-            const randomRecipes = shuffleRecipes(data)
-            setRecipes(randomRecipes);
-                        
-        } catch (error) {
+    const loggedUser = JSON.parse(localStorage.getItem("logedUser"));
+    const loggedToken = JSON.parse(localStorage.getItem("registerLogIn")).token;
+
+    const [profile, setProfile] = useState({});
+
+    const [tiempoCumplido, setTiempoCumplido] = useState(false);
+
+    const user = async()=>{
+        try{
+          let resp = await fetch("https://polar-reaches-30197.herokuapp.com/user/"+loggedUser, {
+            headers:{
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "x-access-token": loggedToken
+                }
+            });
+            let data = await resp.json();
+
+            setProfile(data)
+
+        }
+        catch (error) {
             console.log(error);
         }
-    }   
-
-    useEffect(() => {
-        getRecipes()       
-    }, [])
-
-    const shuffleRecipes = (array) => {
-        let i = array.length - 1;
-        for (; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
+       
     }
 
+    useEffect(()=>{
+        user()
+        console.log(profile)
+    },[])
+
+     
+
+if(!!Object.keys(profile).length && !profile.message){
 
     return (
-
-
+        
         
         <div className='container'>
+            {console.log(!!Object.keys(profile).length || !profile.message)}
             <div className="row">
-                <ProfileCard />
+             {profile.name && profile.lastName?<ProfileCard name={profile.name} lastName={profile.lastName}/> :null}
             </div>
+            {console.log(profile)}
             <div className="row row-cols-1 row-cols-md-4">
                 <div className="col-md-3">
                     <Tags />
@@ -51,19 +58,33 @@ function UserProfile(){
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
                             <h2 className="slider_title">mis recetas</h2>
-                            <CarouselSlider carouselArr={recipes}/>
+                            <CarouselSlider carouselArr={profile.myRecipes}/>
                         </div>
                     </div>
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
                             <h2 className="slider_title">recetas favoritas</h2>
-                            <CarouselSlider carouselArr={recipes}/>
+                            <CarouselSlider carouselArr={profile.myFavorites}/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     )
+}
+else{
+
+    setTimeout(() => {
+        setTiempoCumplido(true)
+    }, 3000);
+
+    return(
+        tiempoCumplido?<h1>ocurrio un error</h1>:<h1>Cargando</h1>
+    )
+   
+
+}
+    
 
 }
 
