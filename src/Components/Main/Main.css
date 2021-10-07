@@ -11,3 +11,6 @@
 .main-container{
     background: var(--main-light-color);
 }
+.carousel-row{
+  background-color: var(--main-dark-color);
+}

@@ -18,6 +18,7 @@ function Footer() {
             </div>
             <div className="row">
                 <div className="d-flex justify-content-center h5">                    
+                        <Link to='/' className='mx-2 text-decoration-none text-white'>Home</Link>
                         <Link to='' className='mx-2 text-decoration-none text-white'>Categorías</Link>
                         <Link to='' className='mx-2 text-decoration-none text-white'>Destacadas</Link>
                         <Link to='' className='mx-2 text-decoration-none text-white'>Filtros</Link>                    
