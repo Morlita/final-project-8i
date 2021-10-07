@@ -57,7 +57,7 @@ function AdminTags() {
         <tbody>
           {tags && tags.map((item, index) => (
             <tr key={index}>
-              <td>{item}</td>
+              <td>{item.name}</td>
               <td>
                 <button
                   className="btn btn-danger w-20 mb-1"
