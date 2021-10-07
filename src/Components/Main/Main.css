@@ -17,9 +17,8 @@
 }
 
 .carousel-row .favs{
-  box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
-  -webkit-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
-  -moz-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  border: 0.3rem solid var(--main-light-color);
+  background-color:  rgba(43, 67, 86, .7);
   border-radius: 5px;
 }
 
@@ -34,9 +33,11 @@
 }
 
 .carousel-row .all{
-  box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
-  -webkit-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
-  -moz-box-shadow: 8px 8px 17px 2px rgba(24,37,47,0.75);
+  border: 0.3rem solid var(--main-light-color);
+
+  -webkit-box-shadow: inset 0px 0px 16px -4px rgba(245,245,249,1);
+-moz-box-shadow: inset 0px 0px 16px -4px rgba(245,245,249,1);
+box-shadow: inset 0px 0px 16px -4px rgba(245,245,249,1);
   border-radius: 5px;
 }
 
