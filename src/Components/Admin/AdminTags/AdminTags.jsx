@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Modal from "../../Modal/Modal";
 
 function AdminTags() {
   const [tags, setTags] = useState([]);
@@ -32,11 +31,10 @@ function AdminTags() {
 
   /*Add Tags */
   const add = () => {
-    if (tags.name === ""){
+    if (tag.name == ""){
         alert("Complete todos los campos");
-        return;
-    }
-    fetch('https://polar-reaches-30197.herokuapp.com/tags', {
+    }else{
+      fetch('https://polar-reaches-30197.herokuapp.com/tags', {
         headers: {
             'Accept': 'application/json',
             'Content-type': 'application/json'
@@ -51,6 +49,7 @@ function AdminTags() {
             name: "",
         });
     })
+    } 
 };
 
   /*Delete*/
@@ -78,7 +77,7 @@ function AdminTags() {
         <label htmlFor="name" className="mx-3">
           Nuevo tag
         </label>
-        <input type="text" name="name" onChange={setTagsObj} />
+        <input type="text" name="name" maxLength="15" onChange={setTagsObj} />
         <button className="btn btn-primary w-20 mb-1 mx-3" onClick={add} type="button">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +145,6 @@ function AdminTags() {
           ))}
         </tbody>
       </table>
-      <Modal index={reference} tags={tags} setFetchFlag={setFetchFlag} />
     </div>
   );
 }
