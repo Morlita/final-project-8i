@@ -4,7 +4,8 @@ function AddImage({ remove, index, updateImg }) {
   const [img, setImg] = useState("");
 
   const imgValue = (event) => {
-    setImg(event.target.value);
+    const value = event.target.value
+    setImg(value);
     updateImg(index, img);
   };
 

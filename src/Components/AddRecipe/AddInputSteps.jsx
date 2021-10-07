@@ -10,9 +10,15 @@ function AddInputSteps({ remove, index, updateSteps }) {
 >>>>>>> d6dabbb (Changes on the otherImgs prop)
 
   const stepValue = (event) => {
+<<<<<<< HEAD
     setStep(event.target.value);
     console.log("QQQQQQ", step);
     updateSteps(index, step);
+=======
+    const value = event.target.value;
+    setStep(value);
+    updateSteps(index, value);
+>>>>>>> 32e30ee (Primer intento de mandar cosas al back)
   };
 
   return (
