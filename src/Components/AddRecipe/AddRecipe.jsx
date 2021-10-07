@@ -13,7 +13,7 @@ function AddRecipe() {
     img: "",
     steps: "",
     otherImgs: "",
-    ingredients: []
+    ingredients: ""
   });
   const [step, setSteps] = useState([]);
   const [otherImgs, setOtherImgs] = useState([]);
@@ -92,13 +92,13 @@ function AddRecipe() {
   const updateIngredients = (index, text) => {
     const newIngredient = ingredients;
     newIngredient[index] = text;
-    //newIngredient != [] ? setIngredients(newIngredient) : alert("Complete todos los campos");
+    newIngredient != [] ? setIngredients(newIngredient) : alert("Complete todos los campos");
     console.log("NEW Ingredients", newIngredient);
   };
 
   /*Add Recipe */
   const add = () => {
-    setRecipe({...recipe, steps: step, otherImgs: otherImgs})
+    setRecipe({...recipe, steps: step, otherImgs: otherImgs, ingredients: ingredients})
     if (
       recipe.title === "" ||
       recipe.time === "" ||
@@ -107,12 +107,15 @@ function AddRecipe() {
       recipe.img === "" 
     ) {
       alert("Complete todos los campos");
-    } else if (
+      return;
+    } 
+    if (
       recipe.time.length > 4 ||
       recipe.timeFreezer.length > 4 ||
       recipe.timeFridge.length > 4
     ) {
       alert("Los tiempos tienen que ser menos de 4 digitos");
+      return
     } else {
       console.log("Receta", recipe);
     }
