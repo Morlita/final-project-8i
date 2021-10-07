@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Modal from "../../Modal/Modal";
+import ModalInfo from "../../ModalInfo/ModalInfo";
 import AdminRecipesStatus from "./AdminRecipesStatus";
 
 function Admin() {
@@ -82,7 +82,7 @@ function Admin() {
           ))}
         </tbody>
       </table>
-      <Modal recipe={reference} />
+      <ModalInfo recipe={reference} />
     </div>
   );
 }
