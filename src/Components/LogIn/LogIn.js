@@ -35,6 +35,7 @@ function Login (){
                         alert("email o contraseña incorrectos");
                     }
                     else{
+                    localStorage.setItem("logedUser", JSON.stringify(usuario.email))
                     localStorage.setItem("registerLogIn",JSON.stringify(data))
                     alert("usuario logeado con exito")
                     history.push("/")
