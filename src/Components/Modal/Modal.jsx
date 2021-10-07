@@ -89,7 +89,7 @@ function Modal(recipe) {
                 {recipe.recipe.tags &&
                   recipe.recipe.tags.map((item, index) => (
                     <li key={index} className="text-capitalize">
-                      {item}
+                      {item.name}
                     </li>
                   ))}
               </ul>
