@@ -11,6 +11,7 @@ import UserProfile from './Components/UserProfile/UserProfile';
 import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
+import AdminTags from './Components/Admin/AdminTags/AdminTags';
 
 
 import {
@@ -56,6 +57,10 @@ function App() {
             <Route path='/admin/users' exact>
               <Admin />
               <AdminUsers />
+            </Route>
+            <Route path='/admin/tags' exact>
+              <Admin />
+              <AdminTags />
             </Route>
           </Switch>
         </div>
