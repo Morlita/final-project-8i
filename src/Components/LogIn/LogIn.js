@@ -62,10 +62,6 @@ function Login (){
                         <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                         <input type="password" className="form-control" id="exampleInputPassword1" name="password" onChange={setUserObj}/>
                     </div>
-                    <div className="mb-3 form-check">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                        <label className="form-check-label" htmlFor="exampleCheck1">Recordarme</label>
-                    </div>
                     <div>
                     <button type="button" className="btn btn-primary m-3" onClick={Guardar}>Ingresar</button>
                     </div>
