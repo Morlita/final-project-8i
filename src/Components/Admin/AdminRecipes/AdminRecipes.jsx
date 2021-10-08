@@ -19,6 +19,8 @@ function Admin() {
       });
   };
 
+  console.log(recipes)
+
   useEffect(() => {
     getRecipes();
   }, [fetchFlag]);
