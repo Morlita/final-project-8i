@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import "../Tags/Tags.css";
+import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
 function Tags() {
     
     const [tags, setTags] = useState([]);
+    const [count, setCount]  = useState(0)
 
     const getTagArray = async () => {
 
@@ -15,27 +17,20 @@ function Tags() {
 
     useEffect(() => {
         getTagArray();
-    }, [])
+    }, [count])
 
-        console.log('tags', tags);
+    const handleCheckbox = (index, checked) => {
+        console.log(index, checked);
+        let newTags = [...tags];
+        newTags[index].checked = checked;
+        
+        setTags(newTags);
 
-
-    const handleChange = (e)=> {
-        let isChecked = e.target.checked;
-        console.log('counter', isChecked, trueCheckedCount());
-        if(!isChecked){
-            const tagsUpdated = tags;
-            const index = parseInt(e.target.dataset.index);
-            tagsUpdated[index].checked = !isChecked;
-            setTags(tagsUpdated);
+        if(checked){
+            setCount(count+1);
+        } else {
+            setCount(count-1);
         }
-    }
-    const trueCheckedCount = ()=> {
-        console.log('algo porfa', tags.filter(data=> {
-            console.log('data', data);
-            return data.checked;
-        }));
-        return tags.filter(data=> data.checked).length
     }
 
     return (
@@ -52,10 +47,7 @@ function Tags() {
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
                                 {tags && tags.map((item, index) => (
-                                    <div key={index} class="form-check form-check-inline py-1">
-                                        <input type="checkbox" data-index={index} class="btn-check" id={`btn-check-outlined-${index}`} autocomplete="off" checked={item.checked} onChange={handleChange}/>
-                                        <label class="btn btn-outline-secondary rounded-pill" for={`btn-check-outlined-${index}`}>{item.name}</label>
-                                    </div>
+                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} />
                                 ))}
                             </div>
                         </div>
