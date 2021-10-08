@@ -1,8 +1,35 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "../Tags/Tags.css";
 
 function Tags() {
-    const tags = ['Entrada', 'Plato principal', 'Dulce', 'Ensalada', 'Sopa', 'Tarta', 'Vegano', 'Vegetariano', 'Rápido y fácil', 'Plato Frío', 'Plato Caliente', 'Picante', 'Light', 'Para golosos', 'Sin TAAC', 'Parrilla', 'Agridulce', 'Desayuno', 'Snack', 'Económico', 'Salsa', 'Para niños'];
+   
+    const [tags, setTags] = useState([]);
+
+    const getTagArray = async () => {
+
+        await fetch(`https://polar-reaches-30197.herokuapp.com/tags/`)
+            .then(response => response.json())
+            .then(data => setTags(data))
+            .catch(err => { console.log(err) })
+    }
+
+    useEffect(() => {
+        getTagArray();
+    }, [])
+
+    const [checked, setChecked] = useState(false);
+
+    const handleChange = (e)=> {
+        let isChecked = e.target.checked;
+        setTags(
+            tags.map(data=> {
+                data.checked = !isChecked;
+                return data;
+            })
+        )
+        setChecked(!checked);
+    }
+
 
     return (
         <div className="d-flex justify-content-sm-center justify-content-md-start text-uppercase tag-acordeon w-75 rounded">
@@ -15,12 +42,12 @@ function Tags() {
                                 <i className="bi bi-funnel h4 p-1 mb-1"></i> Seleccioná hasta tres opciones:
                             </button>
                         </h2>
-                        <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div className="accordion-body d-flex justify-content-evenly flex-wrap ">
-                                {tags.map((item, index) => (
-                                    <div key={index} className="form-check form-check-inline py-1">
-                                        <input type="checkbox" className="btn-check" id="btn-check-outlined" autoComplete="off" />
-                                        <label className="btn btn-outline-secondary rounded-pill" htmlFor="btn-check-outlined">{item}</label>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
+                                {tags && tags.map(({name, id}) => (
+                                    <div key={id} class="form-check form-check-inline py-1">
+                                        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off"  onChange={handleChange}/>
+                                        <label class="btn btn-outline-secondary rounded-pill" for="btn-check-outlined">{name}</label>
                                     </div>
                                 ))}
                             </div>
