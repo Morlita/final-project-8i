@@ -46,10 +46,13 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
         >
           <option value="Kg">Kg</option>
           <option value="G">G</option>
-          <option value="Unidad">Unidad</option>
+          <option value="Unidad/es">unidad/es</option>
           <option value="Lt">Lt</option>
           <option value="Cucharada">cda</option>
           <option value="Cucharadita">cdt</option>
+          <option value="ml">ml</option>
+          <option value="Taza">taza</option>
+          <option value="Pizca">pizca</option>
         </select>
         <button type="button" className="btn btn-danger ms-2" onClick={remove}>
           <svg
