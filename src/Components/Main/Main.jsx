@@ -56,7 +56,9 @@ function Main() {
                         <h2 className="slider_title mb-0">Estas son las más votadas de todos los tiempos!</h2>
                         <h3 className="text-center mb-3"><i class="bi bi-star"></i></h3>
                         <CarouselSlider carouselArr={recipes} />
-                        <div className="p-1 my-2 d-grid col-4 mx-auto"><button type="button" className="btn rounded pill">Ver todas las favoritas</button></div>
+                        <div className="p-1 my-2 d-grid col-4 mx-auto">
+                            <button type="button" class="btn btn-danger rounded-pill">Ver todas las más votadas</button>
+                        </div>
                     </div>
                 </div>
                 <div className="row carousel-row">
@@ -64,7 +66,9 @@ function Main() {
                         <h2 className="slider_title mb-0">Y si buscas inspiración... aquí están todas las recetas!</h2>
                         <h3 className="text-center mb-3"><i class="bi bi-journal-bookmark"></i></h3>
                         <CarouselSlider carouselArr={recipes} />
-                        <div className="p-1 my-2 d-grid col-4 mx-auto"><button type="button" className="btn rounded pill">Ver todas las recetas</button></div>
+                        <div className="p-1 my-2 d-grid col-4 mx-auto">
+                            <button type="button" class="btn btn-danger rounded-pill">Ver todas las recetas</button>
+                        </div>
                     </div>
                 </div>
 
