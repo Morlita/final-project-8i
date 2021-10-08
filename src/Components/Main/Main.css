@@ -17,36 +17,35 @@
 }
 
 .carousel-row .favs{
-  border: 0.3rem solid var(--main-light-color);
-  background-color:  rgba(43, 67, 86, .7);
+  /* border: 0.3rem solid var(--main-light-color); */
+  background-color:  #203241;
   border-radius: 5px;
 }
 
 .carousel-row .favs h2, .favs i{
-  color: var(--accesory-accent-color);
+  color: var(--secondary-light-color);
   font-weight: bold;
 }
 
 .carousel-row .all h2, .all i{
-  color: var(--accesory-light-color);
+  color: var(--accesory-accent-color);
   font-weight: bold;
 }
 
 .carousel-row .all{
-  border: 0.3rem solid var(--main-light-color);
-
-  -webkit-box-shadow: inset 0px 0px 16px -4px rgba(245,245,249,1);
--moz-box-shadow: inset 0px 0px 16px -4px rgba(245,245,249,1);
-box-shadow: inset 0px 0px 16px -4px rgba(245,245,249,1);
+  /* border: 0.3rem solid var(--main-light-color); */
+  background-color: #203241;
   border-radius: 5px;
 }
 
-.favs button{
-  border: 2px solid #fee883;
-  color: var(--accesory-accent-color);
+.favs .btn-danger {
+  color: var(--main-dark-color);
+  background-color: var(--secondary-light-color) ;
+  border-color: var(--secondary-light-color) ;
 }
 
-.all button {
-  border: 2px solid #ebaf8d;
-  color: var(--accesory-light-color);
+.all .btn-danger {
+  color: var(--main-dark-color);
+  background-color: var(--accesory-accent-color) ;
+  border-color: var(--accesory-accent-color) ;
 }
