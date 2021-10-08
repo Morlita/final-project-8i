@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import "../Tags/Tags.css";
 
 function Tags() {
-   
+    
     const [tags, setTags] = useState([]);
 
     const getTagArray = async () => {
@@ -17,19 +17,26 @@ function Tags() {
         getTagArray();
     }, [])
 
-    const [checked, setChecked] = useState(false);
+        console.log('tags', tags);
+
 
     const handleChange = (e)=> {
         let isChecked = e.target.checked;
-        setTags(
-            tags.map(data=> {
-                data.checked = !isChecked;
-                return data;
-            })
-        )
-        setChecked(!checked);
+        console.log('counter', isChecked, trueCheckedCount());
+        if(!isChecked){
+            const tagsUpdated = tags;
+            const index = parseInt(e.target.dataset.index);
+            tagsUpdated[index].checked = !isChecked;
+            setTags(tagsUpdated);
+        }
     }
-
+    const trueCheckedCount = ()=> {
+        console.log('algo porfa', tags.filter(data=> {
+            console.log('data', data);
+            return data.checked;
+        }));
+        return tags.filter(data=> data.checked).length
+    }
 
     return (
         <div className="d-flex justify-content-sm-center justify-content-md-start text-uppercase tag-acordeon w-75 rounded">
@@ -44,10 +51,10 @@ function Tags() {
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
-                                {tags && tags.map(({name, id}) => (
-                                    <div key={id} class="form-check form-check-inline py-1">
-                                        <input type="checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off"  onChange={handleChange}/>
-                                        <label class="btn btn-outline-secondary rounded-pill" for="btn-check-outlined">{name}</label>
+                                {tags && tags.map((item, index) => (
+                                    <div key={index} class="form-check form-check-inline py-1">
+                                        <input type="checkbox" data-index={index} class="btn-check" id={`btn-check-outlined-${index}`} autocomplete="off" checked={item.checked} onChange={handleChange}/>
+                                        <label class="btn btn-outline-secondary rounded-pill" for={`btn-check-outlined-${index}`}>{item.name}</label>
                                     </div>
                                 ))}
                             </div>
