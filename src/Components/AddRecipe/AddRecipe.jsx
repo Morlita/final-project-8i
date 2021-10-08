@@ -121,7 +121,10 @@ function AddRecipe() {
             body: JSON.stringify({...recipe, steps: step, otherImgs: otherImgs, ingredients: ingredients})
         })
         .then(response => response.json())
-        .then(data => setRecipe[{...recipe, data}])
+        .then(data => {
+          setRecipe([{...recipe, data}]);
+          alert("Receta Agregada =)")
+        })
         .catch((err) => {
           console.log(err)
           alert("Algo salio mal")
@@ -132,7 +135,7 @@ function AddRecipe() {
   console.log("AGREGAR", recipe)
 
   return (
-    <div className="App">
+    <div className="container">
       <h1>Crea tu receta</h1>
       <div className="d-flex flex-column form-contact">
         {/* Recipe´s Name */}
