@@ -46,7 +46,7 @@ function Modal(recipe) {
                 {recipe.recipe.ingredients &&
                   recipe.recipe.ingredients.map((item, index) => (
                     <li key={index} className="text-capitalize">
-                      {item}
+                      {`${item.ingredient} ${item.quantity} ${item.unit}`}
                     </li>
                   ))}
               </ul>

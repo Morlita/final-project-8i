@@ -15,11 +15,13 @@ function AddRecipe() {
     otherImgs: "",
     ingredients: "",
     tags: [],
-    user: "61422ef3257c69006799ed27"
+    user: "",
   });
-  const [step, setSteps] = useState([]);
+
+  const [steps, setSteps] = useState([]);
   const [otherImgs, setOtherImgs] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
 
   /*Set Information */
   const setRecipes = (event) => {
@@ -39,12 +41,12 @@ function AddRecipe() {
   const handleRemoveSteps = (index) => {
     const copyRowSteps = [...rowSteps];
     copyRowSteps.splice(index, 1);
-    step.splice(index, 1);
+    steps.splice(index, 1);
     setRowSteps(copyRowSteps);
   };
 
   const updateSteps = (index, text) => {
-    const newSteps = step;
+    const newSteps = steps;
     newSteps[index] = text;
     newSteps != [] ? setSteps(newSteps) : alert("Complete todos los campos");
     console.log("NEW STEPS", newSteps);
@@ -78,7 +80,9 @@ function AddRecipe() {
   const defaultStateIngredients = {
     ingredients: "",
   };
-  const [rowIngredients, setRowIngredients] = useState([defaultStateIngredients]);
+  const [rowIngredients, setRowIngredients] = useState([
+    defaultStateIngredients,
+  ]);
 
   const handleOnAddIngredients = () => {
     setRowIngredients(rowIngredients.concat(defaultStateIngredients));
@@ -94,9 +98,19 @@ function AddRecipe() {
   const updateIngredients = (index, text) => {
     const newIngredient = ingredients;
     newIngredient[index] = text;
-    newIngredient != [] ? setIngredients(newIngredient) : alert("Complete todos los campos");
+    newIngredient != []
+      ? setIngredients(newIngredient)
+      : alert("Complete todos los campos");
     console.log("NEW Ingredients", newIngredient);
   };
+
+  function validation() {
+    console.log("INGREDIENTS", ingredients)
+    const ingredientResult = ingredients.filter(ingredient => ingredient.ingredient === "");
+    //const stepResult = steps.filter(step => step === "");
+    console.log('INGRED', ingredientResult)
+    return ingredientResult.length === 0 ? false : true
+  }
 
   /*Add Recipe */
   const add = () => {
@@ -105,34 +119,55 @@ function AddRecipe() {
       recipe.time === "" ||
       recipe.timeFreezer === "" ||
       recipe.timeFridge === "" ||
-      recipe.img === "" 
+      recipe.img === "" ||
+      validation()
     ) {
       alert("Complete todos los campos");
       return;
-    } 
-     else {
-      fetch('https://polar-reaches-30197.herokuapp.com/recipes', {
-            headers: {
-                'Accept': 'application/json',
-                'Content-type': 'application/json',
-                'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ'
-            },
-            method: 'POST',
-            body: JSON.stringify({...recipe, steps: step, otherImgs: otherImgs, ingredients: ingredients})
-        })
-        .then(response => response.json())
-        .then(data => {
-          setRecipe([{...recipe, data}]);
-          alert("Receta Agregada =)")
+    } else {
+      fetch("https://polar-reaches-30197.herokuapp.com/recipes", {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+          "x-access-token":
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          ...recipe,
+          steps: steps,
+          otherImgs: otherImgs,
+          ingredients: ingredients,
+          user: user._id
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          alert("Receta Agregada =)");
+          setRecipe({
+            title: "",
+            time: "",
+            timeFreezer: "",
+            timeFridge: "",
+            category: "Con carne",
+            img: "",
+            steps: "",
+            otherImgs: "",
+            ingredients: "",
+            tags: [],
+            user: "",
+          });
+          setRowSteps([defaultStateSteps]);
+          setSteps([]);
         })
         .catch((err) => {
-          console.log(err)
-          alert("Algo salio mal")
-        })
+          console.log(err);
+          alert("Algo salio mal");
+        });
     }
   };
 
-  console.log("AGREGAR", recipe)
+  console.log("AGREGAR", recipe);
 
   return (
     <div className="container">
@@ -150,7 +185,7 @@ function AddRecipe() {
           onChange={setRecipes}
           maxLength="50"
         />
-        
+
         {/* Recipe's Ingredients */}
         {rowIngredients.map((row, index) => (
           <AddInputIngredients
@@ -184,7 +219,7 @@ function AddRecipe() {
             remove={() => handleRemoveSteps(index)}
             index={index}
             key={index}
-            value={step[index]}
+            value={steps[index]}
             updateSteps={updateSteps}
           />
         ))}
