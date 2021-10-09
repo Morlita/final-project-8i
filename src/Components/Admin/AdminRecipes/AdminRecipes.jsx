@@ -33,9 +33,9 @@ function Admin() {
   };
 
   /*Filter Recipes*/
-    const accept = recipes.filter(p => p.accepted == "accepted");
-    const reject = recipes.filter(p => p.accepted == "rejected");
-    const pendant = recipes.filter(p => p.accepted == "pending");
+    const accept = recipes.filter(p => p.accepted === "accepted");
+    const reject = recipes.filter(p => p.accepted === "rejected");
+    const pendant = recipes.filter(p => p.accepted === "pending");
 
   /*Delete*/
   const remove = (index) => {
@@ -62,7 +62,7 @@ function Admin() {
         <thead>
           <tr>
             <th scope="col">Titulo</th>
-            <th scope="col">Pasos</th>
+            <th className="d-none d-sm-table-cell" scope="col">Pasos</th>
             <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>

@@ -11,7 +11,7 @@ function Admin() {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Information
+          Tablas
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
           <li>
