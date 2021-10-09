@@ -28,9 +28,9 @@ function Signin() {
 
     let sendEmail = () => {
         emailjs.send('gmail', 'template_e0meufb', parametros, "user_CjWnZrzaDNFhrMVuulGpr")
-            .then(function (response) {
-                alert("registro exitoso, revisa tu casilla de correo")
-            });
+    .then(function(response) {
+       alert("Registro exitoso, revisa tu casilla de correo e inicia secion")
+    });
     }
 
     const Guardar = () => {
@@ -67,12 +67,12 @@ function Signin() {
             }).then(response => {
                 if (response.status === 200) {
                     sendEmail();
-                    history.push("/")
-                }
-                else {
-                    alert("ocurrio un error")
-                }
-            })
+                    history.push("/login")
+                  }
+                  else{
+                      alert("ocurrio un error")
+                  }
+              })      
         }
 
     }
