@@ -6,19 +6,20 @@ function Tags() {
     
     const [tags, setTags] = useState([]);
     const [count, setCount]  = useState(0)
-
+    let chosenTags = []
+    
     const getTagArray = async () => {
-
+        
         await fetch(`https://polar-reaches-30197.herokuapp.com/tags/`)
-            .then(response => response.json())
-            .then(data => setTags(data))
-            .catch(err => { console.log(err) })
+        .then(response => response.json())
+        .then(data => setTags(data))
+        .catch(err => { console.log(err) })
     }
-
+    
     useEffect(() => {
         getTagArray();
     }, [count])
-
+    
     const handleCheckbox = (index, checked) => {
         console.log(index, checked);
         let newTags = [...tags];
@@ -28,9 +29,17 @@ function Tags() {
 
         if(checked){
             setCount(count+1);
+            /* chosenTags.push(tags[index]);
+            console.log('chosen', chosenTags) */
         } else {
             setCount(count-1);
         }
+    }
+
+    const handleTags = () => {
+        // console.log('checked', tags[index].checked)
+        /* console.log('chosen', chosenTags)
+        console.log('filtered', tags.filter( tag => tag.checked)) */
     }
 
     return (
@@ -53,8 +62,8 @@ function Tags() {
                         </div>
                     </div>
                 </div>
-                <div className="filter-button text-center pt-3 d-grid col-3 mx-auto">
-                    <button type="button" className="btn btn-danger rounded-pill">Filtrar</button>
+                <div className="text-center pt-3 d-grid col-3 mx-auto">
+                    <button type="button" class="filter-button btn btn-danger rounded-pill" onClick={handleTags}>Filtrar</button>
                 </div>
             </div>
         </div>
