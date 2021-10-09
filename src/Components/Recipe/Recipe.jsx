@@ -87,7 +87,7 @@ function Recipe() {
             <article className='container'>
                 <h6> <span></span>Conservación en freezer: <span>{timeFreezer}</span></h6>
                 <h6> <span></span>Conservación en heladera: <span>{timeFridge}</span> </h6>
-                <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY, HH:MM')}</span> </h6>
+                <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY')}</span> </h6>
             </article>
             <hr />
             <AddComment />
