@@ -37,6 +37,7 @@ function Login (){
                     else{
                     localStorage.setItem("logedUser", JSON.stringify(usuario.email))
                     localStorage.setItem("registerLogIn",JSON.stringify(data))
+                    localStorage.setItem("userToken",JSON.stringify(data.token))
                     alert("usuario logeado con exito")
                     history.push("/")
                     }
