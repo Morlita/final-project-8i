@@ -8,23 +8,12 @@
   --secondary-light-color: #f5f5f9;
 }
 
-.navbar {
+/* .navbar {
   background-color: var(--main-dark-color);
   height: 75px;
   font-family: 'Pompiere', cursive;
   font-size: 1.8rem;
-}
-
-.navbar a{
-  color: var(--main-light-color);
-}
-
-.navbar .register-buttton {
-  /* border: 1px solid var(--main-accent-color); */
-  color: var(--main-accent-color);
-  font-weight: bold;
-  font-size: 1.8rem;
-}
+} */
 
 .button-in{
   border:1px solid var(--main-light-color) !important;
@@ -35,6 +24,29 @@
   background-color:transparent;
   border:0;
 }
-.recetapp-logo img {
-  max-height: 70px;
+
+.recetapp-logo {
+  max-height: 50px !important;
+}
+.dropdown-menu {
+  background-color: var(--main-dark-color) !important;
+  color: var(--main-light-color) !important;
+}
+.dropdown-item{
+  color: var(--main-light-color) !important;
+}
+.dropdown-item:hover{
+  color: var(--main-dark-color) !important;
+  background-color: var(--secondary-light-color) !important;
+}
+.dropdown-item:focus{
+  background-color: var(--main-accent-color) !important;
+  color: var(--main-light-color) !important;
+}
+.input-border:focus{
+  border-bottom: 1px solid var(--secondary-light-color) !important;
+  outline: none transparent !important;
+}
+.navbar .register-button a{
+  color: var(--main-accent-color) !important;
 }

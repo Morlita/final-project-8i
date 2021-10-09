@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
+import NewNavbar from './Components/Navbar/NewNavbar';
 import Footer from './Components/Footer/Footer';
 import Main from './Components/Main/Main';
 import CategoriesComponent from './Components/CategoriesComponent/CategoriesComponent';
@@ -25,7 +25,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className='main-background'>
-        <Navbar />
+        <NewNavbar/>
         <div>
           <Switch>
             <Route path='/' exact>
