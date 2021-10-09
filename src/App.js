@@ -34,7 +34,7 @@ function App() {
             <Route path='/categories/:category' >
               <CategoriesComponent />
             </Route>
-            <Route path="/signin">
+            <Route path='/signin'>
               <Signin />
             </Route>
             <Route path='/login' >
