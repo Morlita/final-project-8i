@@ -15,38 +15,37 @@ function Login() {
         setUsuario({ ...usuario, [event.target.name]: event.target.value });
     }
 
-    const Guardar = ()=>{
+    const Guardar = () => {
 
-            const data = JSON.stringify({
-                email: usuario.email,
-                password: usuario.password
-            })
+        const data = JSON.stringify({
+            email: usuario.email,
+            password: usuario.password
+        })
 
-              fetch('https://polar-reaches-30197.herokuapp.com/user/login', {
-                  headers:{
-                      "Accept": "application/json",
-                      "Content-Type": "application/json"
-                  },
-                  method:"POST",
-                  body: data
-              }).then(response => response.json()
-              ).then(data =>{
-                    console.log(data);
-                    if(!data.token){
-                        alert("email o contraseña incorrectos");
-                    }
-                    else{
-                    localStorage.setItem("logedUser", JSON.stringify(usuario.email))
-                    localStorage.setItem("registerLogIn",JSON.stringify(data))
-                    localStorage.setItem("userToken",JSON.stringify(data.token))
-                    alert("usuario logeado con exito")
-                    history.push("/")
-                    }
-                    
-                })
-                
-                
-                        
+        fetch('https://polar-reaches-30197.herokuapp.com/user/login', {
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            method: "POST",
+            body: data
+        }).then(response => response.json()
+        ).then(data => {
+            console.log(data);
+            if (!data.token) {
+                alert("email o contraseña incorrectos");
+            }
+            else {
+                localStorage.setItem("logedUser", JSON.stringify(usuario.email))
+                localStorage.setItem("registerLogIn", JSON.stringify(data))
+                alert("usuario logeado con exito")
+                history.push("/")
+            }
+
+        })
+
+
+
     }
 
     return (
