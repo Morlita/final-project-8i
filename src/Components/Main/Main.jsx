@@ -54,9 +54,9 @@ function Main() {
                 <div className="row carousel-row">
                     <div className="container py-4 px-5 carousel my-4 favs">
                         <h2 className="slider_title mb-0">Estas son las más votadas de todos los tiempos!</h2>
-                        <h3 className="text-center mb-3"><i className="bi bi-star"></i></h3>
+                        <h3 className="text-center mb-3"><i className="bi bi-heart"></i></h3>
                         <CarouselSlider carouselArr={recipes} />
-                        <div className="p-1 my-2 d-grid col-4 mx-auto">
+                        <div className="p-1 my-2 d-grid col-md-5 mx-auto">
                             <button type="button" className="btn btn-danger rounded-pill">Ver todas las más votadas</button>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ function Main() {
                         <h2 className="slider_title mb-0">Y si buscas inspiración... aquí están todas las recetas!</h2>
                         <h3 className="text-center mb-3"><i className="bi bi-journal-bookmark"></i></h3>
                         <CarouselSlider carouselArr={recipes} />
-                        <div className="p-1 my-2 d-grid col-4 mx-auto">
+                        <div className="p-1 my-2 d-grid col-md-5 mx-auto">
                             <button type="button" className="btn btn-danger rounded-pill">Ver todas las recetas</button>
                         </div>
                     </div>
