@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import ModalUser from "./ModalUser/ModalUser";
 
 function AdminUsers() {
+  let history = useHistory();
+
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
+  const userToken = JSON.parse(localStorage.getItem("userToken"));
+
   const [users, setUsers] = useState([]);
   const [fetchFlag, setFetchFlag] = useState("");
+  let [reference, setReference] = useState(0);
 
   const getUsers = async () => {
     await fetch("https://polar-reaches-30197.herokuapp.com/user", {
       headers: {
         "Content-Type": "application/json",
-        "x-access-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+        "x-access-token": userToken,
       },
     })
       .then((response) => response.json())
@@ -22,7 +29,15 @@ function AdminUsers() {
 
   /* List all users */
   useEffect(() => {
-    getUsers();
+    if (!user) {
+      history.push("/login");
+      alert("Inicie secion para visualizar esta Pagina");
+    } else if (user.role === "user") {
+      history.push("/");
+      alert("No tiene los permisos necesarios para acceder a esta pagina");
+    } else {
+      getUsers();
+    }
   }, [fetchFlag]);
 
   /*Delete*/
@@ -33,12 +48,16 @@ function AdminUsers() {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+          "x-access-token": userToken,
         },
         body: JSON.stringify(),
       }
     ).then((response) => setFetchFlag(response.json()));
+  };
+
+  const setIndex = (index) => {
+    reference = users[index];
+    setReference(reference);
   };
 
   return (
@@ -84,11 +103,33 @@ function AdminUsers() {
                     />
                   </svg>
                 </button>
+                <button
+                  type="button"
+                  className="btn btn-primary w-20 me-3 mb-1 d-md-none"
+                  data-bs-toggle="modal"
+                  data-bs-target="#userModal"
+                  onClick={() => setIndex(index)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-chevron-bar-expand"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M3.646 10.146a.5.5 0 0 1 .708 0L8 13.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708zm0-4.292a.5.5 0 0 0 .708 0L8 2.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708zM1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8z"
+                    />
+                  </svg>
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <ModalUser user={reference} />
     </div>
   );
 }
