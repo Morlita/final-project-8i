@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import ModalUser from "./ModalUser/ModalUser";
 
 function AdminUsers() {
+  let history = useHistory();
+
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
+  const userToken = JSON.parse(localStorage.getItem("userToken"));
+
   const [users, setUsers] = useState([]);
   const [fetchFlag, setFetchFlag] = useState("");
   let [reference, setReference] = useState(0);
@@ -10,8 +16,7 @@ function AdminUsers() {
     await fetch("https://polar-reaches-30197.herokuapp.com/user", {
       headers: {
         "Content-Type": "application/json",
-        "x-access-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+        "x-access-token": userToken,
       },
     })
       .then((response) => response.json())
@@ -24,7 +29,15 @@ function AdminUsers() {
 
   /* List all users */
   useEffect(() => {
-    getUsers();
+    if (!user) {
+      history.push("/login");
+      alert("Inicie secion para visualizar esta Pagina");
+    } else if (user.role === "user") {
+      history.push("/");
+      alert("No tiene los permisos necesarios para acceder a esta pagina");
+    } else {
+      getUsers();
+    }
   }, [fetchFlag]);
 
   /*Delete*/
@@ -35,8 +48,7 @@ function AdminUsers() {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
-          "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+          "x-access-token": userToken,
         },
         body: JSON.stringify(),
       }

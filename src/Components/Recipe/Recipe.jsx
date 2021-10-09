@@ -27,16 +27,16 @@ function Recipe() {
             .then(data => setRecipe(data))
             .catch(err => { console.log(err) })
     }
-    const getUser = async () => {
+    /*const getUser = async () => {
         await fetch(` http://polar-reaches-30197.herokuapp.com/user/${user}`)
             .then(response => response.json())
             .then(data => console.log('userdata', data))
             .catch(err => { console.log(err) })
-    }
+    }*/
 
     useEffect(() => {
         getRecipe();
-        getUser();
+        //getUser();
     }, [reloadFlag])
 
     const { category, createdAt, img, ingredients, likes, otherImgs, steps, tags, time, timeFreezer, timeFridge, title, updatedAt, _id, user} = recipe;

@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react'
 
 function Like({recipeId, reloadFlag, setReloadFlag}) {
 
-    const idLoli= '614669e60fab352db951c448';
+    const idUser = "6160970f97d135b50f0a2904";
+    const tokenUser = JSON.parse(localStorage.getItem("userToken"));
+    //const idLoli= '614669e60fab352db951c448';
     const URL = process.env.REACT_APP_DB_URL + 'user/like';
     
     const [hasLiked, setHasLiked] = useState(false)
@@ -13,7 +15,7 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
 
             const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipeId}`)
             const data = await resp.json();
-            const usersLikes = await data.usersLikes.find(id => id === idLoli);
+            const usersLikes = await data.usersLikes.find(id => id === idUser);
             if(usersLikes){
                 setHasLiked(true)
             }
@@ -36,11 +38,11 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
-              'x-access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzIwMDQ5MzYsImV4cCI6MTYzMjA5MTMzNn0.2jb_fc6bNt9XEG5LTjr_oep0eXQyzlyEEXgqm0HWfxU'
+              'x-access-token' : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjA5NzBmOTdkMTM1YjUwZjBhMjkwNCIsImlhdCI6MTYzMzc5MTY3MSwiZXhwIjoxNjMzODc4MDcxfQ.6f7E5OkUBONYB9uglEND2BX7zRDSgdd7UIEoeC-OOCM"
             },
             body: JSON.stringify({
                 recipeId: recipeId,
-                userId: idLoli
+                userId: idUser
             })
         });
 
