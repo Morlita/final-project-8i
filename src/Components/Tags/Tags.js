@@ -1,8 +1,46 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "../Tags/Tags.css";
+import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
 function Tags() {
-    const tags = ['Entrada', 'Plato principal', 'Dulce', 'Ensalada', 'Sopa', 'Tarta', 'Vegano', 'Vegetariano', 'Rápido y fácil', 'Plato Frío', 'Plato Caliente', 'Picante', 'Light', 'Para golosos', 'Sin TAAC', 'Parrilla', 'Agridulce', 'Desayuno', 'Snack', 'Económico', 'Salsa', 'Para niños'];
+    
+    const [tags, setTags] = useState([]);
+    const [count, setCount]  = useState(0)
+    let chosenTags = []
+    
+    const getTagArray = async () => {
+        
+        await fetch(`https://polar-reaches-30197.herokuapp.com/tags/`)
+        .then(response => response.json())
+        .then(data => setTags(data))
+        .catch(err => { console.log(err) })
+    }
+    
+    useEffect(() => {
+        getTagArray();
+    }, [count])
+    
+    const handleCheckbox = (index, checked) => {
+        console.log(index, checked);
+        let newTags = [...tags];
+        newTags[index].checked = checked;
+        
+        setTags(newTags);
+
+        if(checked){
+            setCount(count+1);
+            /* chosenTags.push(tags[index]);
+            console.log('chosen', chosenTags) */
+        } else {
+            setCount(count-1);
+        }
+    }
+
+    const handleTags = () => {
+        // console.log('checked', tags[index].checked)
+        /* console.log('chosen', chosenTags)
+        console.log('filtered', tags.filter( tag => tag.checked)) */
+    }
 
     return (
         <div className="d-flex justify-content-sm-center justify-content-md-start text-uppercase tag-acordeon w-75 rounded">
@@ -15,20 +53,17 @@ function Tags() {
                                 <i className="bi bi-funnel h4 p-1 mb-1"></i> Seleccioná hasta tres opciones:
                             </button>
                         </h2>
-                        <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div className="accordion-body d-flex justify-content-evenly flex-wrap ">
-                                {tags.map((item, index) => (
-                                    <div key={index} className="form-check form-check-inline py-1">
-                                        <input type="checkbox" className="btn-check" id="btn-check-outlined" autoComplete="off" />
-                                        <label className="btn btn-outline-secondary rounded-pill" htmlFor="btn-check-outlined">{item}</label>
-                                    </div>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
+                                {tags && tags.map((item, index) => (
+                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} />
                                 ))}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="filter-button text-center pt-3 d-grid col-3 mx-auto">
-                    <button type="button" className="btn btn-danger rounded-pill">Filtrar</button>
+                <div className="text-center pt-3 d-grid col-3 mx-auto">
+                    <button type="button" class="filter-button btn btn-danger rounded-pill" onClick={handleTags}>Filtrar</button>
                 </div>
             </div>
         </div>
