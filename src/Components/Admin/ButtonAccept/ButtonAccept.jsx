@@ -1,11 +1,12 @@
 function ButtonAccept(props) {
+  const userToken = JSON.parse(localStorage.getItem("userToken"));
+
   const accept = (recipe) => {
     fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "x-access-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+        "x-access-token": userToken
       },
       body: JSON.stringify({ ...recipe, accepted: "accepted" }),
     }).then((response) => {

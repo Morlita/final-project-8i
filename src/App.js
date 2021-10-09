@@ -46,10 +46,6 @@ function App() {
             <Route path="/userprofile">
               <UserProfile />
             </Route>
-            <Route path='/admin' exact>
-              <Admin />
-              <AdminRecipes />
-            </Route>
             <Route path='/admin/recipes' exact>
               <Admin />
               <AdminRecipes />
