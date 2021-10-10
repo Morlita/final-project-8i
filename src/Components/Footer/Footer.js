@@ -3,7 +3,7 @@ import './Footer.css';
 
 function Footer() {
     return (
-        <footer className='mt-3 pt-3 social-footer container text-uppercase'>
+        <footer className='mt-3 pt-3 social-footer container text-uppercase mt-auto'>
             <div className='row'>
                 <div className='d-flex justify-content-center'>
                     <i class='h1 m-1 p-3 bi bi-facebook'></i>
