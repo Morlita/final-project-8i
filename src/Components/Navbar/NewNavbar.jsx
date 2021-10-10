@@ -26,9 +26,9 @@ const NewNavbar = () => {
                   Categorías
                 </Link>
                 <ul className="dropdown-menu text-center" aria-labelledby="navbarScrollingDropdown">
-                  <li><Link className="dropdown-item" to="#">Con Carne</Link></li>
-                  <li><Link className="dropdown-item" to="#">Veggie</Link></li>
-                  <li><Link className="dropdown-item" to="#">Dulces</Link></li>
+                  <li><Link className="dropdown-item" to='/categories/Con Carne'>Con Carne</Link></li>
+                  <li><Link className="dropdown-item" to='/categories/veggie'>Veggie</Link></li>
+                  <li><Link className="dropdown-item" to='/categories/dulces'>Dulces</Link></li>
                 </ul>
               </li>
               <li className="nav-item">
