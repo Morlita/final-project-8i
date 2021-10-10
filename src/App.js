@@ -19,6 +19,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import MainCarousel from './Components/MainCarousel/MainCarousel';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <MainCarousel />
         <Footer />
       </div>
     </Router>
