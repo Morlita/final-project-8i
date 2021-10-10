@@ -8,7 +8,7 @@ function ButtonAccept(props) {
         "Content-Type": "application/json",
         "x-access-token": userToken
       },
-      body: JSON.stringify({ ...recipe, accepted: "accepted" }),
+      body: JSON.stringify({...recipe, accepted: "accepted"}),
     }).then((response) => {
       props.setFetchFlag(response.json());
     });

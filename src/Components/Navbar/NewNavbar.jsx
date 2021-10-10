@@ -3,6 +3,8 @@ import './Navbar.css';
 import Logo from './Logo/kitchen-utensils-white.png';
 
 const NewNavbar = () => {
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
+
   return (
     <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow-lg new-navbar">
       <div class="container-fluid">
@@ -31,12 +33,17 @@ const NewNavbar = () => {
                   <li><Link className="dropdown-item" to='/categories/dulces'>Dulces</Link></li>
                 </ul>
               </li>
-              <li className="nav-item">
-              <Link to='/login' className="nav-link"><span><i className="bi bi-person-circle"></i></span>Ingresar</Link>
-            </li>
-            <li className="nav-item register-button">
-              <Link to='/signin' className="nav-link fw-bold">Registarme</Link>
-            </li>
+              {!user ? <div>
+                <li className="nav-item">
+                  <Link to='/login' className="nav-link"><span><i className="bi bi-person-circle"></i></span>Ingresar</Link>
+                </li>
+                <li className="nav-item register-button">
+                  <Link to='/signin' className="nav-link fw-bold">Registarme</Link>
+                </li>
+              </div>: <div><img src="" alt="Avatar"/><span>{user.name}</span></div>
+                
+              }
+              
             </ul>
           </div>
         </div>

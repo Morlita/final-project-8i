@@ -53,8 +53,9 @@ function App() {
             <Route path="/userprofile">
               <UserProfile />
             </Route>
-            <Route path='/admin/recipes' render={() => {
-              return user && user.role === "admin" ? <div><Admin /><AdminRecipes /></div>: <Redirect to="/"/>}}>
+            <Route path='/admin/recipes'> 
+              {/*return user && user.role === "admin" ? <div><Admin /><AdminRecipes /></div>: <Redirect to="/"/>}}>*/}
+              <Admin /><AdminRecipes />
             </Route>
             <Route path='/admin/users' render={() => {
               return user && user.role === "admin" ? <div><Admin /><AdminUsers /></div>: <Redirect to="/"/>}}>              
