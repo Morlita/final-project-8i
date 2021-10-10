@@ -30,13 +30,12 @@ function Login (){
                   body: data
               }).then(response => response.json()
               ).then(data =>{
-                    console.log(data);
                     if(!data.token){
                         alert("email o contraseña incorrectos");
                     }
                     else{
                     localStorage.setItem("registerLogIn",JSON.stringify(data))
-                    localStorage.setItem("logedUser", JSON.stringify(usuario.email))
+                    localStorage.setItem("logedUser", JSON.stringify(data.email))
                     alert("usuario logeado con exito")
                     history.push("/")
                     }

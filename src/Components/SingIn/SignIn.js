@@ -66,7 +66,7 @@ function Signin (){
               }).then(response => {
                   if(response.status === 200){
                     sendEmail();
-                    history.push("/")
+                    history.push("/login")
                   }
                   else{
                       alert("ocurrio un error")
