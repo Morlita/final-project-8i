@@ -21,6 +21,7 @@
     border-color: var(--main-accent-color) ;
 }
 
-.or-sign-in a {
+.or-sign-in .btn-outline-danger {
     color: var(--main-accent-color);
+    border-color: var(--main-accent-color);
 }
