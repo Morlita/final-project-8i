@@ -48,7 +48,7 @@ function Tags() {
                         <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
                                 {tags && tags.map((item, index) => (
-                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} />
+                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} key={index} />
                                 ))}
                             </div>
                         </div>
