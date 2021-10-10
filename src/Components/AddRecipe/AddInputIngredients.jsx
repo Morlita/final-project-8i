@@ -31,7 +31,6 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           type="number"
           placeholder=" Cantidad"
           className="w-25 me-2"
-          type="text"
           name="quantity"
           className="w-50 me-2"
           data-index={index}

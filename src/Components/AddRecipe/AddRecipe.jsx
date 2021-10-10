@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddInputSteps from "./AddInputSteps";
-import AddImage from "./AddImage";
 import AddInputIngredients from "./AddInputIngredients";
 
 function AddRecipe() {
@@ -12,14 +11,12 @@ function AddRecipe() {
     category: "Con carne",
     img: "",
     steps: "",
-    otherImgs: "",
     ingredients: "",
     tags: [],
     user: "",
   });
 
   const [steps, setSteps] = useState([]);
-  const [otherImgs, setOtherImgs] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
 
@@ -52,29 +49,10 @@ function AddRecipe() {
     console.log("NEW STEPS", newSteps);
   };
 
-  /* Add Img */
-  const defaultStateImg = {
-    img: "",
-  };
-  const [rowImg, setRowImg] = useState([defaultStateImg]);
-
-  const handleOnAddImg = () => {
-    setRowImg(rowImg.concat(defaultStateImg));
-  };
-
-  const handleRemoveImg = (index) => {
-    const copyRowImg = [...rowImg];
-    copyRowImg.splice(index, 1);
-    otherImgs.splice(index, 1);
-    setRowImg(copyRowImg);
-  };
-
-  const updateImg = (index, text) => {
-    const newImg = otherImgs;
-    newImg[index] = text;
-    newImg != [] ? setOtherImgs(newImg) : alert("Complete todos los campos");
-    console.log("NEW Img", newImg);
-  };
+  function validationIngredients() {  //Revisar Funcionamiento con Diego
+    const stepsResult = ingredients.filter(ingredient => ingredient.ingredient === "" || ingredient.quantity === "");
+    return ingredientResult.length === 0 ? false : true
+  }
 
   /* Add Ingredients */
   const defaultStateIngredients = {
@@ -104,11 +82,8 @@ function AddRecipe() {
     console.log("NEW Ingredients", newIngredient);
   };
 
-  function validation() {
-    console.log("INGREDIENTS", ingredients)
-    const ingredientResult = ingredients.filter(ingredient => ingredient.ingredient === "");
-    //const stepResult = steps.filter(step => step === "");
-    console.log('INGRED', ingredientResult)
+  function validationIngredients() {  //Revisar Funcionamiento con Diego
+    const ingredientResult = ingredients.filter(ingredient => ingredient.ingredient === "" || ingredient.quantity === "");
     return ingredientResult.length === 0 ? false : true
   }
 
@@ -120,7 +95,8 @@ function AddRecipe() {
       recipe.timeFreezer === "" ||
       recipe.timeFridge === "" ||
       recipe.img === "" ||
-      validation()
+      validationIngredients() ||
+      validationSteps()
     ) {
       alert("Complete todos los campos");
       return;
@@ -136,7 +112,6 @@ function AddRecipe() {
         body: JSON.stringify({
           ...recipe,
           steps: steps,
-          otherImgs: otherImgs,
           ingredients: ingredients,
           user: user._id
         }),
@@ -152,7 +127,6 @@ function AddRecipe() {
             category: "Con carne",
             img: "",
             steps: "",
-            otherImgs: "",
             ingredients: "",
             tags: [],
             user: "",
@@ -294,33 +268,6 @@ function AddRecipe() {
           onChange={setRecipes}
           maxLength="600"
         />
-
-        {/* Recipe's Other Imgs */}
-        {rowImg.map((row, index) => (
-          <AddImage
-            remove={() => handleRemoveImg(index)}
-            index={index}
-            key={index}
-            value={otherImgs[index]}
-            updateImg={updateImg}
-          />
-        ))}
-
-        <button
-          className="btn btn-primary mt-3 mb-5 w-100 w-md-50"
-          onClick={handleOnAddImg}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-plus-lg"
-            viewBox="0 0 16 16"
-          >
-            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
-          </svg>
-        </button>
 
         {/* Recipe´s Category */}
         <label htmlFor="category">Categoria</label>
