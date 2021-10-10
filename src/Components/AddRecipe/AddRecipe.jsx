@@ -49,9 +49,9 @@ function AddRecipe() {
     console.log("NEW STEPS", newSteps);
   };
 
-  function validationIngredients() {  //Revisar Funcionamiento con Diego
-    const stepsResult = ingredients.filter(ingredient => ingredient.ingredient === "" || ingredient.quantity === "");
-    return ingredientResult.length === 0 ? false : true
+  function validationSteps() {  //Revisar Funcionamiento con Diego
+    const stepsResult = steps.filter(step => step === "");
+    return stepsResult.length === 0 ? false : true
   }
 
   /* Add Ingredients */
