@@ -1,0 +1,27 @@
+:root{
+    --font: 1.3rem;
+    --line: calc(var(--font) * 2);
+    --move: calc(-1 * var(--line));
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252F;
+    --secondary-light-color: #F5F5F9;  
+}
+
+.login-component {
+    background-color: var(--main-light-color);
+}
+
+.sign-in-button .btn-danger{
+    color: #fff;
+    background-color: var(--main-accent-color) ;
+    border-color: var(--main-accent-color) ;
+}
+
+.or-register .btn-outline-danger {
+    color: var(--main-accent-color);
+    border-color: var(--main-accent-color);
+}

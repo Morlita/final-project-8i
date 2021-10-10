@@ -63,7 +63,7 @@ function CarouselSlider({ reloadFlag, setReloadFlag, carouselArr }) {
                         <Link to={`/recipe/${_id}`} onClick={handleClick}>
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={food2} alt="recipe" />
+                                    <img src={img} alt="recipe" />
                                 </div>
                                 <div className="details">
                                     <h4 className='text-center'>{title.toUpperCase()} <span className='category text-muted'>{category.toUpperCase()}</span> </h4>

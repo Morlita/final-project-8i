@@ -102,9 +102,9 @@ function Signin() {
                 <div className="d-grid col-5 mx-auto register-button">
                     <button type="button" className="btn btn-danger m-3 rounded-pill" onClick={Guardar}>Registrarme</button>
                 </div>
-                <div className="text-center pb-2">
-                    <p className="text-muted mb-0">O si ya estás registrado:</p>
-                    <Link to="/login" className="text-decoration-none or-sign-in">Iniciar sesión</Link> 
+                <div className="text-center p-2">
+                    <p className="text-muted mb-1">O si ya estás registrado:</p>
+                    <Link to="/login" className="text-decoration-none or-sign-in btn btn-outline-danger rounded-pill">Iniciar sesión</Link> 
                 </div>
             </form>
         </div>

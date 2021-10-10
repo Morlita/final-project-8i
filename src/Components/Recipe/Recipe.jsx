@@ -44,7 +44,7 @@ function Recipe() {
     // USER viene el id del usuario, tengo que hacer un get de usuarios para saber el nombre...
 
     return (
-        <div className='container recipe-component py-2 rounded'>
+        <div className='container recipe-component py-2 mt-4 rounded'>
             <article className='container'>
                 <div className="row p-2">
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
@@ -57,9 +57,9 @@ function Recipe() {
                         <AddToFav recipeId={idURL}/>
                     </div>
                 </div>
-                <div className="row  py-3 grid">
+                <div className="row py-3 grid">
                     <div className="card border-0 item">
-                        <img src={img} className='rounded' alt="" />
+                        <img src={img} className='rounded' alt="Recipe" />
                         <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i className="bi bi-heart p-1"></i> {likes}</span> </h1>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ function MainCarousel() {
         return array;
     }
 
-    const filterByLikes = recipes.filter( recipe => recipe.accepted == 'rejected');
+    const filterByLikes = recipes.filter( recipe => recipe.likes >= 1);
 
     console.log('recetas', recipes)
     console.log('más votadas',filterByLikes)
