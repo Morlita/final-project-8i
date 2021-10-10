@@ -18,10 +18,13 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import MainCarousel from './Components/MainCarousel/MainCarousel';
 
 function App() {
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
+
   return (
     <Router>
       <ScrollToTop />
@@ -47,17 +50,14 @@ function App() {
             <Route path="/userprofile">
               <UserProfile />
             </Route>
-            <Route path='/admin/recipes' exact>
-              <Admin />
-              <AdminRecipes />
+            <Route path='/admin/recipes' render={() => {
+              return user && user.role === "admin" ? <div><Admin /><AdminRecipes /></div>: <Redirect to="/"/>}}>
             </Route>
-            <Route path='/admin/users' exact>
-              <Admin />
-              <AdminUsers />
+            <Route path='/admin/users' render={() => {
+              return user && user.role === "admin" ? <div><Admin /><AdminUsers /></div>: <Redirect to="/"/>}}>              
             </Route>
-            <Route path='/admin/tags' exact>
-              <Admin />
-              <AdminTags />
+            <Route path='/admin/tags' render={() => {
+              return user && user.role === "admin" ? <div><Admin /><AdminTags /></div>: <Redirect to="/"/>}}>              
             </Route>
           </Switch>
         </div>
