@@ -8,11 +8,42 @@
   --secondary-light-color: #f5f5f9;
 }
 
-.navbar {
+.new-navbar, .new-navbar .navbar-collapse {
   background-color: var(--main-dark-color);
-  height: 64px;
 }
 
-.navbar a{
-  color: var(--main-light-color);
+.new-navbar .button-in{
+  border:1px solid var(--main-light-color);
+  justify-content: space-between;
+}
+
+.button-in input, button {
+  background-color:transparent;
+  border:0;
+}
+
+.new-navbar .recetapp-logo {
+  max-height: 50px;
+}
+.dropdown-menu {
+  background-color: var(--main-dark-color) !important;
+  color: var(--main-light-color) !important;
+}
+.dropdown-item{
+  color: var(--main-light-color) !important;
+}
+.dropdown-item:hover{
+  color: var(--main-dark-color) !important;
+  background-color: var(--secondary-light-color) !important;
+}
+.dropdown-item:focus{
+  background-color: var(--main-accent-color) !important;
+  color: var(--main-light-color) !important;
+}
+.input-border:focus{
+  border-bottom: 1px solid var(--secondary-light-color) !important;
+  outline: none transparent !important;
+}
+.navbar .register-button a{
+  color: var(--main-accent-color) !important;
 }

@@ -1,0 +1,51 @@
+:root {
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252f;
+    --secondary-light-color: #f5f5f9;
+  }
+
+
+.carousel-row .tags{
+  background-color: var(--main-light-color);
+}
+.carousel{
+  background-color: var(--main-dark-color);
+}
+
+.carousel-row .favs{
+  /* border: 0.3rem solid var(--main-light-color); */
+  background-color:  #203241;
+  border-radius: 5px;
+}
+
+.carousel-row .favs h2, .favs i{
+  color: var(--main-accent-color);
+  font-weight: bold;
+}
+
+.carousel-row .all h2, .all i{
+  color: var(--secondary-light-color);
+  font-weight: bold;
+}
+
+.carousel-row .all{
+  /* border: 0.3rem solid var(--main-light-color); */
+  background-color: #203241;
+  border-radius: 5px;
+}
+
+.favs .btn-danger {
+  color: var(--main-dark-color);
+  background-color: var(--main-accent-color) ;
+  border-color: var(--main-accent-color) ;
+}
+
+.all .btn-danger {
+  color: var(--main-dark-color);
+  background-color: var(--secondary-light-color) ;
+  border-color: var(--secondary-light-color) ;
+}

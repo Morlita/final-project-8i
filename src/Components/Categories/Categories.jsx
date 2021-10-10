@@ -1,8 +1,9 @@
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import meatImg from './Images/meat.jpg'
 import veggieImg from './Images/veggie.jpg'
 import dessertImg from './Images/dessert.jpg'
+import "./Categories.css"
 
 function CategoriesCards() {
 
@@ -19,26 +20,23 @@ function CategoriesCards() {
         img: dessertImg,
         alt: 'dessert category'
     }]
-    
+
 
     return (
-        <div className='container'>
-            <div className="container my-3 carousel">
-                            <h2 className="slider_title">Categorías</h2>
-                <div className="row gy-3">
-                    {dishCategories.map(({ category, img, alt }, index) => (
-                        <div className="col-12 col-md-4" key={index}>
-                            <Link to={`/categories/${category}`}>
-                                <div className="card bg-dark text-white shadow border-0">
-                                    <img src={img} className="card-img" alt={alt}></img>
-                                    <div className="card-img-overlay d-flex flex-column justify-content-center">
-                                        <h4 className="card-title text-center ">{category.toUpperCase()}</h4>
-                                    </div>
+        <div className='container category carousel category-content py-5' id="categories">
+            <div className="row gy-3">
+                {dishCategories.map(({ category, img, alt }, index) => (
+                    <div className="col-12 col-md-4" key={index}>
+                        <Link to={`/categories/${category}`}>
+                            <div className="card bg-dark text-white shadow border-0">
+                                <img src={img} className="card-img" alt={alt}></img>
+                                <div className="card-img-overlay d-flex flex-column justify-content-center">
+                                    <h4 className="card-title text-center rounded lh-base">{category.toUpperCase()}</h4>
                                 </div>
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+                            </div>
+                        </Link>
+                    </div>
+                ))}
             </div>
         </div>
     )

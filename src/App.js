@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
+import NewNavbar from './Components/Navbar/NewNavbar';
 import Footer from './Components/Footer/Footer';
 import Main from './Components/Main/Main';
 import CategoriesComponent from './Components/CategoriesComponent/CategoriesComponent';
@@ -11,6 +11,7 @@ import UserProfile from './Components/UserProfile/UserProfile';
 import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
+import AdminTags from './Components/Admin/AdminTags/AdminTags';
 
 
 import {
@@ -18,13 +19,14 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import MainCarousel from './Components/MainCarousel/MainCarousel';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div>
-        <Navbar />
+      <div className='main-background'>
+        <NewNavbar/>
         <div>
           <Switch>
             <Route path='/' exact>
@@ -33,7 +35,7 @@ function App() {
             <Route path='/categories/:category' >
               <CategoriesComponent />
             </Route>
-            <Route path="/signin">
+            <Route path='/signin'>
               <Signin />
             </Route>
             <Route path='/login' >
@@ -45,10 +47,6 @@ function App() {
             <Route path="/userprofile">
               <UserProfile />
             </Route>
-            <Route path='/admin' exact>
-              <Admin />
-              <AdminRecipes />
-            </Route>
             <Route path='/admin/recipes' exact>
               <Admin />
               <AdminRecipes />
@@ -57,8 +55,13 @@ function App() {
               <Admin />
               <AdminUsers />
             </Route>
+            <Route path='/admin/tags' exact>
+              <Admin />
+              <AdminTags />
+            </Route>
           </Switch>
         </div>
+        <MainCarousel />
         <Footer />
       </div>
     </Router>
