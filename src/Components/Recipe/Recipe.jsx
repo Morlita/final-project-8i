@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
-import foodpic1 from '../CarouselSlider/CarouselImg/foodpic (1).jpg'
 import './Recipe.css'
 import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'
@@ -41,7 +40,7 @@ function Recipe() {
 
     const { category, createdAt, img, ingredients, likes, otherImgs, steps, tags, time, timeFreezer, timeFridge, title, updatedAt, _id, user} = recipe;
     console.log(recipe)
-    // USER viene el id del usuario, tengo que hacer un get de usuarios para saber el nombre...
+
 
     return (
         <div className='container recipe-component py-2 mt-4 rounded'>
