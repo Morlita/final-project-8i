@@ -6,7 +6,9 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
 
     let history = useHistory();
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState({
+        comment: ""
+    });
     const [comments, setComments] = useState([]);
     const userToken = JSON.parse(localStorage.getItem("userToken"));
     const user = JSON.parse(localStorage.getItem("registerLogIn"));
@@ -52,6 +54,11 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
             })
         })
         .then((response) => setReloadFlag(response.json()))
+        .then((data) => {
+            setData({
+                comment: ""
+            })
+        })
         }
     }
     
@@ -79,7 +86,7 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
             <div className='d-flex justify-content-center'>
                 <form action="" className=''>
                     <div className="form-floating">
-                        <textarea className="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" onChange={getData} maxLength="500"></textarea>
+                        <textarea className="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" value={data.comment} name="comment" onChange={getData} maxLength="500"></textarea>
                         <label htmlFor="floatingAddComment">Danos tu opinión!</label>
                         <div id="floatingAddComment" className="form-text">
                             Tu comentario nos interesa! Contanos qué te pareció la receta (máx. 500 caracteres).
