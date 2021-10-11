@@ -32,13 +32,6 @@ function CategoriesComponent() {
                     <MediumCard key={_id} id={_id} title={title} time={time} img={img} likes={likes} />
                 ))}
             </div>
-            <div className="row">
-                <div className="container my-3 mx-3 carousel">
-                    <h3>Otras recetas { category }</h3>
-                    <CarouselSlider carouselArr={categoryCards} />
-                </div>
-
-            </div>
         </div>
     )
 }

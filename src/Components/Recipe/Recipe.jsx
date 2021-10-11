@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
-import foodpic1 from '../CarouselSlider/CarouselImg/foodpic (1).jpg'
 import './Recipe.css'
 import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'

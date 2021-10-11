@@ -12,7 +12,7 @@ import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
-
+import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
 
 import {
   BrowserRouter as Router,
@@ -46,6 +46,9 @@ function App() {
             </Route>
             <Route path='/recipe' >
               <Recipe />
+            </Route>
+            <Route path='/displayrecipes' >
+              <DisplayRecipes />
             </Route>
             <Route path="/userprofile">
               <UserProfile />
