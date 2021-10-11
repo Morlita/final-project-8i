@@ -22,6 +22,7 @@ function AddRecipe() {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
   let newTags = []
   let allTags = []
+  let hola = "HOla"
 
   /*Set Information */
   const setRecipes = (event) => {
@@ -196,7 +197,7 @@ function AddRecipe() {
         </select>
 
         {/*Recipe's Tag */}
-        <Tags sendTags={getTags}/>
+        <Tags sendTags={getTags} id={hola}/>
         <button className="btn btn-primary w-25 mt-3 mb-5" onClick={add}>Agregar</button>
       </div>
     </div>
