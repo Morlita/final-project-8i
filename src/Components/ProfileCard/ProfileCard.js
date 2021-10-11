@@ -9,9 +9,9 @@ function ProfileCard(props){
                 <div className="col-md-8">
                 <div className="card-body">
                     <h3 className="card-title">{props.name} {props.lastName}</h3>
-                    <p className="card-text ">recetas (3)</p>
-                    <p className="card-text ">favoritos (5)</p>
-                    <p className="card-text ">comentarios (2)</p>
+                    <p className="card-text ">recetas ({props.numeroRecetas})</p>
+                    <p className="card-text ">favoritos ({props.numeroFav})</p>
+                    <p className="card-text ">notas ({props.notas})</p>
                 </div>
                 </div>
             </div>

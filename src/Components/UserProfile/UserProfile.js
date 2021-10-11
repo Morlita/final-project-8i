@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import CarouselSlider from "../CarouselSlider/CarouselSlider";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import Tags from "../Tags/Tags";
+import CardUser from "../CardUser/CardUser";
 
 function UserProfile(){
 
@@ -34,20 +35,18 @@ function UserProfile(){
 
     useEffect(()=>{
         user()
-        console.log(profile)
     },[])
 
      
-
+console.log("1")
 if(!!Object.keys(profile).length && !profile.message){
 
     return (
         
-        
         <div className='container'>
             {console.log(!!Object.keys(profile).length || !profile.message)}
             <div className="row">
-             {profile.name && profile.lastName?<ProfileCard name={profile.name} lastName={profile.lastName}/> :null}
+             {profile.name && profile.lastName?<ProfileCard name={profile.name} lastName={profile.lastName} numeroRecetas={profile.myRecipes.length} numeroFav={profile.myFavorites.length} notas={profile.notes.length}/> :null}
             </div>
             {console.log(profile)}
             <div className="row row-cols-1 row-cols-md-4">
@@ -64,7 +63,9 @@ if(!!Object.keys(profile).length && !profile.message){
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
                             <h2 className="slider_title">recetas favoritas</h2>
-                            <CarouselSlider carouselArr={profile.myFavorites}/>
+                            {profile.myFavorites.map((item,index) =>
+                            <CardUser key={index} title={item.title} category={item.category}/>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -73,18 +74,9 @@ if(!!Object.keys(profile).length && !profile.message){
     )
 }
 else{
-
-    setTimeout(() => {
-        setTiempoCumplido(true)
-    }, 3000);
-
-    return(
-        tiempoCumplido?<h1>ocurrio un error</h1>:<h1>Cargando</h1>
-    )
-   
-
+    console.log("2");
+    return(<h1>error</h1>)
 }
-    
 
 }
 
