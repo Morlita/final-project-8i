@@ -197,7 +197,7 @@ function AddRecipe() {
         </select>
 
         {/*Recipe's Tag */}
-        <Tags sendTags={getTags} id={hola}/>
+        <Tags sendTags={getTags}/>
         <button className="btn btn-primary w-25 mt-3 mb-5" onClick={add}>Agregar</button>
       </div>
     </div>

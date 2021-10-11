@@ -3,16 +3,16 @@ import {Link, useLocation} from 'react-router-dom';
 import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
-function Tags(props) {
-    console.log("PROPS", props)
+function Tags({sendTags}) {
+    console.log("PROPS", sendTags)
 
 
     const [tags, setTags] = useState([]);
     const [count, setCount] = useState(0)
     const location = useLocation();
+    let num = 0
    
-    const renderFilterButton = location.pathname === '/'
- 
+    const renderFilterButton = location.pathname === '/' 
 
     const getTagArray = async () => {
 
@@ -32,7 +32,7 @@ function Tags(props) {
         newTags[index].checked = checked;
         console.log('newTags', newTags)
         setTags(newTags);
-        prueba(newTags)
+        sendTags !== undefined ? prueba(newTags): num++
         if (checked) {
             setCount(count + 1);
 
@@ -42,7 +42,7 @@ function Tags(props) {
     }
 
     const prueba = (newTags) => {
-        props.sendTags(newTags)
+        sendTags(newTags)
     }
  
     return (
