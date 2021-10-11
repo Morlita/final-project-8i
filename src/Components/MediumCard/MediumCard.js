@@ -7,7 +7,7 @@ function MediumCard({ id, time, likes, title, img }) {
 
         <div className="card border-white" key={id}>
             <Link to={`/recipe/${id}`} className='text-decoration-none'>
-            <img src={foodpic3} className="card-img-top" alt="dish presentation" />
+            <img src={img} className="card-img-top" alt="dish presentation" />
             <div className="card-body">
                 <div className="d-flex">
                     <p className="card-text mx-2"><span><i className="mb-1 bi bi-stopwatch"></i></span>{time}</p>

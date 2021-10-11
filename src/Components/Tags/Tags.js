@@ -1,45 +1,38 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
 function Tags() {
-    
+
     const [tags, setTags] = useState([]);
-    const [count, setCount]  = useState(0)
-    let chosenTags = []
-    
+    const [count, setCount] = useState(0)
+
     const getTagArray = async () => {
-        
+
         await fetch(`https://polar-reaches-30197.herokuapp.com/tags/`)
-        .then(response => response.json())
-        .then(data => setTags(data))
-        .catch(err => { console.log(err) })
+            .then(response => response.json())
+            .then(data => setTags(data))
+            .catch(err => { console.log(err) })
     }
-    
+
     useEffect(() => {
         getTagArray();
-    }, [count])
-    
+    }, [])
+
     const handleCheckbox = (index, checked) => {
         console.log(index, checked);
         let newTags = [...tags];
         newTags[index].checked = checked;
-        
+        console.log('newTags', newTags)
         setTags(newTags);
 
-        if(checked){
-            setCount(count+1);
-            /* chosenTags.push(tags[index]);
-            console.log('chosen', chosenTags) */
-        } else {
-            setCount(count-1);
-        }
-    }
+        if (checked) {
+            setCount(count + 1);
 
-    const handleTags = () => {
-        // console.log('checked', tags[index].checked)
-        /* console.log('chosen', chosenTags)
-        console.log('filtered', tags.filter( tag => tag.checked)) */
+        } else {
+            setCount(count - 1);
+        }
     }
 
     return (
@@ -53,17 +46,24 @@ function Tags() {
                                 <i className="bi bi-funnel h4 p-1 mb-1"></i> Seleccioná hasta tres opciones:
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
                                 {tags && tags.map((item, index) => (
-                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} />
+                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} key={index} />
                                 ))}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="text-center pt-3 d-grid col-3 mx-auto">
-                    <button type="button" class="filter-button btn btn-danger rounded-pill" onClick={handleTags}>Filtrar</button>
+                <div className="text-center pt-3 d-grid col-3 mx-auto" >
+                    <Link
+                        to={{
+                            pathname: `/displayrecipes`,
+                            state: { tags: tags }
+                        }}
+                        type="button"
+                        className="filter-button btn btn-danger rounded-pill">Filtrar
+                    </Link>
                 </div>
             </div>
         </div>

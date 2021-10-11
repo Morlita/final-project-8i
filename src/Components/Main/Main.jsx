@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import Categories from '../Categories/Categories'
 import Tags from '../Tags/Tags'
 import HeroSlider from '../UploadBanner/HeroSlider'
@@ -6,8 +5,7 @@ import "./Main.css"
 
 
 function Main() {
-
-    
+  
 
     return (
         <div>
