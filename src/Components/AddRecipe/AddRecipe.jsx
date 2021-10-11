@@ -12,7 +12,7 @@ function AddRecipe() {
     img: "",
     steps: "",
     ingredients: "",
-    tags: [],
+    tags: ["Dulce"],
     user: "",
   });
 
@@ -106,7 +106,7 @@ function AddRecipe() {
           Accept: "application/json",
           "Content-type": "application/json",
           "x-access-token":
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNDE4MTFkZWVhYTQwODAzMjIyOTAxZiIsImlhdCI6MTYzMTY4OTMwMywiZXhwIjoxNjMxNzc1NzAzfQ.zYvdpjTq4wJrul5dPEKP43Hrd35JsJYjpNWhfLcj4BQ",
+            user.token,
         },
         method: "POST",
         body: JSON.stringify({
