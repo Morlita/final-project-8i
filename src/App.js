@@ -13,6 +13,10 @@ import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
 import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
+import AddRecipe from './Components/AddRecipe/AddRecipe';
+
+
+
 
 import {
   BrowserRouter as Router,
@@ -61,6 +65,12 @@ function App() {
             </Route>
             <Route path='/admin/tags' render={() => {
               return user && user.role === "admin" ? <div><Admin /><AdminTags /></div>: <Redirect to="/"/>}}>              
+            </Route>
+            <Route path='/addRecipe' >
+              <AddRecipe />
+            </Route>
+            <Route path='/addRecipe' >
+              <AddRecipe />
             </Route>
           </Switch>
         </div>
