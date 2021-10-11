@@ -32,8 +32,6 @@ function DisplayRecipes() {
 
     }
 
-
-
     useEffect(() => {
         getRecipes();
     }, [])
