@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from "react";
+import { useHistory } from "react-router-dom";
 import CarouselSlider from "../CarouselSlider/CarouselSlider";
 import ProfileCard from "../ProfileCard/ProfileCard";
 import Tags from "../Tags/Tags";
 
 function UserProfile(){
+
+    let history = useHistory();
+
+
+    const user = JSON.parse(localStorage.getItem("registerLogIn"));
+
 
     const [recipes, setRecipes] = useState([]);
     
@@ -20,7 +27,12 @@ function UserProfile(){
     }   
 
     useEffect(() => {
-        getRecipes()       
+        if (!user) {
+            history.push("/login");
+            alert("Inicie secion para visualizar esta Pagina");
+        }else{
+            getRecipes()       
+        }
     }, [])
 
     const shuffleRecipes = (array) => {

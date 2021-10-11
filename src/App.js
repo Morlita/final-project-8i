@@ -50,8 +50,8 @@ function App() {
             <Route path='/displayrecipes' >
               <DisplayRecipes />
             </Route>
-            <Route path="/userprofile">
-              <UserProfile />
+            <Route path="/userprofile" render={() => {
+              return user ? <div><UserProfile /></div>: <Redirect to="/"/>}}>
             </Route>
             <Route path='/admin/recipes' render={() => {
               return user && user.role === "admin" ? <div><Admin /><AdminRecipes /></div>: <Redirect to="/"/>}}>
