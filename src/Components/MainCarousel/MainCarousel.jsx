@@ -32,7 +32,8 @@ function MainCarousel() {
         return array;
     }
 
-    const filterByLikes = recipes.filter( recipe => recipe.likes >= 1);
+    const acceptedRecipes = recipes.filter( recipe => recipe.accepted === 'accepted')
+    const filterByLikes = acceptedRecipes.filter( recipe => recipe.likes >= 2);
 
     console.log('recetas', recipes)
     console.log('más votadas',filterByLikes)
@@ -43,7 +44,7 @@ function MainCarousel() {
                 <div className="container py-4 px-5 carousel my-4 favs">
                     <h2 className="slider_title mb-0">Tentate con las recetas más votadas</h2>
                     <h3 className="text-center mb-3"><i className="bi bi-heart"></i></h3>
-                    <CarouselSlider carouselArr={recipes} />
+                    <CarouselSlider carouselArr={filterByLikes} />
                     <div className="p-1 my-2 d-grid col-md-5 mx-auto">
                         <button type="button" className="btn btn-danger rounded-pill">Ver todas las más votadas</button>
                     </div>
@@ -53,7 +54,7 @@ function MainCarousel() {
                 <div className="container py-4 px-5 carousel my-4 all">
                     <h2 className="slider_title mb-0">Y si buscas inspiración... aquí están todas las recetas!</h2>
                     <h3 className="text-center mb-3"><i className="bi bi-journal-bookmark"></i></h3>
-                    <CarouselSlider carouselArr={recipes} />
+                    <CarouselSlider carouselArr={acceptedRecipes} />
                     <div className="p-1 my-2 d-grid col-md-5 mx-auto">
                         <button type="button" className="btn btn-danger rounded-pill">Ver todas las recetas</button>
                     </div>
