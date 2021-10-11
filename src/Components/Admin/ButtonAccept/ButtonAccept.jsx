@@ -12,11 +12,11 @@ function ButtonAccept(props) {
   
     let sendEmail = () => {
       emailjs.send('gmail', 'template_syncg38', parametrosEmail,'user_Lek0lOaB3IGtlHAtUry48')
-  .then(function(response) {
-     alert("Email enviado al autor de la receta")
-  });
-
-  }
+      .then(function(response) {
+        alert("Email enviado al autor de la receta")
+     });
+    }
+    
     fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
       method: "PATCH",
       headers: {
@@ -24,13 +24,12 @@ function ButtonAccept(props) {
         "x-access-token": userToken
       },
       body: JSON.stringify({...recipe, accepted: "accepted"}),
-    }).then((response) =>{
-      response.json()
-      })
+    }).then((response) => props.setFetchFlag(response.json()))
     .then((data) =>{
       props.setFetchFlag(data);
-      sendEmail();
     })
+
+    sendEmail();
   };
   return (
     <button

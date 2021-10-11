@@ -27,15 +27,11 @@ function ButtonReject(props) {
             "x-access-token": userToken,
           },
           body: JSON.stringify({ ...recipe, accepted: "rejected" }),
-        }).then((response) =>{
-          response.json()
-          })
-        .then((data) =>{
-          props.setFetchFlag(data);
-          sendEmail();
+        }).then((response) => props.setFetchFlag(response.json()))
+        .then((data) => {
         })
-          
-      };
+        sendEmail();
+    };
       
     return(
         <button
