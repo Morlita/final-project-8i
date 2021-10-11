@@ -25,6 +25,7 @@ import {
   Redirect
 } from "react-router-dom";
 import MainCarousel from './Components/MainCarousel/MainCarousel';
+import Page404 from './Components/Page404/Page404';
 
 function App() {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
@@ -69,8 +70,8 @@ function App() {
             <Route path='/addRecipe' >
               <AddRecipe />
             </Route>
-            <Route path='/addRecipe' >
-              <AddRecipe />
+            <Route path='*' >
+              <Page404 />
             </Route>
           </Switch>
         </div>
