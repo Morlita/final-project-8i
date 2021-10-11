@@ -14,7 +14,7 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
     const getData = (val) => {
         if(!user){
             history.push("/login");
-            alert("Inicie secion para dar Me Gusta");
+            alert("Inicie secion para dar Comentar");
         }else{
         setData(val.target.value)
         console.log(data);
