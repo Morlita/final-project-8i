@@ -69,6 +69,9 @@ function App() {
             <Route path='/addRecipe' >
               <AddRecipe />
             </Route>
+            <Route path='/addRecipe' >
+              <AddRecipe />
+            </Route>
           </Switch>
         </div>
         <MainCarousel />

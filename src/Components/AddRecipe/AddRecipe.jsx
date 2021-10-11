@@ -129,7 +129,6 @@ function AddRecipe() {
           });
           setRowSteps([defaultStateSteps]);
           setSteps([]);
-          newTags = []
         })
         .catch((err) => {
           console.log(err);
