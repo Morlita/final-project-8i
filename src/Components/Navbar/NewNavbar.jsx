@@ -1,3 +1,4 @@
+import {useState} from "react"
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Logo from './Logo/kitchen-utensils-white.png';
@@ -13,6 +14,23 @@ const NewNavbar = () => {
     window.location.reload(true);
   }
 
+  const [term, setTerm] = useState({
+    search: ""
+  })
+
+  const setTermObj = (event) => {
+    setTerm({ [event.target.name]: event.target.value });
+    console.log(term)
+  }
+
+  const search = async () => {
+  await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/search?search=${term.search}&field=tags`)
+  .then((response) => response.json())
+  .then(data => console.log("SEARCH PRUEBA", data));
+ }
+
+
+
   return (
     <nav className="navbar navbar-expand-md navbar-dark sticky-top shadow-lg new-navbar">
       <div className="container-fluid">
@@ -26,7 +44,7 @@ const NewNavbar = () => {
           <div className="d-flex flex-column-reverse flex-md-row">
             <form className="d-flex align-items-center justify-content-center">
               <div className="button-in btn rounded-pill">
-                <input className="input-border text-white" type="search" placeholder="Buscar receta..." aria-label="Search" />
+                <input className="input-border text-white" type="search" placeholder="Buscar receta..." aria-label="Search" name="search" value={term.search} onChange={setTermObj}/>
                 <button className="search-button" type="submit"><i className="bi bi-search text-white"></i></button>
               </div>
             </form>
