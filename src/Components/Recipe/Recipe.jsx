@@ -11,12 +11,9 @@ import moment from 'moment'
 
 function Recipe() {
 
-
     const [recipe, setRecipe] = useState({})
     
     const [reloadFlag, setReloadFlag] = useState(false); // investigar useMemo o useCallback
-
-    const byUser = "";
 
     const idURL = window.location.pathname.split("/").pop();        
 
@@ -27,16 +24,9 @@ function Recipe() {
             .then(data => setRecipe(data))
             .catch(err => { console.log(err) })
     }
-    /*const getUser = async () => {
-        await fetch(` http://polar-reaches-30197.herokuapp.com/user/${user}`)
-            .then(response => response.json())
-            .then(data => console.log('userdata', data))
-            .catch(err => { console.log(err) })
-    }*/
 
     useEffect(() => {
         getRecipe();
-        //getUser();
     }, [reloadFlag])
 
     const { category, createdAt, img, ingredients, likes, otherImgs, steps, tags, time, timeFreezer, timeFridge, title, updatedAt, _id, user} = recipe;
@@ -50,7 +40,7 @@ function Recipe() {
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
                         <h6 className='me-auto'>
                             <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
-                            By <span className='fst-italic'>{title}</span>
+                            By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
                         </h6>
                         <Share />
                         <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
