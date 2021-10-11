@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import './Recipe.css'
 import Share from '../Buttons/Share'
@@ -14,6 +15,8 @@ function Recipe() {
     
     const [reloadFlag, setReloadFlag] = useState(false); // investigar useMemo o useCallback
 
+    const location = useLocation();
+
     const idURL = window.location.pathname.split("/").pop();        
 
     const getRecipe = async () => {
@@ -26,7 +29,7 @@ function Recipe() {
 
     useEffect(() => {
         getRecipe();
-    }, [reloadFlag])
+    }, [reloadFlag, location])
 
     const { category, createdAt, img, ingredients, likes, otherImgs, steps, tags, time, timeFreezer, timeFridge, title, updatedAt, _id, user} = recipe;
     console.log(recipe)

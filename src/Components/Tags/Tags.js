@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
@@ -7,6 +7,10 @@ function Tags() {
 
     const [tags, setTags] = useState([]);
     const [count, setCount] = useState(0)
+    const location = useLocation();
+   
+    const renderFilterButton = location.pathname === '/'
+ 
 
     const getTagArray = async () => {
 
@@ -55,7 +59,8 @@ function Tags() {
                         </div>
                     </div>
                 </div>
-                <div className="text-center pt-3 d-grid col-3 mx-auto" >
+                { renderFilterButton ? (
+                    <div className="text-center pt-3 d-grid col-3 mx-auto" >
                     <Link
                         to={{
                             pathname: `/displayrecipes`,
@@ -65,6 +70,7 @@ function Tags() {
                         className="filter-button btn btn-danger rounded-pill">Filtrar
                     </Link>
                 </div>
+                ): null}                
             </div>
         </div>
     )
