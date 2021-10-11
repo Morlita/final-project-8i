@@ -6,6 +6,13 @@ import Avatar from './Avatar.jpg';
 const NewNavbar = () => {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
 
+  const logOut = () => {
+    localStorage.removeItem('registerLogIn');
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('logedUser');
+    window.location.reload(true);
+  }
+
   return (
     <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow-lg new-navbar">
       <div class="container-fluid">
@@ -42,11 +49,12 @@ const NewNavbar = () => {
                   <Link to='/signin' className="nav-link fw-bold">Registarme</Link>
                 </li>
               </div>: <div className="navbar-avatar nav-item dropdown"> 
-                      <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle"/><span>Hi {user.name} {user.lastName}</span></Link>
+                      <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle"/><span>Hola! {user.name} {user.lastName} </span></Link>
                         <ul className="dropdown-menu text-center" aria-labelledby="navbarScrollingDropdown">
-                          <li><Link className="dropdown-item" to='/categories/Con Carne'>Mi Perfil</Link></li>
-                          <li><Link className="dropdown-item" to='/categories/veggie'>Agregar Receta</Link></li>
+                          <li><Link className="dropdown-item" to='/userprofile'>Mi Perfil</Link></li>
+                          <li><Link className="dropdown-item" to='/'>Agregar Receta</Link></li>
                           {user.role === "admin" ? <li><Link className="dropdown-item" to='/admin/recipes'>Admin</Link></li>: false}
+                          <li><button className="dropdown-item" onClick={logOut}>Salir</button></li>
                         </ul>  
                       </div>
                 

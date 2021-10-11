@@ -41,6 +41,7 @@ function Login() {
                 localStorage.setItem("userToken", JSON.stringify(data.token))
                 alert("usuario logeado con exito")
                 history.push("/")
+                window.location.reload(true);
             }
 
         })

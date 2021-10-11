@@ -28,15 +28,15 @@ function Admin() {
   console.log(recipes);
 
   useEffect(() => {
-    /*if (!user) {
+    if (!user) {
       history.push("/login");
       alert("Inicie secion para visualizar esta Pagina");
     } else if (user.role === "user") {
       history.push("/");
       alert("No tiene los permisos necesarios para acceder a esta pagina");
-    } else {*/
+    } else {
       getRecipes();
-    //}
+    }
   }, [fetchFlag]);
 
   /*Set Index*/
