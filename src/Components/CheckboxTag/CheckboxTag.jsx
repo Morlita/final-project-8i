@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import "../Tags/Tags.css";
 
-function Tags({ data, index, count, handleCheckbox}) {
+function CheckboxTag({ data, index, count, handleCheckbox}) {
 
     const [checked, setChecked] = useState(data.checked || false);
     
@@ -28,5 +28,5 @@ function Tags({ data, index, count, handleCheckbox}) {
     )
 }
 
-export default Tags;
+export default CheckboxTag;
 

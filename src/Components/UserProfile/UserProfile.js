@@ -44,9 +44,9 @@ function UserProfile(){
                 <ProfileCard />
             </div>
             <div className="row row-cols-1 row-cols-md-4">
-                <div className="col-md-3">
+                {/* <div className="col-md-3">
                     <Tags />
-                </div>
+                </div> */}
                 <div className="col-md-9">
                     <div className="row">
                         <div className="container my-3 mx-3 carousel">
