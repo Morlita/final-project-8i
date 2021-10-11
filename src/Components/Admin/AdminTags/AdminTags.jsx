@@ -84,7 +84,7 @@ function AdminTags() {
         <label htmlFor="name" className="mx-3">
           Nuevo tag
         </label>
-        <input type="text" name="name" maxLength="15" onChange={setTagsObj} />
+        <input type="text" name="name" value={tag.name} maxLength="15" onChange={setTagsObj} />
         <button
           className="btn btn-primary w-20 mb-1 mx-3"
           onClick={add}
