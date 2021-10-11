@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Logo from './Logo/kitchen-utensils-white.png';
+import Avatar from './Avatar.jpg';
 
 const NewNavbar = () => {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
@@ -33,14 +34,21 @@ const NewNavbar = () => {
                   <li><Link className="dropdown-item" to='/categories/dulces'>Dulces</Link></li>
                 </ul>
               </li>
-              {!user ? <div>
+              {!user ? <div class="navbar-nav me-md-auto mb-2 mb-lg-0 mx-auto flex-column-reverse flex-md-row">
                 <li className="nav-item">
                   <Link to='/login' className="nav-link"><span><i className="bi bi-person-circle"></i></span>Ingresar</Link>
                 </li>
                 <li className="nav-item register-button">
                   <Link to='/signin' className="nav-link fw-bold">Registarme</Link>
                 </li>
-              </div>: <div><img src="" alt="Avatar"/><span>{user.name}</span></div>
+              </div>: <div className="navbar-avatar nav-item dropdown"> 
+                      <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle"/><span>Hi {user.name} {user.lastName}</span></Link>
+                        <ul className="dropdown-menu text-center" aria-labelledby="navbarScrollingDropdown">
+                          <li><Link className="dropdown-item" to='/categories/Con Carne'>Mi Perfil</Link></li>
+                          <li><Link className="dropdown-item" to='/categories/veggie'>Agregar Receta</Link></li>
+                          {user.role === "admin" ? <li><Link className="dropdown-item" to='/admin/recipes'>Admin</Link></li>: false}
+                        </ul>  
+                      </div>
                 
               }
               

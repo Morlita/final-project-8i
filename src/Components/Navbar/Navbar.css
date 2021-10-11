@@ -22,7 +22,7 @@
   border:0;
 }
 
-.new-navbar .recetapp-logo {
+.new-navbar .recetapp-logo, .navbar-avatar .avatar{
   max-height: 50px;
 }
 .dropdown-menu {
