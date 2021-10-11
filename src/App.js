@@ -69,6 +69,9 @@ function App() {
             <Route path="/search/:searchURL">
               <SearchBar />
             </Route>
+            <Route path="/search">
+              <SearchBar />
+            </Route>
           </Switch>
         </div>
         <MainCarousel />
