@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
 
 
 
@@ -12,7 +13,7 @@ function CheckBox({tagsArr, handleFilters}) {
         
         const newChecked = [...Checked];
        
-        if (currentIndex === -1 && newChecked.length < 3) {
+        if (currentIndex === -1 && newChecked.length <= 2) {
             newChecked.push(value)
         } else {
             newChecked.splice(currentIndex, 1)
@@ -23,6 +24,7 @@ function CheckBox({tagsArr, handleFilters}) {
         //update this checked information into Parent Component 
         console.log('Checked', Checked)
     }
+    
     return (
 
         <div>
@@ -56,7 +58,14 @@ function CheckBox({tagsArr, handleFilters}) {
                         </div>
                     </div>
                     <div className="text-center pt-3 d-grid col-3 mx-auto" >
-                        <button type="button" className="filter-button btn btn-danger rounded-pill">Filtrar</button>
+                        <Link 
+                            to={{
+                                pathname: `/displayrecipes`,
+                                state: {Checked: Checked}
+                            }}
+                            type="button" 
+                            className="filter-button btn btn-danger rounded-pill">Filtrar
+                        </Link>                                       
                     </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
@@ -6,7 +7,7 @@ function Tags() {
 
     const [tags, setTags] = useState([]);
     const [count, setCount] = useState(0)
-    
+
     const getTagArray = async () => {
 
         await fetch(`https://polar-reaches-30197.herokuapp.com/tags/`)
@@ -17,13 +18,13 @@ function Tags() {
 
     useEffect(() => {
         getTagArray();
-    }, [count])
+    }, [])
 
     const handleCheckbox = (index, checked) => {
         console.log(index, checked);
         let newTags = [...tags];
         newTags[index].checked = checked;
-
+        console.log('newTags', newTags)
         setTags(newTags);
 
         if (checked) {
@@ -55,7 +56,14 @@ function Tags() {
                     </div>
                 </div>
                 <div className="text-center pt-3 d-grid col-3 mx-auto" >
-                    <button type="button" className="filter-button btn btn-danger rounded-pill">Filtrar</button>
+                    <Link
+                        to={{
+                            pathname: `/displayrecipes`,
+                            state: { tags: tags }
+                        }}
+                        type="button"
+                        className="filter-button btn btn-danger rounded-pill">Filtrar
+                    </Link>
                 </div>
             </div>
         </div>

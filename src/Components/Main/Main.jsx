@@ -17,12 +17,12 @@ function Main() {
                 <div className="row">
                     <Categories />
                 </div>
-                {/* <div className="row pt-3 rounded tags pb-5">
-                    <Tags />
-                </div> */}
                 <div className="row pt-3 rounded tags pb-5">
-                    <NewTagsComponent />
+                    <Tags />
                 </div>
+                {/* <div className="row pt-3 rounded tags pb-5">
+                    <NewTagsComponent />
+                </div> */}
             </div>
         </div>
     )
