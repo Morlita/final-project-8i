@@ -1,6 +1,23 @@
+import emailjs from 'emailjs-com';
+
 function ButtonReject(props) {
 
+  let parametrosEmail = {
+    name: props.recipe.user.name,
+    email: props.recipe.user.email,
+    title: props.recipe.title
+  }
+
+  let sendEmail = () => {
+    emailjs.send('gmail', 'template_jrnsx2a', parametrosEmail, "user_CjWnZrzaDNFhrMVuulGpr")
+.then(function(response) {
+   alert("Email enviado al autor de la receta")
+});
+}
+
   const userToken = JSON.parse(localStorage.getItem("userToken"));
+
+ 
 
     const reject = (recipe) => {
         fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
@@ -10,10 +27,11 @@ function ButtonReject(props) {
             "x-access-token": userToken,
           },
           body: JSON.stringify({ ...recipe, accepted: "rejected" }),
-        }).then((response) => {
-          props.setFetchFlag(response.json());
-        });
-      };
+        }).then((response) => props.setFetchFlag(response.json()))
+        .then((data) => {
+        })
+        sendEmail();
+    };
       
     return(
         <button
