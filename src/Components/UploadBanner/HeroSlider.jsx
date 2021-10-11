@@ -1,12 +1,12 @@
 import React from 'react';
 import './HeroSlider.css'
 import Logo from '../Navbar/Logo/kitchen-utensils-white.png'
+
 function HeroSlider() {
     return (
         <section className="banner">
             <div className="banner-content">
                 <img src={Logo} alt="Logo" />
-                {/* <h1>Bienvenido a RecetApp</h1> */}
                 <div className='text-center p-3 mt-3'>
                     <h5>Sos experto en cocina molecular? Haces el mejor tiramisú del barrio?</h5>
                     <h5>Compartí con nosotros tus recetas!</h5>
