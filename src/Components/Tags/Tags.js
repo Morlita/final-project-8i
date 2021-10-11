@@ -3,7 +3,7 @@ import {Link, useLocation} from 'react-router-dom';
 import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
-function Tags() {
+function Tags({sendTags}) {
 
     const [tags, setTags] = useState([]);
     const [count, setCount] = useState(0)
@@ -30,7 +30,7 @@ function Tags() {
         newTags[index].checked = checked;
         console.log('newTags', newTags)
         setTags(newTags);
-
+        sendTags(newTags)
         if (checked) {
             setCount(count + 1);
 
