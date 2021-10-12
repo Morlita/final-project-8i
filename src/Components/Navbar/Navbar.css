@@ -49,5 +49,6 @@
 }
 
 .navbar-avatar .avatar {
-  max-height: 40px;
+  max-width: 1.5rem;
+  border: 2px solid var(--main-accent-color);
 }

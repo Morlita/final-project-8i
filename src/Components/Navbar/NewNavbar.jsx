@@ -49,7 +49,7 @@ const NewNavbar = () => {
                   <Link to='/signin' className="nav-link fw-bold">Registarme</Link>
                 </li>
               </div>: <div className="navbar-avatar nav-item dropdown"> 
-                      <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle"/><span>Hola! {user.name} {user.lastName} </span></Link>
+                      <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle m-1"/><span>Hola! {user.name} {user.lastName} </span></Link>
                         <ul className="dropdown-menu text-center" aria-labelledby="navbarScrollingDropdown">
                           <li><Link className="dropdown-item" to='/userprofile'>Mi Perfil</Link></li>
                           <li><Link className="dropdown-item" to='/'>Agregar Receta</Link></li>
