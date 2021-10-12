@@ -49,8 +49,8 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
     }
 
     const addNote = async () => {
-        if(note === "" || note === null || note === " "){
-            alert("Realice un comentario antes")
+        if(note.notes === "" || note.notes === null || note.notes === " "){
+            alert("Escriba una nota primero")
         }else {
             await fetch( "https://polar-reaches-30197.herokuapp.com/notes", {
             method: 'POST',
@@ -67,7 +67,6 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
         })
         .then((response) => setReloadFlag(response.json()))
         .then(data => {
-            alert("Nota Agregada")
             setNote({
                 notes: ""
             })
@@ -97,7 +96,7 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
         <div>
             {result ? 
             <div>
-                <textarea name="notes" value={note.notes} cols="30" rows="10" onChange={setNoteObj} maxLength="500" placeholder="Tu Nota"></textarea>
+                <textarea name="notes" value={note.notes} cols="30" rows="10" onChange={setNoteObj} maxLength="150" placeholder="Tu Nota"></textarea>
                 <button type="button" class="btn btn-primary" onClick={addNote}>Agregar</button>
             </div> : false}
             {notesFilter && notesFilter.map((item, index) => (
