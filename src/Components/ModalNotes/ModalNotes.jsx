@@ -1,15 +1,27 @@
-function ModalNotes({index, note, setNote, setNoteObj}) {
+function ModalNotes({index, note, setNote, setNoteObj, notesFilter, setReloadFlag, recipeId}) {
+
+    const tokenUser = JSON.parse(localStorage.getItem("userToken"));
+
+    const user = JSON.parse(localStorage.getItem("registerLogIn"));
+
 
     const edit = () => {    
-        fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
+        fetch(`https://polar-reaches-30197.herokuapp.com/notes//${notesFilter[index]._id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
-                "x-access-token": userToken
+                "x-access-token": tokenUser
             },
-            body: JSON.stringify({...recipe, accepted: "accepted"}),
+            body: JSON.stringify({
+                content: note,
+                recipe: recipeId,
+                user: user._id
+            }),
         }).then((response) => {
-            props.setFetchFlag(response.json());
+            setReloadFlag(response.json());
+            setNote({
+                notes: ""
+            })
         });
     }
 
@@ -22,7 +34,7 @@ function ModalNotes({index, note, setNote, setNoteObj}) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="text" name="name" value={note.name} onChange={setNoteObj}/>
+                    <input type="text" name="notes" value={note.notes} onChange={setNoteObj}/>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

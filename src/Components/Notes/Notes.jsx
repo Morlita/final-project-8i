@@ -117,7 +117,7 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
                     </p>
                 </div>
             ))}
-            <ModalNotes index={reference} note={note} setNote={setNote} setNoteObj={setNoteObj}/>
+            <ModalNotes index={reference} note={note} setNote={setNote} setNoteObj={setNoteObj} notesFilter={notesFilter} setReloadFlag={setReloadFlag} recipeId={recipeId}/>
         </div>
     )
 }
