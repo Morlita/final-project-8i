@@ -32,7 +32,7 @@ const NewNavbar = () => {
             </form>
             <ul class="navbar-nav me-md-auto mb-2 mb-lg-0 mx-auto flex-column-reverse flex-md-row">
               <li className="nav-item dropdown align-self-center">
-                <Link className="nav-link dropdown-toggle" to="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <Link className="nav-link dropdown-toggle text-center" to="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categorías
                 </Link>
                 <ul className="dropdown-menu text-center" aria-labelledby="navbarScrollingDropdown">
