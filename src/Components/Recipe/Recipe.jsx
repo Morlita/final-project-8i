@@ -6,6 +6,7 @@ import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'
 import AddToFav from '../Buttons/AddToFav'
 import AddComment from '../AddComment/AddComment'
+import Notes from "../Notes/Notes"
 import moment from 'moment'
 
 
@@ -84,6 +85,7 @@ function Recipe() {
             <hr />
             <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
             <hr />
+            <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
             <div className="container">
                 <h3 className='p-2'>También te puede interesar...</h3>
                 <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} />
