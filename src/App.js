@@ -12,16 +12,25 @@ import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
+import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
+import AddRecipe from './Components/AddRecipe/AddRecipe';
+
+
 
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import MainCarousel from './Components/MainCarousel/MainCarousel';
+import Page404 from './Components/Page404/Page404';
+import DisplayAllAcceptedRecipes from './Components/DisplayAllAcceptedRecipes/DisplayAllAcceptedRecipes';
 
 function App() {
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
+
   return (
     <Router>
       <ScrollToTop />
@@ -44,20 +53,29 @@ function App() {
             <Route path='/recipe' >
               <Recipe />
             </Route>
-            <Route path="/userprofile">
-              <UserProfile />
+            <Route path='/displayrecipes' >
+              <DisplayRecipes />
             </Route>
-            <Route path='/admin/recipes' exact>
-              <Admin />
-              <AdminRecipes />
+            <Route path='/displayall' >
+              <DisplayAllAcceptedRecipes />
             </Route>
-            <Route path='/admin/users' exact>
-              <Admin />
-              <AdminUsers />
+            <Route path="/userprofile" render={() => {
+              return user ? <div><UserProfile /></div>: <Redirect to="/"/>}}>
             </Route>
-            <Route path='/admin/tags' exact>
-              <Admin />
-              <AdminTags />
+            <Route path='/admin/recipes' render={() => {
+              return user && user.role === "admin" ? <div><Admin /><AdminRecipes /></div>: <Redirect to="/"/>}}>
+            </Route>
+            <Route path='/admin/users' render={() => {
+              return user && user.role === "admin" ? <div><Admin /><AdminUsers /></div>: <Redirect to="/"/>}}>              
+            </Route>
+            <Route path='/admin/tags' render={() => {
+              return user && user.role === "admin" ? <div><Admin /><AdminTags /></div>: <Redirect to="/"/>}}>              
+            </Route>
+            <Route path='/addRecipe' >
+              <AddRecipe />
+            </Route>
+            <Route path='*' >
+              <Page404 />
             </Route>
           </Switch>
         </div>

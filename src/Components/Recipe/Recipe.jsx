@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
-import foodpic1 from '../CarouselSlider/CarouselImg/foodpic (1).jpg'
 import './Recipe.css'
 import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'
 import AddToFav from '../Buttons/AddToFav'
 import AddComment from '../AddComment/AddComment'
+import Notes from "../Notes/Notes"
 import moment from 'moment'
 
 
 function Recipe() {
 
-
     const [recipe, setRecipe] = useState({})
     
     const [reloadFlag, setReloadFlag] = useState(false); // investigar useMemo o useCallback
 
-    const byUser = "";
+    const location = useLocation();
 
     const idURL = window.location.pathname.split("/").pop();        
 
@@ -27,17 +27,10 @@ function Recipe() {
             .then(data => setRecipe(data))
             .catch(err => { console.log(err) })
     }
-    /*const getUser = async () => {
-        await fetch(` http://polar-reaches-30197.herokuapp.com/user/${user}`)
-            .then(response => response.json())
-            .then(data => console.log('userdata', data))
-            .catch(err => { console.log(err) })
-    }*/
 
     useEffect(() => {
         getRecipe();
-        //getUser();
-    }, [reloadFlag])
+    }, [reloadFlag, location])
 
     const { category, createdAt, img, ingredients, likes, otherImgs, steps, tags, time, timeFreezer, timeFridge, title, updatedAt, _id, user} = recipe;
     console.log(recipe)
@@ -50,7 +43,7 @@ function Recipe() {
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
                         <h6 className='me-auto'>
                             <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
-                            By <span className='fst-italic'>{title}</span>
+                            By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
                         </h6>
                         <Share />
                         <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
@@ -90,8 +83,9 @@ function Recipe() {
                 <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY')}</span> </h6>
             </article>
             <hr />
-            <AddComment />
+            <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
             <hr />
+            <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
             <div className="container">
                 <h3 className='p-2'>También te puede interesar...</h3>
                 <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} />

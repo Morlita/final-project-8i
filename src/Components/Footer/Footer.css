@@ -9,13 +9,8 @@
 }
 
 footer {
-<<<<<<< HEAD
-    height: 12vh;
-    background-color: var(--main-light-color);
-=======
     height: 40vh;
     background-color: var(--main-dark-color);
->>>>>>> decc356 (started footer)
 }
 .social-footer i{
   color: var(--main-accent-color);

@@ -20,12 +20,9 @@ function Admin() {
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((err) => {
-        console.log(err);
         alert("Algo salio mal");
       });
   };
-
-  console.log(recipes);
 
   useEffect(() => {
     if (!user) {
@@ -39,11 +36,11 @@ function Admin() {
     }
   }, [fetchFlag]);
 
-  /*Set Index*/
+  /*Set Recipe*/
 
-  const setIndex = (index) => {
-    reference = recipes[index];
-    setReference(reference);
+  const setRecipe = (id) => {
+    const newReference = recipes.find(recipe => recipe._id === id);
+    setReference(newReference);
   };
 
   /*Filter Recipes*/
@@ -93,7 +90,7 @@ function Admin() {
                 index={index}
                 setFetchFlag={setFetchFlag}
                 remove={remove}
-                setIndex={setIndex}
+                setRecipe={setRecipe}
               />
             ))}
           <h5>Recetas Aceptadas</h5>
@@ -105,7 +102,7 @@ function Admin() {
                 index={index}
                 setFetchFlag={setFetchFlag}
                 remove={remove}
-                setIndex={setIndex}
+                setRecipe={setRecipe}
               />
             ))}
           <h5>Recetas Rechazadas</h5>
@@ -117,7 +114,7 @@ function Admin() {
                 index={index}
                 setFetchFlag={setFetchFlag}
                 remove={remove}
-                setIndex={setIndex}
+                setRecipe={setRecipe}
               />
             ))}
         </tbody>

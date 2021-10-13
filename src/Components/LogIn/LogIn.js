@@ -31,15 +31,16 @@ function Login() {
             body: data
         }).then(response => response.json()
         ).then(data => {
-            console.log(data);
             if (!data.token) {
                 alert("email o contraseña incorrectos");
             }
             else {
                 localStorage.setItem("logedUser", JSON.stringify(usuario.email))
                 localStorage.setItem("registerLogIn", JSON.stringify(data))
+                localStorage.setItem("userToken", JSON.stringify(data.token))
                 alert("usuario logeado con exito")
                 history.push("/")
+                window.location.reload(true);
             }
 
         })

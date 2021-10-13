@@ -1,6 +1,6 @@
 import moment from "moment";
 
-function Modal(recipe) {
+function Modal({recipe}) {
   return (
     <div
       className="modal fade"
@@ -13,7 +13,7 @@ function Modal(recipe) {
         <div className="modal-content">
           <div className="modal-header">
             <h3 className="modal-title text-capitalize" id="exampleModalLabel">
-              {recipe.recipe.title}
+              {recipe.title}
             </h3>
             <button
               type="button"
@@ -27,13 +27,13 @@ function Modal(recipe) {
               <div>
                 <h5 className="d-inline fw-bold">
                   Creador:{" "}
-                  <p className="d-inline fw-normal">INSERTAR USUARIO</p>
+                  <p className="d-inline fw-normal">{recipe.user && recipe.user.name} {recipe.user && recipe.user.lastName}</p>
                 </h5>
               </div>
               <h5 className="fw-bold">Procedimiento:</h5>
               <ol>
-                {recipe.recipe.steps &&
-                  recipe.recipe.steps.map((item, index) => (
+                {recipe.steps &&
+                  recipe.steps.map((item, index) => (
                     <li key={index} className="text-capitalize">
                       {item}
                     </li>
@@ -43,8 +43,8 @@ function Modal(recipe) {
             <div>
               <h5 className="fw-bold">Ingredientes:</h5>
               <ul>
-                {recipe.recipe.ingredients &&
-                  recipe.recipe.ingredients.map((item, index) => (
+                {recipe.ingredients &&
+                  recipe.ingredients.map((item, index) => (
                       <li key={index}>{item.ingredient} <span className='float-end'>{item.quantity} {item.unit}.</span> </li>
                   ))}
               </ul>
@@ -52,40 +52,40 @@ function Modal(recipe) {
             <div>
               <h5 className="d-inline fw-bold">
                 Categoria:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.category}</p>
+                <p className="d-inline fw-normal">{recipe.category}</p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Tiempo de Preparacion:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.time}</p>
+                <p className="d-inline fw-normal">{recipe.time}</p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Tiempo en el Freezer:{" "}
                 <p className="d-inline fw-normal">
-                  {recipe.recipe.timeFreezer}
+                  {recipe.timeFreezer}
                 </p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Tiempo de Heladera:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.timeFridge}</p>
+                <p className="d-inline fw-normal">{recipe.timeFridge}</p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Tiempo de Heladera:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.timeFridge}</p>
+                <p className="d-inline fw-normal">{recipe.timeFridge}</p>
               </h5>
             </div>
             <div>
               <h5 className="fw-bold">Tags:</h5>
               <ul>
-                {recipe.recipe.tags &&
-                  recipe.recipe.tags.map((item, index) => (
+                {recipe.tags &&
+                  recipe.tags.map((item, index) => (
                     <li key={index} className="text-capitalize">
                       {item.name}
                     </li>
@@ -95,19 +95,19 @@ function Modal(recipe) {
             <div>
               <h5 className="d-inline fw-bold">
                 Likes:{" "}
-                <p className="d-inline fw-normal">{recipe.recipe.likes}</p>
+                <p className="d-inline fw-normal">{recipe.likes}</p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Creado:{" "}
-                <p className="d-inline fw-normal">{moment(recipe.recipe.createdAt).format("DD/MM/YYYY, HH:MM")}</p>
+                <p className="d-inline fw-normal">{moment(recipe.createdAt).format("DD/MM/YYYY, HH:MM")}</p>
               </h5>
             </div>
             <div>
               <h5 className="d-inline fw-bold">
                 Ultima Actualizacion:{" "}
-                <p className="d-inline fw-normal">{moment(recipe.recipe.updateAt).format("DD/MM/YYYY, HH:MM")}</p>
+                <p className="d-inline fw-normal">{moment(recipe.updateAt).format("DD/MM/YYYY, HH:MM")}</p>
               </h5>
             </div>
           </div>

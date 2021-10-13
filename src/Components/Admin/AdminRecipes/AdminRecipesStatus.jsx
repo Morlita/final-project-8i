@@ -1,7 +1,7 @@
 import ButtonAccept from "../ButtonAccept/ButtonAccept";
 import ButtonReject from "../ButtonReject/ButtonReject";
 
-function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setIndex }) {
+function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setRecipe }) {
   return (
     <tr key={index}>
       <td className="col-3">{recipe.title}</td>
@@ -30,14 +30,14 @@ function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setIndex }) {
           className="btn btn-primary w-20 me-3 mb-1"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
-          onClick={() => setIndex(index)}
+          onClick={() => setRecipe(recipe._id)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-chevron-bar-expand"
+            className="bi bi-chevron-bar-expand"
             viewBox="0 0 16 16"
           >
             <path

@@ -1,17 +1,35 @@
+import emailjs from 'emailjs-com';
 function ButtonAccept(props) {
   const userToken = JSON.parse(localStorage.getItem("userToken"));
 
   const accept = (recipe) => {
+
+    let parametrosEmail = {
+      name: props.recipe.user.name,
+      email: props.recipe.user.email,
+      title: props.recipe.title
+    }
+  
+    let sendEmail = () => {
+      emailjs.send('gmail', 'template_syncg38', parametrosEmail,'user_Lek0lOaB3IGtlHAtUry48')
+      .then(function(response) {
+        alert("Email enviado al autor de la receta")
+     });
+    }
+    
     fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipe._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "x-access-token": userToken
       },
-      body: JSON.stringify({ ...recipe, accepted: "accepted" }),
-    }).then((response) => {
-      props.setFetchFlag(response.json());
-    });
+      body: JSON.stringify({...recipe, accepted: "accepted"}),
+    }).then((response) => props.setFetchFlag(response.json()))
+    .then((data) =>{
+      props.setFetchFlag(data);
+    })
+
+    sendEmail();
   };
   return (
     <button

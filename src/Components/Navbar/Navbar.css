@@ -22,7 +22,7 @@
   border:0;
 }
 
-.new-navbar .recetapp-logo {
+.new-navbar .recetapp-logo{
   max-height: 50px;
 }
 .dropdown-menu {
@@ -46,4 +46,9 @@
 }
 .navbar .register-button a{
   color: var(--main-accent-color) !important;
+}
+
+.navbar-avatar .avatar {
+  max-width: 1.5rem;
+  border: 2px solid var(--main-accent-color);
 }

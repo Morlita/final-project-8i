@@ -1,47 +1,47 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import {Link, useLocation} from 'react-router-dom';
 import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
-function Tags() {
-    
+function Tags({sendTags}) {
+
+
     const [tags, setTags] = useState([]);
-    const [count, setCount]  = useState(0)
-    let chosenTags = []
-    
+    const [count, setCount] = useState(0)
+    const location = useLocation();
+    let num = 0
+   
+    const renderFilterButton = location.pathname === '/' 
+
     const getTagArray = async () => {
-        
+
         await fetch(`https://polar-reaches-30197.herokuapp.com/tags/`)
-        .then(response => response.json())
-        .then(data => setTags(data))
-        .catch(err => { console.log(err) })
+            .then(response => response.json())
+            .then(data => setTags(data))
+            .catch(err => { console.log(err) })
     }
-    
+
     useEffect(() => {
         getTagArray();
-    }, [count])
-    
+    }, [])
+
     const handleCheckbox = (index, checked) => {
-        console.log(index, checked);
         let newTags = [...tags];
         newTags[index].checked = checked;
-        
         setTags(newTags);
+        sendTags !== undefined ? prueba(newTags): num++
+        if (checked) {
+            setCount(count + 1);
 
-        if(checked){
-            setCount(count+1);
-            /* chosenTags.push(tags[index]);
-            console.log('chosen', chosenTags) */
         } else {
-            setCount(count-1);
+            setCount(count - 1);
         }
     }
 
-    const handleTags = () => {
-        // console.log('checked', tags[index].checked)
-        /* console.log('chosen', chosenTags)
-        console.log('filtered', tags.filter( tag => tag.checked)) */
+    const prueba = (newTags) => {
+        sendTags(newTags)
     }
-
+ 
     return (
         <div className="d-flex justify-content-sm-center justify-content-md-start text-uppercase tag-acordeon w-75 rounded">
             <div className="container pb-3">
@@ -53,18 +53,27 @@ function Tags() {
                                 <i className="bi bi-funnel h4 p-1 mb-1"></i> Seleccioná hasta tres opciones:
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
+                        <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div className="accordion-body d-flex justify-content-evenly flex-wrap ">
                                 {tags && tags.map((item, index) => (
-                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} />
+                                    <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} key={index} />
                                 ))}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="text-center pt-3 d-grid col-3 mx-auto">
-                    <button type="button" class="filter-button btn btn-danger rounded-pill" onClick={handleTags}>Filtrar</button>
+                { renderFilterButton ? (
+                    <div className="text-center pt-3 d-grid col-3 mx-auto" >
+                    <Link
+                        to={{
+                            pathname: `/displayrecipes`,
+                            state: { tags: tags }
+                        }}
+                        type="button"
+                        className="filter-button btn btn-danger rounded-pill">Filtrar
+                    </Link>
                 </div>
+                ): null}                
             </div>
         </div>
     )
