@@ -38,7 +38,7 @@ function MainCarousel() {
 
     return (
         <div className='container'>
-            <div className="row carousel-row">
+            <div className="row carousel-row px-2">
                 <div className="container py-4 px-5 carousel my-4 favs">
                     <h2 className="slider_title mb-0">Tentate con las recetas más votadas</h2>
                     <h3 className="text-center mb-3"><i className="bi bi-heart"></i></h3>
@@ -48,7 +48,7 @@ function MainCarousel() {
                     </div>
                 </div>
             </div>
-            <div className="row carousel-row">
+            <div className="row carousel-row px-2">
                 <div className="container py-4 px-5 carousel my-4 all">
                     <h2 className="slider_title mb-0">Y si buscas inspiración... aquí están todas las recetas!</h2>
                     <h3 className="text-center mb-3"><i className="bi bi-journal-bookmark"></i></h3>

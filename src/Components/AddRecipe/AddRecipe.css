@@ -1,0 +1,21 @@
+:root {
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252f;
+    --secondary-light-color: #f5f5f9;
+  }
+
+.add-recipe{
+    background-color: rgba(43, 67, 86, .8);
+}
+.add-recipe input {
+    padding: 0.3rem;
+}
+.btn-form-recipe button{
+    background-color: var(--main-dark-color) !important;
+    border-color: var(--main-dark-color) !important;
+    color: white !important;
+}
