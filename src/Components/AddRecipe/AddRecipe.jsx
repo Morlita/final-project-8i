@@ -112,7 +112,7 @@ function AddRecipe() {
       })
         .then((response) => response.json())
         .then((data) => {
-          alert("Receta Agregada =)");
+          alert("Su receta fue subida con exito y esta pendiente de aceptacion");
           setRecipe({
             title: "",
             time: "",
