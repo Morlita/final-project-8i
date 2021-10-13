@@ -14,7 +14,7 @@ function Main() {
                 <div className="row">
                     <Categories />
                 </div>
-                <div className="row pt-3 rounded tags pb-5">
+                <div className="row rounded tags pb-3">
                     <Tags />
                 </div>
             </div>

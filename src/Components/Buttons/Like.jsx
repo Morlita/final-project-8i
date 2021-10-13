@@ -19,7 +19,6 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
 
             const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipeId}`)
             const data = await resp.json();
-            debugger
             const usersLikes = await data.usersLikes.find(like => like._id === user._id);
             if(usersLikes){
                 setHasLiked(true)

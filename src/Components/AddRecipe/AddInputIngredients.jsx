@@ -15,7 +15,7 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
 
   return (
     <div className="d-flex flex-column form-contact w-100 w-md-50">
-      <label htmlFor="">Ingrediente </label>
+      <label htmlFor="">Ingredientes </label>
       <div className="d-flex">
         <input
           type="text"
@@ -25,6 +25,7 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           value={ingredient.ingredient}
           onChange={ingredientValue}
           maxLength="100"
+          placeholder="Ej: Harina"
         ></input>
         <input
           type="number"
