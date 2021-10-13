@@ -41,13 +41,17 @@ function Recipe() {
             <article className='container'>
                 <div className="row p-2">
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
-                        <h6 className='me-auto'>
-                            <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
-                            By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
-                        </h6>
-                        <Share />
-                        <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
-                        <AddToFav recipeId={idURL}/>
+                        <div>
+                            <h6 className='me-auto'>
+                                <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
+                                By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
+                            </h6>
+                        </div>
+                        <div className='d-flex'>
+                            <Share />
+                            <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
+                            <AddToFav recipeId={idURL}/>
+                        </div>
                     </div>
                 </div>
                 <div className="row py-3 grid">
@@ -76,20 +80,16 @@ function Recipe() {
                     </div>
                 </div>
             </article>
-            <hr />
-            <article className='container'>
+            
+            <article className='container border border-secondary mb-2 p-1 text-center rounded'>
                 <h6> <span></span>Conservación en freezer: <span>{timeFreezer}</span></h6>
                 <h6> <span></span>Conservación en heladera: <span>{timeFridge}</span> </h6>
                 <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY')}</span> </h6>
             </article>
-            <hr />
+         
             <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
             <hr />
             <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
-            <div className="container">
-                <h3 className='p-2'>También te puede interesar...</h3>
-                <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} />
-            </div>
         </div>
     )
 }

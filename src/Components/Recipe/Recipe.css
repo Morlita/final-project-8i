@@ -12,7 +12,7 @@
 }
 
 .recipe-component{
-    background: var(--secondary-light-color);
+    background: rgba(245,245,249, 0.7);
 }
 .recipe-component .vl {
     border-right: 1px solid black;

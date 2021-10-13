@@ -150,8 +150,8 @@ function AddRecipe() {
 
 
   return (
-    <div className="container my-4 add-recipe text-white rounded">
-      <h1 className='text-center p-2'>Subí tu receta</h1>
+    <div className="container my-4 add-recipe text-white rounded p-4">
+      <h1 className='text-center p-2 rounded'>Subí tu receta</h1>
       <div className="d-flex flex-column form-contact">
         {/* Recipe´s Name */}
         <label htmlFor="title" className="mb-1">Nombre</label>
@@ -161,25 +161,28 @@ function AddRecipe() {
         {rowIngredients.map((row, index) => (
           <AddInputIngredients remove={() => handleRemoveIngredients(index)} index={index} key={index} value={ingredients[index]} updateIngredients={updateIngredients} />
         ))}
-
-        <button className="btn mt-3 mb-5 w-100 w-md-50 btn-form-recipe" onClick={handleOnAddIngredients}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
-            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
-          </svg> <span className="p-2">Agregar ingrediente</span>
-        </button>
+        <div class="d-grid gap-2 col-8 mx-auto col-md-5">
+          <button className="btn btn-form-recipe my-3 btn-outline-light rounded-pill" onClick={handleOnAddIngredients}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+            </svg> <span className="p-2">Agregar ingrediente</span>
+          </button>
+        </div>
 
         {/* Recipe's Steps */}
         {rowSteps.map((row, index) => (
           <AddInputSteps remove={() => handleRemoveSteps(index)} index={index} key={index} value={steps[index]} updateSteps={updateSteps} />
         ))}
+        
+        <div class="d-grid gap-2 col-8 mx-auto col-md-5">
+          <button className="btn btn-form-recipe my-3 btn-outline-light rounded-pill" onClick={handleOnAddSteps}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
+            </svg><span className="p-2">Agregar Paso</span>
+          </button>          
+        </div>
 
-        <button className="btn mt-3 mb-5 w-100 w-md-50 btn-form-recipe" onClick={handleOnAddSteps}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-plus-lg" viewBox="0 0 16 16">
-            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
-          </svg><span className="p-2">Agregar Paso</span>
-        </button>
-        <div className="container d-flex flex-column w-75">
-
+        <div className="container d-flex flex-column w-75 p-2 mt-5 text-center">
           {/* Recipe´s Preparation Time */}
           <label htmlFor="time" className="mb-1"> Tiempo estimado de preparación</label>
           <input type="text" maxLength="15" name="time" className="mb-3" value={recipe.time} onChange={setRecipes} placeholder="Ej: 1 hora y 30 minutos" />
@@ -209,9 +212,9 @@ function AddRecipe() {
 
         {/*Recipe's Tag */}
         <Tags sendTags={getTags} />
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <button className="btn-form-recipe btn" onClick={add}>Agregar</button>
-        </div>        
+        <div class="d-grid gap-2 col-8 mx-auto col-md-5">
+          <button className="btn btn-form-recipe my-3 btn-danger rounded-pill" onClick={add}>Agregar</button>
+        </div>
       </div>
     </div>
   );
