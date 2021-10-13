@@ -1,9 +1,23 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import AddInputSteps from "./AddInputSteps";
 import AddInputIngredients from "./AddInputIngredients";
 import Tags from "../Tags/Tags";
 
 function AddRecipe() {
+
+  const user = JSON.parse(localStorage.getItem("registerLogIn"));
+
+  let history = useHistory();
+
+  if(!user){
+    history.push("/login");
+    setTimeout(() => {
+      alert("Inicie secion para subir una receta");
+    }, 1000);
+  }
+
+
   const [recipe, setRecipe] = useState({
     title: "",
     time: "",
@@ -19,10 +33,8 @@ function AddRecipe() {
 
   const [steps, setSteps] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const user = JSON.parse(localStorage.getItem("registerLogIn"));
   let newTags = []
   let allTags = []
-  let hola = "HOla"
 
   /*Set Information */
   const setRecipes = (event) => {
@@ -188,7 +200,7 @@ function AddRecipe() {
         <label htmlFor="category">Categoria</label>
         <select className="mb-5 w-100 w-md-50" name="category" value={recipe.category} onChange={setRecipes}>
           <option value="Con carne">Con carne</option>
-          <option value="Veggie">Veggie</option>
+          <option value="Veggies">Veggie</option>
           <option value="Dulces">Dulces</option>
         </select>
 
