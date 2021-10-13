@@ -49,7 +49,7 @@ function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setRecipe }) 
 
         <button
           className="btn btn-danger w-20 mb-1"
-          onClick={() => remove(index)}
+          onClick={() => remove(recipe._id)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
