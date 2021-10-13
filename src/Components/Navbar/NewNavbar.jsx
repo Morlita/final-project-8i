@@ -46,7 +46,7 @@ const NewNavbar = () => {
                   <Link to='/login' className="nav-link"><span><i className="bi bi-person-circle"></i></span>Ingresar</Link>
                 </li>
                 <li className="nav-item register-button">
-                  <Link to='/signin' className="nav-link fw-bold">Registarme</Link>
+                  <Link to='/signin' className="nav-link fw-bold">Registrarme</Link>
                 </li>
               </div>: <div className="navbar-avatar nav-item dropdown"> 
                       <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle m-1"/><span>Hola! {user.name} {user.lastName} </span></Link>
