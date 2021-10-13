@@ -12,7 +12,8 @@
 }
 
 .signin-component {
-    background-color: var(--main-light-color);
+    background-color: rgba(245,245,249, 0.7);
+    color: var(--main-dark-color);
 }
 
 .register-button .btn-danger{
@@ -24,4 +25,9 @@
 .or-sign-in .btn-outline-danger {
     color: var(--main-accent-color);
     border-color: var(--main-accent-color);
+}
+
+.signin-component h1{
+    color: var(--secondary-light-color);
+    background-color: var(--main-dark-color);
 }
