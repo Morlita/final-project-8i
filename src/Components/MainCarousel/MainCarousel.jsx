@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import CarouselSlider from '../CarouselSlider/CarouselSlider'
 
 function MainCarousel() {
@@ -32,9 +33,8 @@ function MainCarousel() {
         return array;
     }
 
-    const acceptedRecipes = recipes.filter( recipe => recipe.accepted === 'accepted')
-    const filterByLikes = acceptedRecipes.filter( recipe => recipe.likes >= 2);
-
+    const acceptedRecipes = recipes.filter(recipe => recipe.accepted === 'accepted')
+    const filterByLikes = acceptedRecipes.filter(recipe => recipe.likes >= 2);
 
     return (
         <div className='container'>
@@ -54,12 +54,12 @@ function MainCarousel() {
                     <h3 className="text-center mb-3"><i className="bi bi-journal-bookmark"></i></h3>
                     <CarouselSlider carouselArr={acceptedRecipes} />
                     <div className="p-1 my-2 d-grid col-md-5 mx-auto">
-                        <button type="button" className="btn btn-danger rounded-pill">Ver todas las recetas</button>
+                        <Link to='/displayall' className='btn btn-danger rounded-pill' type='button'>Ver todas las recetas</Link>
                     </div>
                 </div>
             </div>
         </div>
     )
-    }
+}
 
-    export default MainCarousel
+export default MainCarousel

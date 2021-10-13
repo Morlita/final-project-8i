@@ -52,7 +52,7 @@ const NewNavbar = () => {
                       <Link className="nav-link dropdown-toggle" to="#" id="userDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src={Avatar} alt="Avatar" className="avatar rounded-circle m-1"/><span>Hola! {user.name} {user.lastName} </span></Link>
                         <ul className="dropdown-menu text-center" aria-labelledby="navbarScrollingDropdown">
                           <li><Link className="dropdown-item" to='/userprofile'>Mi Perfil</Link></li>
-                          <li><Link className="dropdown-item" to='/'>Agregar Receta</Link></li>
+                          <li><Link className="dropdown-item" to='/addRecipe'>Agregar Receta</Link></li>
                           {user.role === "admin" ? <li><Link className="dropdown-item" to='/admin/recipes'>Admin</Link></li>: false}
                           <li><button className="dropdown-item" onClick={logOut}>Salir</button></li>
                         </ul>  
