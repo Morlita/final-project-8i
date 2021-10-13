@@ -1,8 +1,14 @@
 import React, {useState, useEffect} from 'react'
+import { useHistory } from "react-router-dom";
+
 
 function Like({recipeId, reloadFlag, setReloadFlag}) {
 
-    const idLoli= '614669e60fab352db951c448';
+    let history = useHistory();
+
+
+    const user = JSON.parse(localStorage.getItem("registerLogIn"));
+    const tokenUser = JSON.parse(localStorage.getItem("userToken"));
     const URL = process.env.REACT_APP_DB_URL + 'user/like';
     
     const [hasLiked, setHasLiked] = useState(false)
@@ -13,7 +19,8 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
 
             const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipeId}`)
             const data = await resp.json();
-            const usersLikes = await data.usersLikes.find(id => id === idLoli);
+            debugger
+            const usersLikes = await data.usersLikes.find(like => like._id === user._id);
             if(usersLikes){
                 setHasLiked(true)
             }
@@ -31,30 +38,35 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
     }, [reloadFlag])   
 
     const handleLike = async ()=> {
-        await fetch( URL, {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'x-access-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzIwMDQ5MzYsImV4cCI6MTYzMjA5MTMzNn0.2jb_fc6bNt9XEG5LTjr_oep0eXQyzlyEEXgqm0HWfxU'
-            },
-            body: JSON.stringify({
-                recipeId: recipeId,
-                userId: idLoli
-            })
-        });
-
-        setHasLiked(!hasLiked)
-
-        if(setReloadFlag){
-            setReloadFlag(!reloadFlag)
+        if(!user){
+            history.push("/login");
+            alert("Inicie secion para dar Me Gusta");
+        }else{
+            await fetch( URL, {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json',
+                  'x-access-token' : tokenUser
+                },
+                body: JSON.stringify({
+                    recipeId: recipeId,
+                    userId: user._id
+                })
+            });
+    
+            setHasLiked(!hasLiked)
+    
+            if(setReloadFlag){
+                setReloadFlag(!reloadFlag)
+            }
         }
     }
 
     return (
         
         <div>
-            <button type="button" className={`btn rounded-pill m-1 shadow ${ hasLiked? 'btn-danger': 'btn-outline-danger'}`} onClick={handleLike}><i class="bi bi-heart"></i> <span className='d-none d-md-block'>Me gusta!</span></button>
+            <button type="button" className={`btn rounded-pill m-1 shadow ${ hasLiked? 'btn-danger': 'btn-outline-danger'}`} onClick={handleLike}><i className="bi bi-heart"></i> <span className='d-none d-md-block'>Me gusta!</span></button>
         </div>
     )
 }

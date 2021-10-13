@@ -8,21 +8,33 @@
     --secondary-light-color: #F5F5F9;
 }
 
-input[type=checkbox] {
-    transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-}
-
-input:checked {
-    background-color: var(--main-accent-color);
-}
-p{
-    font-size: 20px;
-    line-height: 1.5;
-    color: var(--secondary-dark-color);
-}
-
-h2{
+.tag-acordeon h4{
     color: var(--main-dark-color);
+}
+.tag-acordeon{
+    background: var(--secondary-light-color);
+    margin: auto;
+}
+
+.tag-acordeon i, .tag-acordeon h2, .tag-acordeon i:hover, .tag-acordeon h2:hover{
+    color: var(--main-accent-color);
+}
+/* .tag-acordeon i:hover, .tag-acordeon h2:hover{
+    color: var(--main-dark-color);
+} */
+.accordion-header .accordion-button:not(.collapsed) {
+    color: var(--main-dark-color) ;
+    background-color: var(--main-light-color);
+}
+.accordion-header .accordion-button:focus {
+    z-index: 3;
+    border-color: var(--main-dark-color) ;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(43 67 86 / 75%) ;
+}
+
+.filter-button .btn-danger {
+    color: #fff;
+    background-color: var(--main-accent-color) ;
+    border-color: var(--main-accent-color) ;
 }

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import food2 from './CarouselImg/foodpic (2).jpg'
 import { Link } from 'react-router-dom'
+import "./Carousel.css"
 
 
 
-function CarouselSlider({reloadFlag, setReloadFlag, carouselArr}) {
+function CarouselSlider({ reloadFlag, setReloadFlag, carouselArr }) {
     let settings = {
         dot: true,
         lazyload: true,
@@ -47,30 +47,33 @@ function CarouselSlider({reloadFlag, setReloadFlag, carouselArr}) {
 
     }
 
-    const handleClick = ()=> {
-        if(setReloadFlag){
+    const handleClick = () => {
+        if (setReloadFlag) {
             setReloadFlag(!reloadFlag)
         }
     }
-    
+
 
     return (
-        <Slider {...settings}>            
-            {carouselArr && carouselArr.map(({title, _id, category, img}) => (
-                <div className="card-wrapper car-slider px-1" key={_id}>
-                    <Link to={`/recipe/${_id}`} onClick={handleClick}>
-                        <div className="card">
-                            <div className="card-image">
-                                <img src={food2} alt="recipe" />
+        <div>
+            <Slider {...settings}>
+                {carouselArr && carouselArr.map(({ title, _id, category, img }) => (
+                    <div className="card-wrapper car-slider px-1" key={_id}>
+                        <Link to={`/recipe/${_id}`} onClick={handleClick}>
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={img} alt="recipe" />
+                                </div>
+                                <div className="details">
+                                    <h4 className='text-center'>{title.toUpperCase()} <span className='category text-muted'>{category.toUpperCase()}</span> </h4>
+                                </div>
                             </div>
-                            <div className="details">
-                                <h4 className='text-center'>{title.toUpperCase()} <span className='category text-muted'>{category.toUpperCase()}</span> </h4>
-                            </div>
-                        </div>
-                    </Link>
-                </div>
-            ))}
-        </Slider>
+                        </Link>
+                    </div>
+                ))}
+            </Slider>
+        </div>
+
     )
 }
 

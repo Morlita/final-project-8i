@@ -8,11 +8,14 @@
   --secondary-light-color: #f5f5f9;
 }
 
-.rounded-circle {
-  height: 6vh;
-}
-
 footer {
-    height: 12vh;
-    background-color: var(--main-light-color);
+    height: 40vh;
+    background-color: var(--main-dark-color);
+}
+.social-footer i{
+  color: var(--main-accent-color);
+}
+.end {
+  background: var(--main-accent-color);
+  min-height: 10vh;
 }
