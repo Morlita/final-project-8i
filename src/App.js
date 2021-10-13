@@ -12,8 +12,8 @@ import Admin from './Components/Admin/Admin';
 import AdminRecipes from './Components/Admin/AdminRecipes/AdminRecipes';
 import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
-import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
-import SearchBar from './Components/SearchBar/SearchBar';
+import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes';
+import DisplaySearchRecipes from './Components/DisplaySearchRecipes/DisplaySearchRecipes';
 
 
 
@@ -54,6 +54,9 @@ function App() {
             <Route path='/displayrecipes' >
               <DisplayRecipes />
             </Route>
+            <Route path='/?search=:term'>
+              <DisplaySearchRecipes />
+            </Route>
             <Route path="/userprofile" render={() => {
               return user ? <div><UserProfile /></div>: <Redirect to="/"/>}}>
             </Route>
@@ -65,12 +68,6 @@ function App() {
             </Route>
             <Route path='/admin/tags' render={() => {
               return user && user.role === "admin" ? <div><Admin /><AdminTags /></div>: <Redirect to="/"/>}}>              
-            </Route>
-            <Route path="/search/:searchURL">
-              <SearchBar />
-            </Route>
-            <Route path="/search">
-              <SearchBar />
             </Route>
           </Switch>
         </div>

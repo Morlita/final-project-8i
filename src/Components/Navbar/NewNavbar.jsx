@@ -6,7 +6,6 @@ import Avatar from './Avatar.jpg';
 
 const NewNavbar = () => {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
-
   const logOut = () => {
     localStorage.removeItem('registerLogIn');
     localStorage.removeItem('userToken');
@@ -20,16 +19,8 @@ const NewNavbar = () => {
 
   const setTermObj = (event) => {
     setTerm({ [event.target.name]: event.target.value });
-    console.log(term)
   }
-
-  const search = async () => {
-  await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/search?search=${term.search}&field=tags`)
-  .then((response) => response.json())
-  .then(data => console.log("SEARCH PRUEBA", data));
- }
-
-
+ 
 
   return (
     <nav class="navbar navbar-expand-md navbar-dark sticky-top shadow-lg new-navbar">
@@ -45,7 +36,14 @@ const NewNavbar = () => {
             <form className="d-flex align-items-center justify-content-center">
               <div class="button-in btn rounded-pill">
                 <input className="input-border text-white" type="search" placeholder="Buscar receta..." aria-label="Search" name="search" value={term.search} onChange={setTermObj}/>
-                <button className="search-button" type="button" onClick={search}><i class="bi bi-search text-white"></i></button>
+                <Link className="search-button" type="button" 
+                  to={{
+                    pathname: `/?search=${term.search}`,
+                    state: { term: term.search }
+                  }}
+                  >
+                  <i class="bi bi-search text-white"></i>
+                </Link>
               </div>
             </form>
             <ul class="navbar-nav me-md-auto mb-2 mb-lg-0 mx-auto flex-column-reverse flex-md-row">
