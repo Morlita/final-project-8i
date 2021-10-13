@@ -97,7 +97,8 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
             </div>
             <div>
                 <h4 className="mt-3">Comentarios:</h4>
-                {comments.length === 0 ? <div id="floatingAddComment" className="form-text">Esta receta aun no tiene comentarios</div>: comments.map(({userName, userLastName, content}, index) => (
+                {comments && comments.length === 0 ? <div id="floatingAddComment" className="form-text">Esta receta aun no tiene comentarios</div>: 
+                comments && comments.map(({userName, userLastName, content}, index) => (
                     <div>
                         <p key={index}><span className="fw-bold">{userName} {userLastName}</span> {content}
                         <button className="float-end" type="button" onClick={() => deleteComment(index)}>
