@@ -188,7 +188,7 @@ function AddRecipe() {
         <label htmlFor="category">Categoria</label>
         <select className="mb-5 w-100 w-md-50" name="category" value={recipe.category} onChange={setRecipes}>
           <option value="Con carne">Con carne</option>
-          <option value="Veggie">Veggie</option>
+          <option value="Veggies">Veggie</option>
           <option value="Dulces">Dulces</option>
         </select>
 
