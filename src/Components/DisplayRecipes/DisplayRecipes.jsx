@@ -8,6 +8,8 @@ function DisplayRecipes() {
     const { tags } = location.state;
     const checked = tags.filter(tag => tag.checked === true).map(tag => tag._id);
     const dataTags = JSON.stringify({tags: checked});
+
+
     const [recipes, setRecipes] = useState([]);
 
     const getRecipes = async () => {
