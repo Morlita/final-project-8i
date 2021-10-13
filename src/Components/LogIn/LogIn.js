@@ -31,7 +31,6 @@ function Login() {
             body: data
         }).then(response => response.json()
         ).then(data => {
-            console.log(data);
             if (!data.token) {
                 alert("email o contraseña incorrectos");
             }

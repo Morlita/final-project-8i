@@ -35,8 +35,6 @@ function MainCarousel() {
     const acceptedRecipes = recipes.filter( recipe => recipe.accepted === 'accepted')
     const filterByLikes = acceptedRecipes.filter( recipe => recipe.likes >= 2);
 
-    console.log('recetas', recipes)
-    console.log('más votadas',filterByLikes)
 
     return (
         <div className='container'>

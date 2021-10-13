@@ -11,7 +11,6 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
     const value = { ...ingredient, [event.target.name]: event.target.value }
     setIngredient(value);
     updateIngredients(index, value);
-    console.log("INGREDIENTE", value)
   };
 
   return (

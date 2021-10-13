@@ -6,10 +6,10 @@ function Footer() {
         <footer className='mt-3 pt-3 social-footer container text-uppercase mt-auto'>
             <div className='row'>
                 <div className='d-flex justify-content-center'>
-                    <i class='h1 m-1 p-3 bi bi-facebook'></i>
-                    <i class='h1 m-1 p-3 bi bi-twitter'></i>
-                    <i class='h1 m-1 p-3 bi bi-instagram'></i>
-                    <i class='h1 m-1 p-3 bi bi-whatsapp'></i>
+                    <i className='h1 m-1 p-3 bi bi-facebook'></i>
+                    <i className='h1 m-1 p-3 bi bi-twitter'></i>
+                    <i className='h1 m-1 p-3 bi bi-instagram'></i>
+                    <i className='h1 m-1 p-3 bi bi-whatsapp'></i>
                 </div>
             </div>
             <div className='container d-flex justify-content-center text-center h5'>

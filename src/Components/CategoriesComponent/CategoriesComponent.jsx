@@ -6,7 +6,6 @@ import MediumCard from '../MediumCard/MediumCard'
 function CategoriesComponent() {
 
     let { category } = useParams();
-    console.log(useParams());
 
 
     const [categoryCards, setCategoryCards] = useState([]);
@@ -18,7 +17,7 @@ function CategoriesComponent() {
     }
     useEffect(() => {
         getRecipesByCategory();
-    }, [])
+    }, [category])
 
     const acceptedRecipes = categoryCards.filter( recipe => recipe.accepted === 'accepted')
 

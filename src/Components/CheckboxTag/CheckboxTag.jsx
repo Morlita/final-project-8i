@@ -9,7 +9,6 @@ function CheckboxTag({ data, index, count, handleCheckbox}) {
         const data = !checked;
         if(data){
             if(count < 3){
-                console.log('data', data)
                 setChecked(data);
                 handleCheckbox(index, data);
             }
@@ -21,9 +20,9 @@ function CheckboxTag({ data, index, count, handleCheckbox}) {
     
 
     return (
-        <div class="form-check form-check-inline py-1">
-            <input type="checkbox" class="btn-check" id={`btn-check-outlined-${index}`} autocomplete="off" checked={checked} onChange={handleChange} />
-            <label class="btn btn-outline-secondary rounded-pill" for={`btn-check-outlined-${index}`}>{data.name}</label>
+        <div className="form-check form-check-inline py-1">
+            <input type="checkbox" className="btn-check" id={`btn-check-outlined-${index}`} autocomplete="off" checked={checked} onChange={handleChange} />
+            <label className="btn btn-outline-secondary rounded-pill" for={`btn-check-outlined-${index}`}>{data.name}</label>
         </div>
     )
 }

@@ -50,7 +50,6 @@ function AddRecipe() {
     const newSteps = steps;
     newSteps[index] = text;
     newSteps != [] ? setSteps(newSteps) : alert("Complete todos los campos");
-    console.log("NEW STEPS", newSteps);
   };
 
   function validationSteps() {  //Revisar Funcionamiento con Diego
@@ -81,7 +80,6 @@ function AddRecipe() {
     const newIngredient = ingredients;
     newIngredient[index] = text;
     newIngredient != [] ? setIngredients(newIngredient): alert("Complete todos los campos");
-    console.log("NEW Ingredients", newIngredient);
   };
 
   function validationIngredients() {  //Revisar Funcionamiento con Diego
@@ -94,7 +92,6 @@ function AddRecipe() {
     allTags = arrayTags
     const result = allTags && allTags.filter(tag => tag.checked === true).map(tag => tag.name);
     newTags = result
-    console.log('newTags', newTags)
   }
 
 
@@ -138,7 +135,6 @@ function AddRecipe() {
     }
   };
 
-  console.log("AGREGAR", recipe);
 
   return (
     <div className="container">

@@ -30,7 +30,6 @@ function AdminTags() {
 
   const setTagsObj = (event) => {
     setTag({ ...tag, [event.target.name]: event.target.value });
-    console.log(tag);
   };
 
   /*Add Tags */

@@ -4,7 +4,6 @@ import "../Tags/Tags.css";
 import CheckboxTag from '../CheckboxTag/CheckboxTag';
 
 function Tags({sendTags}) {
-    console.log("PROPS", sendTags)
 
 
     const [tags, setTags] = useState([]);
@@ -27,10 +26,8 @@ function Tags({sendTags}) {
     }, [])
 
     const handleCheckbox = (index, checked) => {
-        console.log(index, checked);
         let newTags = [...tags];
         newTags[index].checked = checked;
-        console.log('newTags', newTags)
         setTags(newTags);
         sendTags !== undefined ? prueba(newTags): num++
         if (checked) {
@@ -57,7 +54,7 @@ function Tags({sendTags}) {
                             </button>
                         </h2>
                         <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body d-flex justify-content-evenly flex-wrap ">
+                            <div className="accordion-body d-flex justify-content-evenly flex-wrap ">
                                 {tags && tags.map((item, index) => (
                                     <CheckboxTag data={item} index={index} count={count} handleCheckbox={handleCheckbox} key={index} />
                                 ))}

@@ -1,7 +1,6 @@
 import moment from "moment";
 
 function Modal({recipe}) {
-  console.log(recipe)
   return (
     <div
       className="modal fade"

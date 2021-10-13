@@ -16,13 +16,13 @@ function AddInputSteps({ remove, index, updateSteps }) {
       <div className="d-flex justify-content-end w-100">
         <textarea type="text" name="step" className="w-100" data-index={index} value={step} onChange={stepValue} maxLength="500"></textarea>
 
-        <button type="button" class="btn btn-danger ms-2" onClick={remove}>
+        <button type="button" className="btn btn-danger ms-2" onClick={remove}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-trash"
+            className="bi bi-trash"
             viewBox="0 0 16 16"
           >
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
