@@ -12,16 +12,23 @@
 }
 
 .login-component {
-    background-color: var(--main-light-color);
+    background-color: rgba(245,245,249, 0.7);
+    color: var(--main-dark-color)
 }
 
-.sign-in-button .btn-danger{
+.sign-in-button .or-register .btn-danger{
     color: #fff;
     background-color: var(--main-accent-color) ;
     border-color: var(--main-accent-color) ;
 }
 
-.or-register .btn-outline-danger {
-    color: var(--main-accent-color);
-    border-color: var(--main-accent-color);
+.or-register .btn-outline-danger{
+    background-color: var(--main-accent-color) ;
+    border-color: var(--main-accent-color) ;
+}
+
+
+.login-component h1{
+    background-color: var(--main-dark-color);
+    color: var(--secondary-light-color);
 }
