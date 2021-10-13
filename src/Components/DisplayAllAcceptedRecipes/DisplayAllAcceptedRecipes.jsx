@@ -29,11 +29,17 @@ function DisplayAllAcceptedRecipes() {
     }
     
     const acceptedRecipes = allAcceptedRecipes.filter( recipe => recipe.accepted === 'accepted')
+
     return (
-        <div>
-            {acceptedRecipes && acceptedRecipes.map(({ _id, title, time, img, likes }) => (
-                    <MediumCard key={_id} id={_id} title={title} time={time} img={img} likes={likes} />
-                ))}
+        <div className="container">
+            <div className="row p-3 text-center my-2">
+                <h1>Todas nuestras recetas <span className='text-capitalize'></span></h1>
+            </div>
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-2">
+                {acceptedRecipes && acceptedRecipes.map(({ _id, title, time, img, likes }) => (
+                        <MediumCard key={_id} id={_id} title={title} time={time} img={img} likes={likes} />
+                    ))}
+            </div>
         </div>
     )
 }
