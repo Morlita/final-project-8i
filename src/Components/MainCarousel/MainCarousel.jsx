@@ -43,7 +43,7 @@ function MainCarousel() {
                     <h2 className="slider_title mb-0">Tentate con las recetas más votadas</h2>
                     <h3 className="text-center mb-3"><i className="bi bi-heart"></i></h3>
                     <CarouselSlider carouselArr={filterByLikes} />
-                    <div className="p-1 my-2 d-grid col-md-5 mx-auto">
+                    <div className="p-1 my-2 d-grid col-md-5 mx-auto mt-4">
                         <button type="button" className="btn btn-danger rounded-pill">Ver todas las más votadas</button>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ function MainCarousel() {
                     <h2 className="slider_title mb-0">Y si buscas inspiración... aquí están todas las recetas!</h2>
                     <h3 className="text-center mb-3"><i className="bi bi-journal-bookmark"></i></h3>
                     <CarouselSlider carouselArr={acceptedRecipes} />
-                    <div className="p-1 my-2 d-grid col-md-5 mx-auto">
+                    <div className="p-1 my-2 d-grid col-md-5 mx-auto mt-4">
                         <Link to='/displayall' className='btn btn-danger rounded-pill' type='button'>Ver todas las recetas</Link>
                     </div>
                 </div>

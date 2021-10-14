@@ -10,7 +10,9 @@
     --secondary-dark-color: #18252F;
     --secondary-light-color: #F5F5F9;  
 }
-
+.time-likes{
+    max-width: 2rem;
+}
 .recipe-component{
     background: rgba(245,245,249, 0.7);
 }
@@ -46,4 +48,8 @@
     text-overflow:ellipsis;
     white-space: nowrap;
     overflow:hidden;
+}
+
+.cooker-png {
+    max-width: 2rem;
 }
