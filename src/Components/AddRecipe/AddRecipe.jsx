@@ -66,6 +66,10 @@ function AddRecipe() {
   };
 
   function validationSteps() {  //Revisar Funcionamiento con Diego
+    console.log("P", steps)
+    if(steps.length === 0){
+      return true
+    }
     const stepsResult = steps.filter(step => step === "");
     return stepsResult.length === 0 ? false : true
   }
@@ -96,7 +100,11 @@ function AddRecipe() {
   };
 
   function validationIngredients() {  //Revisar Funcionamiento con Diego
+    if(ingredients.length === 0){
+      return true
+    }
     const ingredientResult = ingredients.filter(ingredient => ingredient.ingredient === "" || ingredient.quantity === "");
+    console.log("Ingredient", ingredientResult)
     return ingredientResult.length === 0 ? false : true
   }
 
@@ -113,7 +121,10 @@ function AddRecipe() {
     if (recipe.title === "" || recipe.time === "" || recipe.timeFreezer === "" || recipe.timeFridge === "" || recipe.img === "" || validationIngredients() || validationSteps()) {
       alert("Complete todos los campos");
       return;
-    } else {
+    } else if(newTags.length < 1 || newTags.length > 3){
+      alert("Debe elegir entre uno y tres filtros");
+      return;
+    }else {
       fetch("https://polar-reaches-30197.herokuapp.com/recipes", {
         headers: {
           Accept: "application/json",
