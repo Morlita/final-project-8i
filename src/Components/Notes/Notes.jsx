@@ -3,13 +3,14 @@ import moment from 'moment'
 import ModalNotes from "../ModalNotes/ModalNotes";
 
 
-function Notes({recipeId, reloadFlag, setReloadFlag}) {
+function Notes({recipeId, reloadFlag, setReloadFlag, recipeFaved, location}) {
 
     const user = JSON.parse(localStorage.getItem("registerLogIn"));
     const tokenUser = JSON.parse(localStorage.getItem("userToken"));
 
-    const [userFavorites, setUserFavorites] = useState([]);
     const [userNotes, setUserNotes] = useState([]);
+
+    const [result, setResult] = useState(false)
 
     let reference = 0;
 
@@ -17,24 +18,23 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
         notes: ""
     });
 
-    const getUser = async () => {
+    const getUser = () => {
         if(user){
-            await fetch(`https://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
-            headers: {
-            'Content-Type': 'application/json',
-            'x-access-token' : tokenUser
-        }})
-        .then((response) => response.json())
-        .then((data) => {
-            setUserFavorites(data.myFavorites);
-            setUserNotes(data.notes);
-        })
-        .catch((err) => {
-            setTimeout(() => {
-                console.log(err);
-                alert("Algo salio mal")
-            }, 2000);
-        });
+            fetch(`https://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
+                headers: {
+                'Content-Type': 'application/json',
+                'x-access-token' : tokenUser
+            }})
+            .then((response) => response.json())
+            .then((data) => {
+                setUserNotes(data.notes);
+            })
+            .catch((err) => {
+                setTimeout(() => {
+                    console.log(err);
+                    alert("Algo salio mal")
+                }, 2000);
+            });
         }
     }
 
@@ -42,8 +42,26 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
         getUser()
     }, [reloadFlag])
 
-    const favorites = (element) => element._id === recipeId;
-    const result = userFavorites.some(favorites)
+
+    useEffect(() => {
+        fetch(`https://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
+                headers: {
+                'Content-Type': 'application/json',
+                'x-access-token' : tokenUser
+            }})
+            .then((response) => response.json())
+            .then((data) => {
+                const favorites = (element) => element._id === recipeId;
+                setResult(data.myFavorites.some(favorites))
+            })
+            .catch((err) => {
+                setTimeout(() => {
+                    console.log(err);
+                    alert("Algo salio mal")
+                }, 2000);
+            });
+    }, [recipeFaved, location])
+
 
     const setNoteObj = (val) => {
         setNote(val.target.value)
@@ -98,7 +116,7 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
             <div className='container text-center'>
                 <div><textarea className='rounded' name="notes" value={note.notes} cols="35" rows="5" onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea></div>
                 <div className="d-grid col-4 mx-auto"><button type="button" className="btn btn-outline-danger rounded-pill" onClick={addNote}>Agregar</button></div>
-            </div> : false}
+            </div> : null}
             {notesFilter && notesFilter.map((item, index) => (
                 <div key={index}>
                     <p>{item.content} <span>{moment(item.createdAt).format('DD/MM/YYYY')}</span>

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import BookmarkPng from '../Navbar/Logo/bookmarking.png'
 import './Buttons.css'
 
-function AddToFav({recipeId}) {
+function AddToFav({recipeId, recipeFaved, setRecipeFaved }) {
 
     let history = useHistory();
 
@@ -29,6 +29,7 @@ function AddToFav({recipeId}) {
                 })
             });
         }
+        setRecipeFaved(!recipeFaved)
     }
 
     return (

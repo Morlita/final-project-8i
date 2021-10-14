@@ -69,7 +69,9 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
                 "Content-Type": "application/json",
                 "x-access-token": userToken,
               },
-              body: JSON.stringify(),
+              body: JSON.stringify({
+                  userId: user._id
+              }),
             }
           ).then((response) => setReloadFlag(response.json()));
     }
