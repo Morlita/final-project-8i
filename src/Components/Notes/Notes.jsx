@@ -96,7 +96,7 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
         <div className='container'>
             {result && result ? 
             <div className='container text-center'>
-                <div><textarea className='rounded' name="notes" value={note.notes} cols="50" rows="5" onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea></div>
+                <div><textarea className='rounded' name="notes" value={note.notes} cols="35" rows="5" onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea></div>
                 <div className="d-grid col-4 mx-auto"><button type="button" className="btn btn-outline-danger rounded-pill" onClick={addNote}>Agregar</button></div>
             </div> : false}
             {notesFilter && notesFilter.map((item, index) => (
