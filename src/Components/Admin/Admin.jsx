@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 function Admin() {
   return (
-    <div className="d-flex flex-row-reverse">
+    <div className="d-flex flex-row-reverse container">
       <li className="list-unstyled dropdown">
         <a
-          className="nav-link dropdown-toggle"
+          className="nav-link dropdown-toggle mt-3 fs-5"
           id="navbarDropdown"
           role="button"
           data-bs-toggle="dropdown"

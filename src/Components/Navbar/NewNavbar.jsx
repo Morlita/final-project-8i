@@ -35,7 +35,7 @@ const NewNavbar = () => {
           <div className="d-flex flex-column-reverse flex-md-row">
             <form className="d-flex align-items-center justify-content-center">
               <div className="button-in btn rounded-pill">
-                <input className="input-border text-white" type="search" placeholder="Buscar receta..." aria-label="Search" name="search" value={term.search} onChange={setTermObj}/>
+                <input className="input-border text-white" type="search" placeholder="Buscar receta..." aria-label="Search" name="search" value={term.search} onChange={setTermObj} maxLength="30"/>
                 <Link className="search-button" type="button" 
                   to={{
                     pathname: `/?search=${term.search}`,
