@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import moment from 'moment'
 import ModalNotes from "../ModalNotes/ModalNotes";
+import './Notes.css'
 
 
 function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
@@ -117,14 +118,10 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
     }
 
     return (
-        <div className='container'>
-            {result && result ?
-                <div className='container text-center'>
-                    <div><textarea className='rounded' name="notes" value={note.notes} cols="35" rows="5" onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea></div>
-                    <div className="d-grid col-4 mx-auto"><button type="button" className="btn btn-outline-danger rounded-pill" onClick={addNote}>Agregar</button></div>
-                </div> : false}
+        <div className='container border border-dark rounded' id='notes-wrapper'>
+            <div className="h3 text-center p-2 mt-2 text-white">Mis Notas</div>
             {notesFilterUser && notesFilterUser.map((item, index) => (
-                <div class="card" key={index}>
+                <div class="card my-3" id='notes-component' key={index}>
                     <div class="card-header">
                         {moment(item.createdAt).format('DD/MM/YYYY')}
                     </div>
@@ -150,6 +147,15 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                     </div>
                 </div>
             ))}
+            {result && result ?
+                <div className='container text-center my-3'>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="notes" value={note.notes} onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea>
+                    </div>
+                    <div className="d-grid col-4 mx-auto">
+                        <button type="button" className="btn btn-light rounded-pill" onClick={addNote}>Agregar</button>
+                    </div>
+                </div> : false}
             <ModalNotes index={reference} note={note} setNote={setNote} setNoteObj={setNoteObj} notesFilter={notesFilter} setReloadFlag={setReloadFlag} recipeId={recipeId} />
         </div>
     )

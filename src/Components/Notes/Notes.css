@@ -1,0 +1,25 @@
+:root{
+    --font: 1.3rem;
+    --line: calc(var(--font) * 2);
+    --move: calc(-1 * var(--line));
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252F;
+    --secondary-light-color: #F5F5F9;  
+}
+
+
+#notes-component {
+    background-color: var(--main-light-color);
+}
+
+#comments-component, #notes-wrapper{
+    background-color: rgba(43, 67, 86, .7);
+}
+
+#notes-wrapper{
+    /* background-color: var(--accesory-accent-color); */
+}
