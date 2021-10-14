@@ -15,6 +15,7 @@ import AdminTags from './Components/Admin/AdminTags/AdminTags';
 import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
 import AddRecipe from './Components/AddRecipe/AddRecipe';
 import DisplaySearchRecipes from './Components/DisplaySearchRecipes/DisplaySearchRecipes';
+import AboutUs from './Components/AboutUs/AboutUs';
 
 
 
@@ -77,6 +78,9 @@ function App() {
             </Route>
             <Route path='/addRecipe' >
               <AddRecipe />
+            </Route>
+            <Route path='/aboutUs' >
+              <AboutUs />
             </Route>
             <Route path='*' >
               <Page404 />
