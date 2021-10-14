@@ -30,7 +30,10 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
             setUserNotes(data.notes);
         })
         .catch((err) => {
-            console.log(err);
+            setTimeout(() => {
+                console.log(err);
+                alert("Algo salio mal")
+            }, 2000);
         });
         }
     }
