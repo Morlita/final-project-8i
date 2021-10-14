@@ -1,6 +1,7 @@
 import React from 'react'
-import { useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router-dom"
+import BookmarkPng from '../Navbar/Logo/bookmarking.png'
+import './Buttons.css'
 
 function AddToFav({recipeId}) {
 
@@ -32,7 +33,7 @@ function AddToFav({recipeId}) {
 
     return (
         <div>
-            <button type="button" className="btn rounded-pill btn-outline-danger m-1 shadow" onClick={handleAddToFav}><i className="bi bi-bookmark-heart"></i> <span className='d-none d-md-block'>Guardar</span></button> 
+            <button type="button" className="btn rounded-pill btn-outline-danger m-1 shadow" onClick={handleAddToFav}> <img src={BookmarkPng} className='bookmk-png' alt="addToFav" /> <span className='d-none d-md-block'>Guardar</span></button> 
         </div>
     )
 }

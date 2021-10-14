@@ -18,33 +18,33 @@
 
 .carousel-row .favs{
   /* border: 0.3rem solid var(--main-light-color); */
-  background-color:  rgba(43, 67, 86, .8);
+  background-color:  rgba(43, 67, 86, .5);
   border-radius: 5px;
 }
 
-.carousel-row .favs h2, .favs i{
-  color: var(--accesory-accent-color);
-  font-weight: bold;
-}
-
-.carousel-row .all h2, .all i{
+.carousel-row .favs h2, .favs i, .carousel-row .all h2, .all i{
   color: var(--secondary-light-color);
   font-weight: bold;
 }
 
+/* .carousel-row .all h2, .all i{
+  color: var(--secondary-light-color);
+  font-weight: bold;
+} */
+
 .carousel-row .all{
   /* border: 0.3rem solid var(--main-light-color); */
-  background-color: rgba(43, 67, 86, .8);
+  background-color: rgba(43, 67, 86, .5);
   border-radius: 5px;
 }
 
-.favs .btn-danger {
+/* .favs .btn-danger {
   color: var(--main-dark-color);
   background-color: var(--accesory-accent-color) !important;
   border-color: var(--accesory-accent-color) !important;
-}
+} */
 
-.all .btn-danger {
+.all .btn-danger, .favs .btn-danger {
   color: var(--main-dark-color);
   background-color: var(--secondary-light-color) !important;
   border-color: var(--secondary-light-color) !important;

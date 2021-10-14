@@ -1,0 +1,11 @@
+
+
+.like-png, .share-png, .bookmk-png {
+    max-width: 2rem;
+}
+.heart-car {
+    max-width: 3rem;
+}
+.like-png, .share-png, .bookmk-png button {
+    color: var(--main-dark-color) !important;
+}

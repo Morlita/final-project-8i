@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import MediumCard from '../MediumCard/MediumCard'
+import '../DisplayAllAcceptedRecipes/DisplayAllAcceptedRecipes.css'
 
 
 function CategoriesComponent() {
@@ -25,7 +26,7 @@ function CategoriesComponent() {
     return (
         <div className='container'>
             <div className="row p-3 text-center my-2">
-                <h1>Todas nuestras recetas <span className='text-capitalize'>{category}</span></h1>
+                <h1 className='display-all'>Todas nuestras recetas <span className='text-capitalize'>{category}</span></h1>
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-2">
                 {acceptedRecipes && acceptedRecipes.map(({ _id, title, time, img, likes }) => (
