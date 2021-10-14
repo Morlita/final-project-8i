@@ -31,7 +31,6 @@ function UserProfile() {
         }
 
     }
-    console.log('loli', profile)
     useEffect(() => {
         user()
     }, [])

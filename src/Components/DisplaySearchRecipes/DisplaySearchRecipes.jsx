@@ -15,7 +15,6 @@ function DisplaySearchRecipes() {
     }, [])
 
 
-    console.log("EUGEEN", results)
     return(
         <div className='container'>
             <div className="row p-3 text-center my-2">

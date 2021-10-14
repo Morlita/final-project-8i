@@ -142,8 +142,10 @@ function AddRecipe() {
           setSteps([]);
         })
         .catch((err) => {
-          console.log(err);
-          alert("Algo salio mal");
+          setTimeout(() => {
+            console.log(err);
+            alert("Algo salio mal");
+          }, 2000);
         });
     }
   };

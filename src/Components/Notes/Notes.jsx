@@ -19,7 +19,7 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
 
     const getUser = async () => {
         if(user){
-            await fetch(`http://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
+            await fetch(`https://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
             headers: {
             'Content-Type': 'application/json',
             'x-access-token' : tokenUser
@@ -30,7 +30,10 @@ function Notes({recipeId, reloadFlag, setReloadFlag}) {
             setUserNotes(data.notes);
         })
         .catch((err) => {
-            console.log(err);
+            setTimeout(() => {
+                console.log(err);
+                alert("Algo salio mal")
+            }, 2000);
         });
         }
     }

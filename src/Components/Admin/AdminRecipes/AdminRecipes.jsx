@@ -20,7 +20,9 @@ function Admin() {
       .then((response) => response.json())
       .then((data) => setRecipes(data))
       .catch((err) => {
-        alert("Algo salio mal");
+        setTimeout(() => {
+          alert("Algo salio mal");
+        }, 2000);
       });
   };
 
