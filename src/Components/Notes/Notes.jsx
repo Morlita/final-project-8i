@@ -121,6 +121,26 @@ function Notes({recipeId, reloadFlag, setReloadFlag, recipeFaved, location}) {
                 <div className="d-grid col-4 mx-auto"><button type="button" className="btn btn-outline-danger rounded-pill" onClick={addNote}>Agregar</button></div>
             </div> : false}
             {notesFilterUser && notesFilterUser.map((item, index) => (
+                <div class="card" key={index}>
+                <div class="card-header">
+                  {item.createdAt.format('DD/MM/YYYY')}
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <p>{item.content}</p>
+                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+                </div>
+              </div>
+            ))}
+            <ModalNotes index={reference} note={note} setNote={setNote} setNoteObj={setNoteObj} notesFilter={notesFilter} setReloadFlag={setReloadFlag} recipeId={recipeId}/>
+        </div>
+    )
+}
+
+export default Notes;
+
+
                 <div key={index}>
                     <p>{item.content} <span>{moment(item.createdAt).format('DD/MM/YYYY')}</span>
                         <button className="float-end" type="button" onClick={() => deleteNote(index)}>
@@ -136,10 +156,3 @@ function Notes({recipeId, reloadFlag, setReloadFlag, recipeFaved, location}) {
                         </button>
                     </p>
                 </div>
-            ))}
-            <ModalNotes index={reference} note={note} setNote={setNote} setNoteObj={setNoteObj} notesFilter={notesFilter} setReloadFlag={setReloadFlag} recipeId={recipeId}/>
-        </div>
-    )
-}
-
-export default Notes;
