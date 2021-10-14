@@ -44,22 +44,24 @@ function Notes({recipeId, reloadFlag, setReloadFlag, recipeFaved, location}) {
 
 
     useEffect(() => {
-        fetch(`https://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
-                headers: {
-                'Content-Type': 'application/json',
-                'x-access-token' : tokenUser
-            }})
-            .then((response) => response.json())
-            .then((data) => {
-                const favorites = (element) => element._id === recipeId;
-                setResult(data.myFavorites.some(favorites))
-            })
-            .catch((err) => {
-                setTimeout(() => {
-                    console.log(err);
-                    alert("Algo salio mal")
-                }, 2000);
-            });
+        if(user){
+            fetch(`https://polar-reaches-30197.herokuapp.com/user/${user.email}`, {
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token' : tokenUser
+                }})
+                .then((response) => response.json())
+                .then((data) => {
+                    const favorites = (element) => element._id === recipeId;
+                    setResult(data.myFavorites.some(favorites))
+                })
+                .catch((err) => {
+                    setTimeout(() => {
+                        console.log(err);
+                        alert("Algo salio mal")
+                    }, 2000);
+                });
+        }
     }, [recipeFaved, location])
 
 
@@ -93,6 +95,7 @@ function Notes({recipeId, reloadFlag, setReloadFlag, recipeFaved, location}) {
     }
 
     const notesFilter = userNotes.filter(note => note.recipe === recipeId);
+    const notesFilterUser = user && notesFilter.filter(note => note.user === user._id)
 
     const deleteNote = async (index) => {
         await fetch( `https://polar-reaches-30197.herokuapp.com/notes/${notesFilter[index]._id}`, {
@@ -116,8 +119,8 @@ function Notes({recipeId, reloadFlag, setReloadFlag, recipeFaved, location}) {
             <div className='container text-center'>
                 <div><textarea className='rounded' name="notes" value={note.notes} cols="35" rows="5" onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea></div>
                 <div className="d-grid col-4 mx-auto"><button type="button" className="btn btn-outline-danger rounded-pill" onClick={addNote}>Agregar</button></div>
-            </div> : null}
-            {notesFilter && notesFilter.map((item, index) => (
+            </div> : false}
+            {notesFilterUser && notesFilterUser.map((item, index) => (
                 <div key={index}>
                     <p>{item.content} <span>{moment(item.createdAt).format('DD/MM/YYYY')}</span>
                         <button className="float-end" type="button" onClick={() => deleteNote(index)}>
