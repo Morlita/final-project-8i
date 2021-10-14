@@ -23,7 +23,7 @@
 }
 
 .carousel-row .favs h2, .favs i{
-  color: var(--main-accent-color);
+  color: var(--accesory-accent-color);
   font-weight: bold;
 }
 
@@ -40,12 +40,12 @@
 
 .favs .btn-danger {
   color: var(--main-dark-color);
-  background-color: var(--main-accent-color) ;
-  border-color: var(--main-accent-color) ;
+  background-color: var(--accesory-accent-color) !important;
+  border-color: var(--accesory-accent-color) !important;
 }
 
 .all .btn-danger {
   color: var(--main-dark-color);
-  background-color: var(--secondary-light-color) ;
-  border-color: var(--secondary-light-color) ;
+  background-color: var(--secondary-light-color) !important;
+  border-color: var(--secondary-light-color) !important;
 }
