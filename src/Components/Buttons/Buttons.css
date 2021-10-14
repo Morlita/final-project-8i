@@ -1,0 +1,9 @@
+
+
+.like-png, .share-png, .bookmk-png {
+    max-width: 2rem;
+}
+
+.like-png, .share-png, .bookmk-png button {
+    color: var(--main-dark-color) !important;
+}
