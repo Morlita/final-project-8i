@@ -25,7 +25,7 @@ const NewNavbar = () => {
   return (
     <nav className="navbar navbar-expand-md navbar-dark sticky-top shadow-lg new-navbar">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand d-flex justify-content-center align-items-center" to="/">
           <img src={Logo} alt="logo recetapp" className="recetapp-logo me-3" />
           Recetapp</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">

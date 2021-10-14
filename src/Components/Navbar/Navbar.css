@@ -9,7 +9,8 @@
 }
 .navbar-brand{
   color: var(--main-accent-color) !important;
-  font-size: 2rem !important;
+  font-size: 2.5rem !important;
+  font-family: 'Dancing Script', cursive;
 }
 .new-navbar, .new-navbar .navbar-collapse {
   background-color: var(--main-dark-color);

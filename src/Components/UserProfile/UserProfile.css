@@ -10,8 +10,8 @@
 
 .profile-card {
     /* background-color: rgba(245,245,249, 0.7); */
-    background-color: transparent;
-    border: none;
+    background-color: transparent !important;
+    border: none !important;
 }
 .profile-card img {
     max-width: 10rem;
