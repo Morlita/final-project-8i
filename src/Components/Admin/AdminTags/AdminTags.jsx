@@ -23,8 +23,10 @@ function AdminTags() {
       .then((response) => response.json())
       .then((data) => setTags(data))
       .catch((err) => {
-        console.log(err);
-        alert("Algo salio mal");
+        setTimeout(() => {
+          console.log(err);
+          alert("Algo salio mal");
+        }, 2000);
       });
   };
 

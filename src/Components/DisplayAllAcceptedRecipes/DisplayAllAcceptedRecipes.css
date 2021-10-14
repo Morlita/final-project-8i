@@ -5,13 +5,13 @@
 }
 
 .display-all{
-    color: var(--secondary-light-color);
-
+    color: var(--main-dark-color);
 }
-.display-all h1 {
-    background-color: rgba(43, 67, 86, .7);
+.display-categories{
+    color: var(--main-light-color);
+    background-color: rgba(43, 67, 86, .9);
 }
 
 .title-rec a{
-    color: var(--main-accent-color) !important;
+    color: var(--main-light-color) !important;
 }

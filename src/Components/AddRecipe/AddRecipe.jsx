@@ -66,6 +66,10 @@ function AddRecipe() {
   };
 
   function validationSteps() {  //Revisar Funcionamiento con Diego
+    console.log("P", steps)
+    if(steps.length === 0){
+      return true
+    }
     const stepsResult = steps.filter(step => step === "");
     return stepsResult.length === 0 ? false : true
   }
@@ -96,7 +100,11 @@ function AddRecipe() {
   };
 
   function validationIngredients() {  //Revisar Funcionamiento con Diego
+    if(ingredients.length === 0){
+      return true
+    }
     const ingredientResult = ingredients.filter(ingredient => ingredient.ingredient === "" || ingredient.quantity === "");
+    console.log("Ingredient", ingredientResult)
     return ingredientResult.length === 0 ? false : true
   }
 
@@ -113,7 +121,10 @@ function AddRecipe() {
     if (recipe.title === "" || recipe.time === "" || recipe.timeFreezer === "" || recipe.timeFridge === "" || recipe.img === "" || validationIngredients() || validationSteps()) {
       alert("Complete todos los campos");
       return;
-    } else {
+    } else if(newTags.length < 1 || newTags.length > 3){
+      alert("Debe elegir entre uno y tres filtros");
+      return;
+    }else {
       fetch("https://polar-reaches-30197.herokuapp.com/recipes", {
         headers: {
           Accept: "application/json",
@@ -142,8 +153,10 @@ function AddRecipe() {
           setSteps([]);
         })
         .catch((err) => {
-          console.log(err);
-          alert("Algo salio mal");
+          setTimeout(() => {
+            console.log(err);
+            alert("Algo salio mal");
+          }, 2000);
         });
     }
   };
@@ -155,7 +168,7 @@ function AddRecipe() {
       <div className="d-flex flex-column form-contact">
         {/* Recipe´s Name */}
         <label htmlFor="title" className="mb-1">Nombre</label>
-        <input type="text" name="title" className="w-100 w-md-50 mb-3" value={recipe.title} onChange={setRecipes} maxLength="50" placeholder="Ej: Galletitas de limón" />
+        <input type="text" name="title" className="w-100 w-md-50 mb-3" value={recipe.title} onChange={setRecipes} maxLength="30" placeholder="Ej: Galletitas de limón" />
 
         {/* Recipe's Ingredients */}
         {rowIngredients.map((row, index) => (
@@ -199,13 +212,13 @@ function AddRecipe() {
 
           {/* Recipe´s Img */}
           <label htmlFor="img" className="mb-1">Imagen</label>
-          <input type="img" name="img" className="mb-3" value={recipe.img} onChange={setRecipes} maxLength="600" placeholder="Inserta la URL (https://...) de tu imagen" />
+          <input type="img" name="img" className="mb-3" value={recipe.img} onChange={setRecipes} maxLength="700" placeholder="Inserta la URL (https://...) de tu imagen" />
 
           {/* Recipe´s Category */}
           <label htmlFor="category">Seleccióna la categoría principal</label>
           <select className="mb-5 p-2" name="category" value={recipe.category} onChange={setRecipes}>
             <option value="Con carne">Con carne</option>
-            <option value="Veggie">Veggie</option>
+            <option value="Veggies">Veggies</option>
             <option value="Dulces">Dulces</option>
           </select>
         </div>

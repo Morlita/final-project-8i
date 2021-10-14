@@ -70,7 +70,9 @@ function Signin() {
                     history.push("/login")
                   }
                   else{
-                      alert("ocurrio un error")
+                      setTimeout(() => {
+                        alert("ocurrio un error")
+                      }, 2000);
                   }
               })      
         }

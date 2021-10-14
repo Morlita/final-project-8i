@@ -46,7 +46,7 @@ function Footer() {
                             Quienes somos
                         </Link>
                         <Link
-                            to=''
+                            to='/aboutUs'
                             className='mx-2 text-decoration-none text-white  text-muted'
                         >
                             Nuestra misión
