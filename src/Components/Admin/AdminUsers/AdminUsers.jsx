@@ -22,8 +22,10 @@ function AdminUsers() {
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((err) => {
-        console.log(err);
-        alert("Algo salio mal");
+        setTimeout(() => {
+          console.log(err);
+          alert("Algo salio mal");
+        }, 2000);
       });
   };
 
