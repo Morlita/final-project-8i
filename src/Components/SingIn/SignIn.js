@@ -81,7 +81,7 @@ function Signin() {
 
         <div className="container signin-component rounded mt-4 px-4 py-2 d-grid col-md-7 col-10">
             <h3 className="text-center pt-2">Primera vez en RecetApp?</h3>
-            <h1 className="text-center py-2 h2">Ingresá tus datos para comenzar</h1>
+            <h1 className="text-center my-4 py-2 h2 rounded">Ingresá tus datos para comenzar</h1>
             <form id="formUsuario">
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Nombre</label>

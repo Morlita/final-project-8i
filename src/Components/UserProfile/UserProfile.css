@@ -1,0 +1,23 @@
+
+.profile-card h2{
+    color: var(--main-accent-color);
+}
+
+.my-recipes {
+    background-color: rgba(43, 67, 86, .8);
+    color: var(--secondary-light-color);
+}
+
+.profile-card {
+    /* background-color: rgba(245,245,249, 0.7); */
+    background-color: transparent;
+    border: none;
+}
+.profile-card img {
+    max-width: 10rem;
+    
+}
+
+.profile-card {
+    /* background-image: url('../Img/board.jpg'); */
+}

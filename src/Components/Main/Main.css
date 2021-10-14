@@ -18,12 +18,12 @@
 
 .carousel-row .favs{
   /* border: 0.3rem solid var(--main-light-color); */
-  background-color:  #203241;
+  background-color:  rgba(43, 67, 86, .8);
   border-radius: 5px;
 }
 
 .carousel-row .favs h2, .favs i{
-  color: var(--main-accent-color);
+  color: var(--accesory-accent-color);
   font-weight: bold;
 }
 
@@ -34,18 +34,18 @@
 
 .carousel-row .all{
   /* border: 0.3rem solid var(--main-light-color); */
-  background-color: #203241;
+  background-color: rgba(43, 67, 86, .8);
   border-radius: 5px;
 }
 
 .favs .btn-danger {
   color: var(--main-dark-color);
-  background-color: var(--main-accent-color) ;
-  border-color: var(--main-accent-color) ;
+  background-color: var(--accesory-accent-color) !important;
+  border-color: var(--accesory-accent-color) !important;
 }
 
 .all .btn-danger {
   color: var(--main-dark-color);
-  background-color: var(--secondary-light-color) ;
-  border-color: var(--secondary-light-color) ;
+  background-color: var(--secondary-light-color) !important;
+  border-color: var(--secondary-light-color) !important;
 }

@@ -14,6 +14,7 @@ import AdminUsers from './Components/Admin/AdminUsers/AdminUsers';
 import AdminTags from './Components/Admin/AdminTags/AdminTags';
 import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
 import AddRecipe from './Components/AddRecipe/AddRecipe';
+import DisplaySearchRecipes from './Components/DisplaySearchRecipes/DisplaySearchRecipes';
 
 
 
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route path='/displayall' >
               <DisplayAllAcceptedRecipes />
+            </Route>
+            <Route path='/?search=:term'>
+              <DisplaySearchRecipes />
             </Route>
             <Route path="/userprofile" render={() => {
               return user ? <div><UserProfile /></div>: <Redirect to="/"/>}}>

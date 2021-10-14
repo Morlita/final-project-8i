@@ -73,9 +73,6 @@ function Admin() {
         <thead>
           <tr>
             <th scope="col">Titulo</th>
-            <th className="d-none d-sm-table-cell" scope="col">
-              Pasos
-            </th>
             <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>
