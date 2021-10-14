@@ -41,6 +41,7 @@ function Recipe() {
             <article className='container'>
                 <div className="row p-2">
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
+<<<<<<< HEAD
                         <div>
                             <h6 className='me-auto'>
                                 <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
@@ -52,6 +53,15 @@ function Recipe() {
                             <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
                             <AddToFav recipeId={idURL}/>
                         </div>
+=======
+                        <h6 className='me-auto'>
+                            <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
+                            By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
+                        </h6>
+                        <Share title={title}/>
+                        <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
+                        <AddToFav recipeId={idURL}/>
+>>>>>>> 4e9e144 (integrate whatsapp, facebook and twiter)
                     </div>
                 </div>
                 <div className="row py-3 grid">
