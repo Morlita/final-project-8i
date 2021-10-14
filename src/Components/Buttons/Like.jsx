@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
+import LikeImg from '../Navbar/Logo/heart.png'
+import './Buttons.css'
 
 
 function Like({recipeId, reloadFlag, setReloadFlag}) {
@@ -19,7 +21,6 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
 
             const resp = await fetch(`https://polar-reaches-30197.herokuapp.com/recipes/${recipeId}`)
             const data = await resp.json();
-            debugger
             const usersLikes = await data.usersLikes.find(like => like._id === user._id);
             if(usersLikes){
                 setHasLiked(true)
@@ -66,7 +67,7 @@ function Like({recipeId, reloadFlag, setReloadFlag}) {
     return (
         
         <div>
-            <button type="button" className={`btn rounded-pill m-1 shadow ${ hasLiked? 'btn-danger': 'btn-outline-danger'}`} onClick={handleLike}><i className="bi bi-heart"></i> <span className='d-none d-md-block'>Me gusta!</span></button>
+            <button type="button" className={`btn rounded-pill m-1 shadow ${ hasLiked? 'btn-danger': 'btn-outline-danger'}`} onClick={handleLike}> <img className='like-png' src={LikeImg} alt="like" /> <span className='d-none d-md-block'>Me gusta!</span></button>
         </div>
     )
 }

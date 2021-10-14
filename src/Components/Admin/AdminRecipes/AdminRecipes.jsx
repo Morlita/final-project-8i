@@ -49,9 +49,10 @@ function Admin() {
   const pendant = recipes.filter((p) => p.accepted === "pending");
 
   /*Delete*/
-  const remove = (index) => {
+  const remove = (id) => {
+    const deleteRecipe = recipes.find(recipe => recipe._id === id);
     fetch(
-      `https://polar-reaches-30197.herokuapp.com/recipes/${recipes[index]._id}`,
+      `https://polar-reaches-30197.herokuapp.com/recipes/${deleteRecipe._id}`,
       {
         method: "DELETE",
         body: JSON.stringify(),
@@ -72,9 +73,6 @@ function Admin() {
         <thead>
           <tr>
             <th scope="col">Titulo</th>
-            <th className="d-none d-sm-table-cell" scope="col">
-              Pasos
-            </th>
             <th scope="col">Estado</th>
             <th scope="col">Acciones</th>
           </tr>

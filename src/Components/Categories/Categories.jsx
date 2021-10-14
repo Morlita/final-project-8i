@@ -23,7 +23,7 @@ function CategoriesCards() {
 
 
     return (
-        <div className='container category carousel category-content py-5' id="categories">
+        <div className='container category-content py-5' id="categories">
             <div className="row gy-3">
                 {dishCategories.map(({ category, img, alt }, index) => (
                     <div className="col-12 col-md-4" key={index}>

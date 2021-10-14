@@ -7,7 +7,11 @@
   --secondary-dark-color: #18252f;
   --secondary-light-color: #f5f5f9;
 }
-
+.navbar-brand{
+  color: var(--main-accent-color) !important;
+  font-size: 2.5rem !important;
+  font-family: 'Dancing Script', cursive;
+}
 .new-navbar, .new-navbar .navbar-collapse {
   background-color: var(--main-dark-color);
 }
@@ -49,6 +53,6 @@
 }
 
 .navbar-avatar .avatar {
-  max-width: 1.5rem;
-  border: 2px solid var(--main-accent-color);
+  max-width: 3.5rem;
+  border: 1px solid var(--secondary-light-color);
 }

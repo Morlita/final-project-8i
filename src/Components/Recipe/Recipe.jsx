@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import CarouselSlider from '../CarouselSlider/CarouselSlider'
 import './Recipe.css'
 import Share from '../Buttons/Share'
 import Like from '../Buttons/Like'
@@ -8,6 +7,9 @@ import AddToFav from '../Buttons/AddToFav'
 import AddComment from '../AddComment/AddComment'
 import Notes from "../Notes/Notes"
 import moment from 'moment'
+import Cooker from '../Navbar/Logo/cooker.png'
+import HeartWhite from '../Navbar/Logo/heart-white.png'
+import ClockWhite from '../Navbar/Logo/clock-white.png'
 
 
 function Recipe() {
@@ -41,19 +43,23 @@ function Recipe() {
             <article className='container'>
                 <div className="row p-2">
                     <div className="social d-flex justify-content-between align-items-center flex-wrap">
-                        <h6 className='me-auto'>
-                            <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
-                            By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
-                        </h6>
-                        <Share />
-                        <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
-                        <AddToFav recipeId={idURL}/>
+                        <div>
+                            <h6 className='me-auto'>
+                                <span><img src={Cooker} className='cooker-png' alt="user" /></span>
+                                By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
+                            </h6>
+                        </div>
+                        <div className='d-flex'>
+                            <Share />
+                            <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
+                            <AddToFav recipeId={idURL}/>
+                        </div>
                     </div>
                 </div>
                 <div className="row py-3 grid">
                     <div className="card border-0 item">
                         <img src={img} className='rounded' alt="Recipe" />
-                        <h1 className="h3 label">{title} <span className='float-end mx-1'><i className="bi bi-alarm p-1"></i> {time}</span> <span className='float-end'><i className="bi bi-heart p-1"></i> {likes}</span> </h1>
+                        <h1 className="h3 label">{title} <span className='float-end mx-1'> <img src={ClockWhite} alt="time" className='time-likes'/> {time}</span> <span className='float-end me-2'> <img src={HeartWhite} alt="likes" className='time-likes'/> {likes}</span> </h1>
                     </div>
                 </div>
                 <div className="row">
@@ -76,19 +82,17 @@ function Recipe() {
                     </div>
                 </div>
             </article>
-            <hr />
-            <article className='container'>
+            
+            <article className='container border border-secondary my-4 p-1 text-center rounded'>
                 <h6> <span></span>Conservación en freezer: <span>{timeFreezer}</span></h6>
                 <h6> <span></span>Conservación en heladera: <span>{timeFridge}</span> </h6>
                 <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY')}</span> </h6>
             </article>
-            <hr />
-            <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
-            <hr />
-            <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
-            <div className="container">
-                <h3 className='p-2'>También te puede interesar...</h3>
-                <CarouselSlider reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} />
+            <div className="container my-3">
+                <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>            
+            </div>                    
+            <div className="container my-3">
+                <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
             </div>
         </div>
     )

@@ -12,7 +12,7 @@
     color: var(--main-dark-color);
 }
 .tag-acordeon{
-    background: var(--secondary-light-color);
+    /* background: var(--secondary-light-color); */
     margin: auto;
 }
 

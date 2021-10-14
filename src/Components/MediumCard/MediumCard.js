@@ -1,22 +1,27 @@
-import foodpic3 from '../CarouselSlider/CarouselImg/foodpic (3).jpg'
 import { Link } from 'react-router-dom'
+import '../DisplayAllAcceptedRecipes/DisplayAllAcceptedRecipes.css'
+import LikeImg from '../Navbar/Logo/heart.png'
+import ClockImg from '../Navbar/Logo/clock-black.png'
+import '../Buttons/Buttons.css'
 
 function MediumCard({ id, time, likes, title, img , category}) {
 
     return (
 
-        <div className="card border-white" key={id}>
-            <Link to={`/recipe/${id}`} className='text-decoration-none'>
-            <img src={img} className="card-img-top" alt="dish presentation" />
-            <div className="card-body">
-                <div className="d-flex">
-                    <p className="card-text mx-2"><span><i className="mb-1 bi bi-stopwatch"></i></span>{time}</p>
-                    <p className="card-text mx-2"><span><i className="mb-1 bi bi-star"></i></span>{likes}</p>
+        <div className="col">
+            <div className="card shadow-lg h-100" key={id}>
+                <Link to={`/recipe/${id}`} className='text-decoration-none'>
+                <img src={img} className="card-img-top medium-card-top" alt="dish presentation" />
+                <div className="card-body text-center d-flex flex-column justify-content-between">
+                    <h4 className="card-title text-capitalize pb-3 title-rec">{title}</h4>
+                    <h5 className="card-title pb-3 text-muted title-rec">{category}</h5>
+                    <div className="d-flex justify-content-center">
+                        <p className="card-text mx-2"><span><img src={ClockImg} className='like-png' alt="likes" /></span>{time}</p>
+                        <p className="card-text mx-2"><span><img src={LikeImg} className='like-png' alt="likes" /></span>{likes}</p>
+                    </div>
                 </div>
-                <h4 className="card-title text-capitalize">{category}</h4>
-                <h4 className="card-title text-capitalize">{title}</h4>
+                </Link>
             </div>
-            </Link>
         </div>
 
 

@@ -5,13 +5,6 @@ function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setRecipe }) 
   return (
     <tr key={index}>
       <td className="col-3">{recipe.title}</td>
-      <td className="d-none d-sm-table-cell col col-sm-6 col-md-5 col-lg-3">
-        <ol>
-          {recipe.steps.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ol>
-      </td>
       <td className="col col-sm-2">{recipe.accepted}</td>
       <td className="col-1 col-lg-3">
         {recipe.accepted === "accepted" ? (
@@ -49,7 +42,7 @@ function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setRecipe }) 
 
         <button
           className="btn btn-danger w-20 mb-1"
-          onClick={() => remove(index)}
+          onClick={() => remove(recipe._id)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

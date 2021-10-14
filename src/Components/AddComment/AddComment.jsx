@@ -16,7 +16,7 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
     const getData = (val) => {
         if(!user){
             history.push("/login");
-            alert("Inicie secion para dar Comentar");
+            alert("Inicie secion para Comentar");
         }else{
         setData(val.target.value)
         }
@@ -81,21 +81,7 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
 
     return (
         <div className="container">
-            <div className='d-flex justify-content-center'>
-                <form action="" className=''>
-                    <div className="form-floating">
-                        <textarea className="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" value={data.comment} name="comment" onChange={getData} maxLength="500"></textarea>
-                        <label htmlFor="floatingAddComment">Danos tu opinión!</label>
-                        <div id="floatingAddComment" className="form-text">
-                            Tu comentario nos interesa! Contanos qué te pareció la receta (máx. 500 caracteres).
-                        </div>
-                    </div>
-                    <div className="text-center mt-2">
-                        <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={()=> setComment()}>Enviar comentario</button>
-                    </div>
-                </form>   
-            </div>
-            <div>
+            <div className='container border-dark border rounded'>
                 <h4 className="mt-3">Comentarios:</h4>
                 {comments && comments.length === 0 ? <div id="floatingAddComment" className="form-text">Esta receta aun no tiene comentarios</div>: 
                 comments && comments.map(({userName, userLastName, content}, index) => (
@@ -109,6 +95,20 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
                         </button></p>
                     </div>
                 ))}
+            </div>
+            <div className='d-flex justify-content-center my-3'>
+                <form action="" className=''>
+                    <div className="form-floating">
+                        <textarea className="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" value={data.comment} name="comment" onChange={getData} maxLength="500"></textarea>
+                        <label htmlFor="floatingAddComment">Danos tu opinión!</label>
+                        <div id="floatingAddComment" className="form-text">
+                            Tu comentario nos interesa! Contanos qué te pareció la receta (máx. 500 caracteres).
+                        </div>
+                    </div>
+                    <div className="text-center mt-2">
+                        <button type="button" className="btn btn-outline-secondary rounded-pill" onClick={()=> setComment()}>Enviar comentario</button>
+                    </div>
+                </form>   
             </div>
         </div>
         
