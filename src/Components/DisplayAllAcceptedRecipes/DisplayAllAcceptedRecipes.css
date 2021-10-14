@@ -5,10 +5,12 @@
 }
 
 .display-all{
+    color: var(--main-dark-color);
+}
+.display-categories{
     color: var(--main-light-color);
     background-color: rgba(43, 67, 86, .9);
 }
-
 
 .title-rec a{
     color: var(--main-light-color) !important;
