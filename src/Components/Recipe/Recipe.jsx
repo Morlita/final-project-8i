@@ -45,7 +45,7 @@ function Recipe() {
                             <span><i className="bi bi-person-circle fs-4 m-1"></i></span>
                             By <span className='fst-italic'>{user && user.name} {user && user.lastName}</span>
                         </h6>
-                        <Share />
+                        <Share title={title}/>
                         <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
                         <AddToFav recipeId={idURL}/>
                     </div>
