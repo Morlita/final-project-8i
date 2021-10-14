@@ -24,7 +24,7 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           data-index={index}
           value={ingredient.ingredient}
           onChange={ingredientValue}
-          maxLength="100"
+          maxLength="20"
           placeholder="Ej: Harina"
         ></input>
         <input

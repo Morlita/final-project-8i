@@ -168,7 +168,7 @@ function AddRecipe() {
       <div className="d-flex flex-column form-contact">
         {/* Recipe´s Name */}
         <label htmlFor="title" className="mb-1">Nombre</label>
-        <input type="text" name="title" className="w-100 w-md-50 mb-3" value={recipe.title} onChange={setRecipes} maxLength="50" placeholder="Ej: Galletitas de limón" />
+        <input type="text" name="title" className="w-100 w-md-50 mb-3" value={recipe.title} onChange={setRecipes} maxLength="30" placeholder="Ej: Galletitas de limón" />
 
         {/* Recipe's Ingredients */}
         {rowIngredients.map((row, index) => (
@@ -212,7 +212,7 @@ function AddRecipe() {
 
           {/* Recipe´s Img */}
           <label htmlFor="img" className="mb-1">Imagen</label>
-          <input type="img" name="img" className="mb-3" value={recipe.img} onChange={setRecipes} maxLength="600" placeholder="Inserta la URL (https://...) de tu imagen" />
+          <input type="img" name="img" className="mb-3" value={recipe.img} onChange={setRecipes} maxLength="700" placeholder="Inserta la URL (https://...) de tu imagen" />
 
           {/* Recipe´s Category */}
           <label htmlFor="category">Seleccióna la categoría principal</label>
