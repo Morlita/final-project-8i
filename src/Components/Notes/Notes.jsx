@@ -72,11 +72,11 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
         setNote(val.target.value)
     }
 
-    const addNote = async () => {
+    const addNote = () => {
         if (note.notes === "" || note.notes === null || note.notes === " ") {
             alert("Escriba una nota primero")
         } else {
-            await fetch("https://polar-reaches-30197.herokuapp.com/notes", {
+            fetch("https://polar-reaches-30197.herokuapp.com/notes", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -89,8 +89,10 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                     user: user._id
                 })
             })
-                .then((response) => setReloadFlag(response.json()))
+                .then((response) => response.json())
+                
                 .then(data => {
+                    setReloadFlag(data)
                     setNote({
                         notes: ""
                     })
