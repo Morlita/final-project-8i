@@ -69,7 +69,7 @@ function UserProfile() {
         )
     }
     else {
-        return (<h1>Ocurrio un error</h1>)
+        return (<h4 className="mx-2 mt-2">Cargando...</h4>)
     }
 
 }
