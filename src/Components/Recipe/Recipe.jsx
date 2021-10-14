@@ -20,7 +20,9 @@ function Recipe() {
 
     const location = useLocation();
 
-    const idURL = window.location.pathname.split("/").pop();        
+    const idURL = window.location.pathname.split("/").pop();       
+    
+    const [recipeFaved, setRecipeFaved] = useState(true)
 
     const getRecipe = async () => {
 
@@ -49,9 +51,9 @@ function Recipe() {
                             </h6>
                         </div>
                         <div className='d-flex'>
-                            <Share />
+                            <Share title={title}/>
                             <Like recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
-                            <AddToFav recipeId={idURL}/>
+                            <AddToFav recipeId={idURL} recipeFaved={recipeFaved} setRecipeFaved={setRecipeFaved}/>
                         </div>
                     </div>
                 </div>
@@ -91,7 +93,7 @@ function Recipe() {
                 <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>            
             </div>                    
             <div className="container my-3">
-                <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>
+                <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} recipeFaved={recipeFaved} location={location}/>
             </div>
         </div>
     )
