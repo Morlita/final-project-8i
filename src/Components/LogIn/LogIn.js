@@ -57,11 +57,11 @@ function Login() {
             <form id="formLogIn mt-3">
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" onChange={setUserObj} />
+                    <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Ej: maria.perez@recetapp.com" maxLength="50" onChange={setUserObj} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" name="password" onChange={setUserObj} />
+                    <input type="password" className="form-control" id="exampleInputPassword1" name="password" maxLength="15" placeholder="Su contraseña" onChange={setUserObj} />
                 </div>
                 <div className='d-grid col-5 mx-auto register-button'>
                     <button type="button" className="btn btn-danger m-3 sign-in-button rounded-pill" onClick={Guardar}>Ingresar</button>
