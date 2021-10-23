@@ -57,7 +57,7 @@ const NewNavbar = () => {
                   <li><Link className="dropdown-item" to='/categories/dulces'>Dulces</Link></li>
                 </ul>
               </li>
-              {!user ? <div className="navbar-nav me-md-auto mb-2 mb-lg-0 mx-auto flex-column-reverse flex-md-row">
+              {!user ? <div className="navbar-nav me-md-auto mb-2 mb-md-0 mx-auto flex-column-reverse flex-md-row">
                 <li className="nav-item">
                   <Link to='/login' className="nav-link">Ingresar</Link>
                 </li>
