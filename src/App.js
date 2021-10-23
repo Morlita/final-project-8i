@@ -82,6 +82,9 @@ function App() {
             <Route path='/aboutUs' >
               <AboutUs />
             </Route>
+            <Route path='/ourMission' >
+              <AboutUs />
+            </Route>
             <Route path='*' >
               <Page404 />
             </Route>
