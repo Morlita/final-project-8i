@@ -137,20 +137,7 @@ function AddRecipe() {
         .then((response) => response.json())
         .then((data) => {
           alert("Su receta fue subida con exito y esta pendiente de aceptacion");
-          setRecipe({
-            title: "",
-            time: "",
-            timeFreezer: "",
-            timeFridge: "",
-            category: "Con carne",
-            img: "",
-            steps: "",
-            ingredients: "",
-            tags: [],
-            user: "",
-          });
-          setRowSteps([defaultStateSteps]);
-          setSteps([]);
+          history.push("/")
         })
         .catch((err) => {
           setTimeout(() => {
