@@ -29,7 +29,7 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
         ></input>
         <input
           type="text"
-          placeholder=" Cantidad"
+          placeholder=" Cantidad: 0.5"
           className="w-25 me-2"
           name="quantity"
           className="w-50 me-2"

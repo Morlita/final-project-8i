@@ -59,7 +59,7 @@ const NewNavbar = () => {
               </li>
               {!user ? <div className="navbar-nav me-md-auto mb-2 mb-lg-0 mx-auto flex-column-reverse flex-md-row">
                 <li className="nav-item">
-                  <Link to='/login' className="nav-link"><span><i className="bi bi-person-circle"></i></span>Ingresar</Link>
+                  <Link to='/login' className="nav-link">Ingresar</Link>
                 </li>
                 <li className="nav-item register-button">
                   <Link to='/signin' className="nav-link fw-bold">Registrarme</Link>
