@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
 
 
-function AddComment({recipeId, reloadFlag, setReloadFlag}) {
+function AddComment({recipeId, reloadFlag, setReloadFlag, location}) {
 
     let history = useHistory();
 
@@ -78,7 +78,7 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
 
     useEffect(() => {
         getComments();
-    }, [reloadFlag])
+    }, [reloadFlag, location])
 
 
     return (
@@ -88,7 +88,7 @@ function AddComment({recipeId, reloadFlag, setReloadFlag}) {
                 {comments && comments.length === 0 ? <div id="floatingAddComment" className="form-text">Esta receta aun no tiene comentarios</div>: 
                 comments && comments.map(({userName, userLastName, content}, index) => (
                     <div>
-                        <p key={index}><span className="fw-bold">{userName} {userLastName}</span> {content}
+                        <p key={index}><span className="fw-bold">{userName + " "} {userLastName}</span> {content}
                         <button className="float-end" type="button" onClick={() => deleteComment(index)}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
