@@ -21,7 +21,7 @@ function ProfileCard(props){
                     <thead>
                         <tr className="row">
                             <th className="col-8">Nombre</th>
-                            <th className="col-4">Estado</th>
+                            <th className="col-4 d-flex flex-nowrap">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
