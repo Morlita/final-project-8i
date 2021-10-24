@@ -43,7 +43,7 @@ function UserProfile() {
             <div className='container my-4'>
                 {console.log(!!Object.keys(profile).length || !profile.message)}
                 <div className="row text-center p-2">
-                    {profile.name && profile.lastName ? <ProfileCard name={profile.name} lastName={profile.lastName} numeroRecetas={profile.myRecipes.length} numeroFav={profile.myFavorites.length} notas={profile.notes.length} /> : null}
+                    {profile.name && profile.lastName ? <ProfileCard name={profile.name} recipes={profile.myRecipes} /> : null}
                 </div>
                 <div className="row my-3 my-recipes rounded p-2 mx-1">
                     <div className="col col-md-3 border border-light rounded"><h3 className="">Mis recetas</h3></div>
