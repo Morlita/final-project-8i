@@ -14,7 +14,8 @@ function Signin() {
         name: "",
         lastName: "",
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: ""
     });
 
     const setUserObj = (event) => {
@@ -44,8 +45,12 @@ function Signin() {
         else if (usuario.email === "" || emailRegexp.test(usuario.email) === false) {
             alert("email invalido")
         }
-        else if (usuario.password.length < 6) {
+        else if (usuario.password.length < 6 || usuario.confirmPassword.length < 6) {
             alert("contraseña invalida")
+        }
+
+        else if (usuario.password !== usuario.confirmPassword){
+            alert("Las contraseñas no coinciden")
         }
         else {
 
@@ -100,6 +105,10 @@ function Signin() {
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                     <input type="password" className="form-control" maxLength="15" id="exampleInputPassword1" name="password" placeholder="Elija una contraseña segura" onChange={setUserObj} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="exampleInputPassword1" className="form-label">Confirmar Contraseña</label>
+                    <input type="password" className="form-control" maxLength="15" id="exampleInputPassword2" name="confirmPassword" placeholder="Ingrese la contraseña del campo anterior" onChange={setUserObj} />
                 </div>
                 <div className="d-grid col-5 mx-auto register-button">
                     <button type="button" className="btn btn-danger m-3 rounded-pill" onClick={Guardar}>Registrarme</button>
