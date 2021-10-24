@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Modal from "../../Modal/Modal";
+import EditModal from "../../EditModal/EditModal";
 import AdminRecipesStatus from "./AdminRecipesStatus";
 
 function Admin() {
@@ -123,6 +124,7 @@ function Admin() {
         </tbody>
       </table>
       <Modal recipe={reference} />
+      <EditModal recipe={reference} />
     </div>
   );
 }
