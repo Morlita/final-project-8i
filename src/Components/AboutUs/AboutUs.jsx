@@ -17,7 +17,7 @@ function AboutUs() {
         <div className=''>
             <header className='about-us'>
                 <div class="about-us-content">
-                    <h1 className="text-center ">Comisión 8i</h1>
+                    <h1 className="text-center">Comisión 8i</h1>
                 </div>
             </header>
             <main>
@@ -25,7 +25,7 @@ function AboutUs() {
                     <div class="container card-deck">
                         <div class="row row-cols-md-3 row-cols-1">
                             <div class="col mt-3">
-                                <div class="card text-center h-100">
+                                <div class="card text-center h-100 mx-1">
                                     <img class="card-img-top mb-3" src={Clase} alt="Card image cap" />
                                     <div class="card-body p-1">
                                         <h3 class="card-title">Historia</h3>
@@ -34,7 +34,7 @@ function AboutUs() {
                                 </div>
                             </div>
                             <div class="col mt-3">
-                                <div class="card text-center h-100">
+                                <div class="card text-center h-100 mx-1">
                                     <img class="card-img-top mb-3" src={Group} alt="Card image cap" />
                                     <div class="card-body p-1">
                                         <h3 class="card-title">Diversidad</h3>
@@ -43,7 +43,7 @@ function AboutUs() {
                                 </div>
                             </div>
                             <div class="col mt-3">
-                                <div class="card text-center h-100">
+                                <div class="card text-center h-100 mx-1">
                                     <img class="card-img-top mb-3" src={Rocket} alt="Card image cap" />
                                     <div class="card-body p-1">
                                         <h3 class="card-title">Futuro</h3>
