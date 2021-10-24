@@ -87,19 +87,19 @@ function Signin() {
             <form id="formUsuario">
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Nombre</label>
-                    <input type="text" className="form-control" id="name" name="name" aria-describedby="Username" onChange={setUserObj} />
+                    <input type="text" className="form-control" id="name" name="name" aria-describedby="Username" placeholder="Ej: Maria" maxLength="25" onChange={setUserObj} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="lastName" className="form-label">Apellido</label>
-                    <input type="text" className="form-control" id="lastName" name="lastName" aria-describedby="Username" onChange={setUserObj} />
+                    <input type="text" className="form-control" id="lastName" name="lastName" aria-describedby="Username" placeholder="Ej: Perez" maxLength="25" onChange={setUserObj} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" onChange={setUserObj} />
+                    <input type="email" className="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Ej: maria.perez@recetapp.com" maxLength="50" onChange={setUserObj} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" name="password" onChange={setUserObj} />
+                    <input type="password" className="form-control" maxLength="15" id="exampleInputPassword1" name="password" placeholder="Elija una contraseña segura" onChange={setUserObj} />
                 </div>
                 <div className="d-grid col-5 mx-auto register-button">
                     <button type="button" className="btn btn-danger m-3 rounded-pill" onClick={Guardar}>Registrarme</button>

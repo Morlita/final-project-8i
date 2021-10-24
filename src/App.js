@@ -16,6 +16,7 @@ import DisplayRecipes from './Components/DisplayRecipes/DisplayRecipes'
 import AddRecipe from './Components/AddRecipe/AddRecipe';
 import DisplaySearchRecipes from './Components/DisplaySearchRecipes/DisplaySearchRecipes';
 import AboutUs from './Components/AboutUs/AboutUs';
+import OurMission from './Components/OurMission/OurMission'
 
 
 
@@ -81,6 +82,9 @@ function App() {
             </Route>
             <Route path='/aboutUs' >
               <AboutUs />
+            </Route>
+            <Route path='/ourMission' >
+              <OurMission />
             </Route>
             <Route path='*' >
               <Page404 />

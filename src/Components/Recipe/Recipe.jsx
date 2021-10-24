@@ -90,7 +90,7 @@ function Recipe() {
                 <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY')}</span> </h6>
             </article>
             <div className="container my-3">
-                <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag}/>            
+                <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} location={location}/>            
             </div>                    
             <div className="container my-3">
                 <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} recipeFaved={recipeFaved} location={location}/>
