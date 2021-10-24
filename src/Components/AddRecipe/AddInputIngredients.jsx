@@ -28,11 +28,7 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           placeholder="Ej: Harina"
         ></input>
         <input
-<<<<<<< HEAD
-          type="text"
-=======
           type="number"
->>>>>>> ec726ad027503c8583ef16ed5302e4bcda116f8d
           placeholder=" Cantidad: 0.5"
           className="w-25 me-2"
           name="quantity"

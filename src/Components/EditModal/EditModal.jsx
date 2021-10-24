@@ -6,6 +6,7 @@ function EditModal({recipe}) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 className="modal-title text-capitalize" id="exampleModalLabel">{recipe.title}</h3>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div>
