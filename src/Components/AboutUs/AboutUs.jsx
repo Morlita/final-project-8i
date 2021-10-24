@@ -17,7 +17,7 @@ function AboutUs() {
         <div className=''>
             <header className='about-us'>
                 <div class="about-us-content">
-                    <h1 className="text-center text-uppercase">comisión 8i</h1>
+                    <h1 className="text-center ">Comisión 8i</h1>
                 </div>
             </header>
             <main>
@@ -55,8 +55,8 @@ function AboutUs() {
                     </div>
                 </section>
                 <section class="founder-info my-5 text-white p-4 background-blue">
-                    <div class="container d-flex justify-content-md-between ">
-                        <div class="member-pic d-flex align-items-center">
+                    <div class="container d-flex flex-wrap flex-md-nowrap justify-content-md-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
                             <img src={SantiC} alt="Foto de Santi Calvo" />
                         </div>
                         <div class="founder-bcg m-2 p-2 align-self-center">
@@ -70,7 +70,7 @@ function AboutUs() {
                     </div>
                 </section>
                 <section class="developer-info text-white p-4 background-red">
-                    <div class="container  d-flex justify-content-md-between">
+                    <div class="container  d-flex flex-wrap-reverse flex-md-nowrap justify-content-md-center">
                         <div class="developer-bcg m-2 p-2 align-self-center">
                             <h3 class="">Dolores Ávila</h3>
                             <h5>Médica Especialista en Anatomía Patológica</h5>
@@ -79,14 +79,14 @@ function AboutUs() {
                             <p>Con 35 años, Loli es médica especialista en patología quirúrgica y dermatopatología. Con ganas de cambiar de profesión, empezó a estudiar programación. Repostera aficionada</p>
                             <p>Actualmente trabaja en el Sanatorio Güemes de Palermo</p>
                         </div>
-                        <div class="member-pic d-flex align-items-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
                             <img src={Loli} alt="Foto de Loli" />
                         </div>
                     </div>
                 </section>
                 <section class="founder-info my-5 text-white p-4 background-blue">
-                    <div class="container d-flex justify-content-md-between ">
-                        <div class="member-pic d-flex align-items-center">
+                    <div class="container d-flex flex-wrap flex-md-nowrap justify-content-md-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
                             <img src={SantiJM} alt="Foto de Santi JM" />
                         </div>
                         <div class="founder-bcg m-2 p-2 align-self-center">
@@ -98,7 +98,7 @@ function AboutUs() {
                     </div>
                 </section>
                 <section class="developer-info text-white p-4 background-red">
-                    <div class="container  d-flex justify-content-md-between">
+                    <div class="container  d-flex flex-wrap-reverse flex-md-nowrap justify-content-md-center">
                         <div class="developer-bcg m-2 p-2 align-self-center">
                             <h3 class="">Eugenia Arias Fagalde</h3>
                             <h5>Alumna del Colego NC</h5>
@@ -107,14 +107,14 @@ function AboutUs() {
                             <p>Con 14 años, Euge cursa 3° año del colegio. Participa de olimpíadas matemáticas y hace cursos de robótica. Odia las presentaciones orales.</p>
                             <p>Que su edad no te confunda... fue el pilar fundamental de responsabilidad y ejecución en este proyecto.</p>
                         </div>
-                        <div class="member-pic d-flex align-items-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
                             <img src={Euge} alt="Foto de Euge"/>
                         </div>
                     </div>
                 </section>
                 <section class="founder-info my-5 text-white p-4 background-blue">
-                    <div class="container d-flex justify-content-md-between ">
-                        <div class="member-pic d-flex align-items-center">
+                    <div class="container d-flex flex-wrap flex-md-nowrap justify-content-md-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
                             <img src={Gustavo} alt="Foto de Gustavo" />
                         </div>
                         <div class="founder-bcg m-2 p-2 align-self-center">
@@ -128,7 +128,7 @@ function AboutUs() {
                     </div>
                 </section>
                 <section class="developer-info text-white p-4 background-red">
-                    <div class="container  d-flex justify-content-md-between">
+                    <div class="container d-flex flex-wrap-reverse flex-md-nowrap justify-content-md-center">
                         <div class="developer-bcg m-2 p-2 align-self-center">
                             <h3 class="">Florencia Pistan</h3>
                             <h5>Desarroladora Full Stack</h5>
@@ -137,15 +137,15 @@ function AboutUs() {
                             <p>Dejó la agronomía para dedicarse a la tecnología e informática. Gran tutora, siempre disponible y predispuesta, lista para compartirte el video exacto que necesitabas.</p>
                             <p>10/10 would recommend.</p>
                         </div>
-                        <div class="member-pic d-flex align-items-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
                             <img src={Flor} alt="Foto de Flor" />
                         </div>
                     </div>
                 </section>
                 <section class="founder-info my-5 text-white p-4 background-blue">
-                    <div class="container d-flex justify-content-md-between ">
-                        <div class="member-pic d-flex align-items-center">
-                            <img src={LeDiegue} alt="Foto de Diego" />
+                    <div class="container d-flex flex-wrap flex-md-nowrap justify-content-md-center">
+                        <div class="member-pic d-flex align-items-center mx-auto">
+                            <img src={LeDiegue} alt="Foto de Diego"/>
                         </div>
                         <div class="founder-bcg m-2 p-2 align-self-center">
                             <h3 class="font-weight-bolder">Le Diegue</h3>

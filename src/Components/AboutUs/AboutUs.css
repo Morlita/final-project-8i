@@ -16,9 +16,10 @@
 	height: 100%;
 	color: #FFF;
 	background-color: rgba(43, 67, 86, .5);
+    /* background-color: rgba(255, 255, 255, .4); */
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: end;
 	align-items: center;
 }
 
@@ -30,8 +31,8 @@
 }
 
 .member-pic img {
-    height: 240px;
-    width: 240px;
+    max-height: 240px;
+    max-width: 240px;
     background-size: cover;
     border-radius: 50%; 
     border: 3px solid white;   
@@ -47,4 +48,11 @@
 .founder-info h5, .developer-info h5 {
     font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
+}
+
+.about-us h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 5rem;
+    color: var(--secondary-light-color);
+    font-weight: bold;
 }
