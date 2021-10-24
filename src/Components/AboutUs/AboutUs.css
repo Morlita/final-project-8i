@@ -1,0 +1,45 @@
+
+.about-us {
+    position: relative;
+	width: 100%;
+	height: calc(50vh);
+	background-color: #F5F5F5;
+    background-image: url('../Img/comision.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.about-us-content {
+    margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	color: #FFF;
+	background-color: rgba(43, 67, 86, .5);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.about-us-description img{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.member-pic img {
+    height: 240px;
+    width: 240px;
+    background-size: cover;
+    border-radius: 50%; 
+    border: 3px solid white;   
+}
+
+.background-blue {
+    background-color: var(--main-dark-color);
+}
+.background-red {
+    background-color: var(--main-accent-color);
+}
