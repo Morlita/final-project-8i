@@ -28,12 +28,13 @@ function AddInputIngredients({ remove, index, updateIngredients }) {
           placeholder="Ej: Harina"
         ></input>
         <input
-          type="text"
+          type="number"
           placeholder=" Cantidad: 0.5"
           className="w-25 me-2"
           name="quantity"
           className="w-50 me-2"
-          maxLength="5"
+          min="1" max="100000"
+          onInput={(e) => e.target.value = e.target.value.slice(0, 6)}
           data-index={index}
           value={ingredient.quantity}
           onChange={ingredientValue}
