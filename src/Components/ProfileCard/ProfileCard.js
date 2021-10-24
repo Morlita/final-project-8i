@@ -17,18 +17,18 @@ function ProfileCard(props){
                 <div className="card-body">
                     <h2 className="card-title h1">{props.name} {props.lastName}</h2>
                 </div>
-                <table class="table">
+                <table class="table container">
                     <thead>
-                        <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Estado</th>
+                        <tr className="row">
+                            <th className="col-8">Nombre</th>
+                            <th className="col-4">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         {props.recipes && recipes.map((item, index) => (
-                            <tr className="d-flex flex-wrap">
-                                <td>{item.title}</td>
-                                <td>{item.accepted}</td>
+                            <tr className="row" key={index}>
+                                <td className="col-8">{item.title.substr(-20, 20)}...</td>
+                                <td className="col-4 d-flex flex-nowrap">{item.accepted}</td>
                             </tr>     
                         ))}
                     </tbody>
