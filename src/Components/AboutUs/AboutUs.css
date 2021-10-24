@@ -43,3 +43,8 @@
 .background-red {
     background-color: var(--main-accent-color);
 }
+
+.founder-info h5, .developer-info h5 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+}
