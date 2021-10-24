@@ -12,7 +12,7 @@ function DisplaySearchRecipes() {
         fetch(`https://polar-reaches-30197.herokuapp.com/recipes/search?search=${term}&field=title`)
         .then((response) => response.json())
         .then(data => setResults(data))
-    }, [])
+    }, [location])
 
 
     return(

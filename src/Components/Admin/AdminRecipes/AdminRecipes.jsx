@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import Modal from "../../Modal/Modal";
+import EditModal from "../../EditModal/EditModal";
 import AdminRecipesStatus from "./AdminRecipesStatus";
 
 function Admin() {
@@ -52,18 +53,21 @@ function Admin() {
 
   /*Delete*/
   const remove = (id) => {
+    let confirmation = window.confirm("Esta seguro de eliminar esta receta?");
     const deleteRecipe = recipes.find(recipe => recipe._id === id);
-    fetch(
-      `https://polar-reaches-30197.herokuapp.com/recipes/${deleteRecipe._id}`,
-      {
-        method: "DELETE",
-        body: JSON.stringify(),
-        headers: {
-          "Content-Type": "application/json",
-          "x-access-token": userToken,
-        },
-      }
-    ).then((response) => setFetchFlag(response.json()));
+    if(confirmation){
+      fetch(
+        `https://polar-reaches-30197.herokuapp.com/recipes/${deleteRecipe._id}`,
+        {
+          method: "DELETE",
+          body: JSON.stringify(),
+          headers: {
+            "Content-Type": "application/json",
+            "x-access-token": userToken,
+          },
+        }
+      ).then((response) => setFetchFlag(response.json()));
+    }    
   };
 
   return (
@@ -120,6 +124,7 @@ function Admin() {
         </tbody>
       </table>
       <Modal recipe={reference} />
+      <EditModal recipe={reference} />
     </div>
   );
 }
