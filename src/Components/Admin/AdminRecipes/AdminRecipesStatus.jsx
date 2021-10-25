@@ -1,23 +1,24 @@
 import ButtonAccept from "../ButtonAccept/ButtonAccept";
 import ButtonReject from "../ButtonReject/ButtonReject";
+import '../Admin.css'
 
 function AdminRecipesStatus({ recipe, index, setFetchFlag, remove, setRecipe }) {
   return (
     <tr key={index}>
-      <td className="col-3">{recipe.title}</td>
-      <td className="col col-sm-2">{recipe.accepted}</td>
-      <td className="col-1 col-lg-3">
+      <td className="col-7 text-break rounded">{recipe.title}</td>
+      {/* <td className="col col-sm-2">{recipe.accepted}</td> */}
+      <td className="col-5 text-md-end rounded">
         {recipe.accepted === "accepted" ? (
           <ButtonReject recipe={recipe} setFetchFlag={setFetchFlag} />
         ) : recipe.accepted === "pending" ? (
-          <div>
+          <div className='d-inline'>
             <ButtonReject recipe={recipe} setFetchFlag={setFetchFlag} />
             <ButtonAccept recipe={recipe} setFetchFlag={setFetchFlag} />
           </div>
         ) : (
           <ButtonAccept recipe={recipe} setFetchFlag={setFetchFlag} />
         )}
-
+        
         <button
           type="button"
           className="btn btn-primary w-20 me-3 mb-1"

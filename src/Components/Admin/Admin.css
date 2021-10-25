@@ -1,0 +1,16 @@
+:root {
+    --main-dark-color: #2b4356;
+    --main-light-color: #dddceb;
+    --main-accent-color: #e75150;
+    --accesory-accent-color: #fee883;
+    --accesory-light-color: #ebaf8d;
+    --secondary-dark-color: #18252f;
+    --secondary-light-color: #f5f5f9;
+  }
+
+.tag-title {
+    background-color: var(--main-dark-color);
+    color: var(--secondary-light-color);
+    font-weight: bold;
+    /* font-family: 'Dancing Script', cursive; */
+}

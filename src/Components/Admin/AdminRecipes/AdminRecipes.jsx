@@ -55,7 +55,7 @@ function Admin() {
   const remove = (id) => {
     let confirmation = window.confirm("Esta seguro de eliminar esta receta?");
     const deleteRecipe = recipes.find(recipe => recipe._id === id);
-    if(confirmation){
+    if (confirmation) {
       fetch(
         `https://polar-reaches-30197.herokuapp.com/recipes/${deleteRecipe._id}`,
         {
@@ -67,24 +67,24 @@ function Admin() {
           },
         }
       ).then((response) => setFetchFlag(response.json()));
-    }    
+    }
   };
 
   return (
     <div className="container">
-      <h3>Recetas</h3>
+      <h2 className='text-center shadow border-bottom-0 rounded p-2 text-uppercase m-3 tag-title'>Recetas</h2>
 
       {/*TABLA */}
-      <table className="table">
-        <thead>
+      <table className="table table-striped table-hover mt-3">
+        <thead className=''>
           <tr>
-            <th scope="col">Titulo</th>
+            {/* <th scope="col" colSpan='3' className='text-center h2 shadow border-bottom-0 rounded text-uppercase bg-light'>Recetas</th>
             <th scope="col">Estado</th>
-            <th scope="col">Acciones</th>
+            <th scope="col">Acciones</th> */}
           </tr>
         </thead>
         <tbody>
-          <h5>Recetas Pendientes</h5>
+          <h5 className='text-uppercase text-warning fw-bold my-3 bg-light rounded p-2 text-center shadow'>Pendientes</h5>
           {pendant &&
             pendant.map((item, index) => (
               <AdminRecipesStatus
@@ -97,7 +97,7 @@ function Admin() {
                 setRecipe={setRecipe}
               />
             ))}
-          <h5>Recetas Aceptadas</h5>
+          <h5 className='text-uppercase text-success fw-bold my-3 bg-light rounded p-2 text-center shadow'>Aceptadas</h5>
           {accept &&
             accept.map((item, index) => (
               <AdminRecipesStatus
@@ -109,7 +109,7 @@ function Admin() {
                 setRecipe={setRecipe}
               />
             ))}
-          <h5>Recetas Rechazadas</h5>
+          <h5 className='text-uppercase text-danger fw-bold my-3 bg-light rounded p-2 text-center shadow'>Rechazadas</h5>
           {reject &&
             reject.map((item, index) => (
               <AdminRecipesStatus
