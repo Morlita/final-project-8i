@@ -121,7 +121,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
 
     return (
         <div className='container border border-dark rounded' id='notes-wrapper'>
-            <div className="h3 text-center p-2 mt-2 text-white">Mis Notas</div>
+            {result && result ? <div className="h3 text-center p-2 mt-2 text-white">Mis Notas</div>: false}
             {notesFilterUser && notesFilterUser.map((item, index) => (
                 <div class="card my-3" id='notes-component' key={index}>
                     <div class="card-header">
