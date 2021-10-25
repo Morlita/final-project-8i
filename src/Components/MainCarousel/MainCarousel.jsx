@@ -37,7 +37,7 @@ function MainCarousel() {
     }
 
     const acceptedRecipes = recipes.filter(recipe => recipe.accepted === 'accepted')
-    const filterByLikes = acceptedRecipes.filter(recipe => recipe.likes >= 2);
+    const filterByLikes = acceptedRecipes.filter(recipe => recipe.likes >= 5);
 
     return (
         <div className='container'>
@@ -46,7 +46,11 @@ function MainCarousel() {
                     <h2 className="slider_title mt-1"><span ><img src={LikeImg} className='heart-car mx-1' alt="heart" /></span> Tentate con las recetas más votadas <span ><img src={LikeImg} className="heart-car mx-1" alt="heart" /></span></h2>
                     <CarouselSlider carouselArr={filterByLikes} />
                     <div className="p-1 my-2 d-grid col-md-5 mx-auto mt-4">
-                        <button type="button" className="btn btn-danger rounded-pill">Ver todas las más votadas</button>
+                        <Link to={{
+                            pathname:'/displayfavs',
+                            state: {filterByLikes: filterByLikes} 
+                        }}
+                            className="btn btn-danger rounded-pill" type='button'>Ver todas las más votadas</Link>
                     </div>
                 </div>
             </div>

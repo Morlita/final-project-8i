@@ -30,6 +30,7 @@ import {
 import MainCarousel from './Components/MainCarousel/MainCarousel';
 import Page404 from './Components/Page404/Page404';
 import DisplayAllAcceptedRecipes from './Components/DisplayAllAcceptedRecipes/DisplayAllAcceptedRecipes';
+import DisplayFavs from './Components/DisplayFavs/DisplayFavs';
 
 function App() {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));
@@ -58,6 +59,9 @@ function App() {
             </Route>
             <Route path='/displayrecipes' >
               <DisplayRecipes />
+            </Route>
+            <Route path='/displayfavs' >
+              <DisplayFavs />
             </Route>
             <Route path='/displayall' >
               <DisplayAllAcceptedRecipes />
