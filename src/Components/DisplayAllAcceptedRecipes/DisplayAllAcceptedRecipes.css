@@ -1,17 +1,27 @@
 .card-img-top {
     width: 100%;
-    height: 15vw;
+    height: 20vw;
     object-fit: cover;
 }
 
-.display-all{
-    color: var(--main-dark-color);
-}
-.display-categories{
-    color: var(--main-light-color);
-    background-color: rgba(43, 67, 86, .9);
+h1.display-titles, span.display-titles{
+    color: var(--main-accent-color);
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    /* background-color: rgba(43, 67, 86, .9); */
 }
 
-.title-rec a{
-    color: var(--main-light-color) !important;
+h4.title-rec{
+    font-weight: bold;
+    color: var(--main-dark-color);
+}
+
+p.title-rec {
+    font-weight: bold;
+    color: var(--accesory-light-color);
+}
+
+p.like-heart {
+    font-weight: bold;
+    color: var(--main-accent-color);
 }

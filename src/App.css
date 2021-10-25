@@ -16,7 +16,6 @@
 }
 
 .main-background{
-  /* background: var(--main-dark-color); */
   background-image: url(./Components/Img/marble.jpg);
   background-size: contain;
 }

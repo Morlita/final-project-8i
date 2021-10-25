@@ -34,7 +34,7 @@ function DisplayAllAcceptedRecipes() {
     return (
         <div className="container display-all">
             <div className="row p-3 text-center my-2">
-                <h1 className='p-2 rounded'>Todas nuestras recetas</h1>
+                <h1 className='p-2 rounded display-titles'>Todas nuestras recetas</h1>
             </div>
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 my-2">
                 {acceptedRecipes && acceptedRecipes.map(({ _id, title, time, img, likes, category }) => (
