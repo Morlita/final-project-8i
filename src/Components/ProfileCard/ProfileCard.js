@@ -21,14 +21,14 @@ function ProfileCard(props){
                     <thead>
                         <tr className="row">
                             <th className="col-8">Nombre</th>
-                            <th className="col-4 d-flex flex-nowrap">Estado</th>
+                            <th className="col-4">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         {props.recipes && recipes.map((item, index) => (
                             <tr className="row" key={index}>
-                                <td className="col-8">{item.title.substr(-20, 20)}...</td>
-                                <td className="col-4 d-flex flex-nowrap">{item.accepted}</td>
+                                <td className="col-8 text-break">{item.title}</td>
+                                <td className="col-4">{item.accepted}</td>
                             </tr>     
                         ))}
                     </tbody>
