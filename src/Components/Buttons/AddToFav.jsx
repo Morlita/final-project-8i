@@ -31,10 +31,10 @@ function AddToFav({recipeId, recipeFaved, setRecipeFaved }) {
         }
         setRecipeFaved(!recipeFaved)
     }
-
+    
     return (
         <div>
-            <button type="button" className="btn rounded-pill btn-outline-danger m-1 shadow" onClick={handleAddToFav}> <img src={BookmarkPng} className='bookmk-png' alt="addToFav" /> <span className='d-none d-md-block'>Guardar</span></button> 
+            <button type="button" className={`btn rounded-pill m-1 shadow ${ recipeFaved? 'btn-danger': 'btn-outline-danger'}`}  onClick={handleAddToFav}> <img src={BookmarkPng} className='bookmk-png' alt="addToFav" /> <span className='d-none d-md-block'>Guardar</span></button> 
         </div>
     )
 }
