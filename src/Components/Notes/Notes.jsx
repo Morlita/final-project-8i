@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import moment from 'moment'
 import ModalNotes from "../ModalNotes/ModalNotes";
 import './Notes.css'
+import Swal from 'sweetalert2';
 
 
 function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
@@ -34,7 +35,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                 .catch((err) => {
                     setTimeout(() => {
                         console.log(err);
-                        alert("Algo salio mal")
+                        Swal.fire("Algo salió mal")
                     }, 2000);
                 });
         }
@@ -61,7 +62,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                 .catch((err) => {
                     setTimeout(() => {
                         console.log(err);
-                        alert("Algo salio mal")
+                        Swal.fire("Algo salió mal")
                     }, 2000);
                 });
         }
@@ -74,7 +75,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
 
     const addNote = () => {
         if (note.notes === "" || note.notes === null || note.notes === " ") {
-            alert("Escriba una nota primero")
+            Swal.fire("Escriba una nota primero")
         } else {
             fetch("https://polar-reaches-30197.herokuapp.com/notes", {
                 method: 'POST',

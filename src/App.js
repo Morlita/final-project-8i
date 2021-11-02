@@ -1,4 +1,5 @@
 import './App.css';
+
 import NewNavbar from './Components/Navbar/NewNavbar';
 import Footer from './Components/Footer/Footer';
 import Main from './Components/Main/Main';
@@ -17,9 +18,10 @@ import AddRecipe from './Components/AddRecipe/AddRecipe';
 import DisplaySearchRecipes from './Components/DisplaySearchRecipes/DisplaySearchRecipes';
 import AboutUs from './Components/AboutUs/AboutUs';
 import OurMission from './Components/OurMission/OurMission'
-
-
-
+import MainCarousel from './Components/MainCarousel/MainCarousel';
+import Page404 from './Components/Page404/Page404';
+import DisplayAllAcceptedRecipes from './Components/DisplayAllAcceptedRecipes/DisplayAllAcceptedRecipes';
+import DisplayFavs from './Components/DisplayFavs/DisplayFavs';
 
 import {
   BrowserRouter as Router,
@@ -27,10 +29,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import MainCarousel from './Components/MainCarousel/MainCarousel';
-import Page404 from './Components/Page404/Page404';
-import DisplayAllAcceptedRecipes from './Components/DisplayAllAcceptedRecipes/DisplayAllAcceptedRecipes';
-import DisplayFavs from './Components/DisplayFavs/DisplayFavs';
+
 
 function App() {
   const user = JSON.parse(localStorage.getItem("registerLogIn"));

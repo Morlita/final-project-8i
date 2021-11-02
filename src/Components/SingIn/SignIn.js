@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory, Link } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import './SignIn.css'
+import Swal from 'sweetalert2'
 
 function Signin() {
 
@@ -30,27 +31,31 @@ function Signin() {
     let sendEmail = () => {
         emailjs.send('gmail', 'template_e0meufb', parametros, "user_CjWnZrzaDNFhrMVuulGpr")
     .then(function(response) {
-       alert("Registro exitoso, revisa tu casilla de correo e inicia secion")
+        Swal.fire(
+            'Ya estás registrad@!',
+            'Revisa tu casilla de correo e inicia sesión!',
+            'success'
+          )
     });
     }
 
     const Guardar = () => {
 
         if (usuario.name.length < 2 || usuario.name.length > 25 || LettersRegexp.test(usuario.name) === false) {
-            alert("Nombre invalido")
+            Swal.fire("Nombre inválido")
         }
         else if (usuario.lastName.length < 3 || usuario.lastName.length > 25 || LettersRegexp.test(usuario.lastName) === false) {
-            alert("appellido invalido")
+            Swal.fire("Apellido inválido")
         }
         else if (usuario.email === "" || emailRegexp.test(usuario.email) === false) {
-            alert("email invalido")
+            Swal.fire("Email inválido")
         }
         else if (usuario.password.length < 6 || usuario.confirmPassword.length < 6) {
-            alert("contraseña invalida")
+            Swal.fire("Contraseña inválida (debe tener al menos 6 caracteres)")
         }
 
         else if (usuario.password !== usuario.confirmPassword){
-            alert("Las contraseñas no coinciden")
+            Swal.fire("Las contraseñas no coinciden")
         }
         else {
 
@@ -76,7 +81,11 @@ function Signin() {
                   }
                   else{
                       setTimeout(() => {
-                        alert("ocurrio un error")
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Algo salió mal!'
+                          })
                       }, 2000);
                   }
               })      
