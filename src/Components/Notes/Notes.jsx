@@ -73,7 +73,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
         setNote(val.target.value)
     }
 
-    const addNote = () => {
+    /* const addNote = () => {        
         if (note.notes === "" || note.notes === null || note.notes === " ") {
             Swal.fire("Escriba una nota primero")
         } else {
@@ -99,6 +99,50 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                     })
                 })
         }
+    } */
+    const addNote = () => {
+        (async () => {
+
+            const { value: note } = await Swal.fire({
+                input: 'textarea',
+                inputLabel: 'Nota',
+                inputPlaceholder: 'Escribí tu nota aquí...',
+                inputAttributes: {
+                    'aria-label': 'Escribí tu nota aquí'
+                },
+                showCancelButton: true
+            })
+
+            if (note) {
+                setNote(note)
+                Swal.fire('Nota agregada!')
+            }
+
+        })()
+
+
+        fetch("https://polar-reaches-30197.herokuapp.com/notes", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'x-access-token': tokenUser
+            },
+            body: JSON.stringify({
+                content: note,
+                recipe: recipeId,
+                user: user._id
+            })
+        })
+            .then((response) => response.json())
+
+            .then(data => {
+                setReloadFlag(data)
+                setNote({
+                    notes: ""
+                })
+            })
+            console.log('notas', userNotes)
     }
 
     const notesFilter = userNotes.filter(note => note.recipe === recipeId);
@@ -122,7 +166,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
 
     return (
         <div className='container border border-dark rounded' id='notes-wrapper'>
-            {result && result ? <div className="h3 text-center p-2 mt-2 text-white">Mis Notas</div>: false}
+            {result && result ? <div className="h3 text-center p-2 mt-2 text-white">Mis Notas</div> : false}
             {notesFilterUser && notesFilterUser.map((item, index) => (
                 <div class="card my-3" id='notes-component' key={index}>
                     <div class="card-header">
@@ -150,7 +194,10 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                     </div>
                 </div>
             ))}
-            {result && result ?
+            <div className='text-center p-4'>
+                <button type='button' className="btn btn-success rounded-pill" onClick={addNote}>AGREGAR NOTA</button>
+            </div>
+            {/* {result && result ?
                 <div className='container text-center my-3'>
                     <div class="mb-3">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="notes" value={note.notes} onChange={setNoteObj} maxLength="150" placeholder="Agregá notas a tus recetas guardadas aquí!!"></textarea>
@@ -158,7 +205,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
                     <div className="d-grid col-4 mx-auto">
                         <button type="button" className="btn btn-light rounded-pill" onClick={addNote}>Agregar</button>
                     </div>
-                </div> : false}
+                </div> : false} */}
             <ModalNotes index={reference} note={note} setNote={setNote} setNoteObj={setNoteObj} notesFilter={notesFilter} setReloadFlag={setReloadFlag} recipeId={recipeId} />
         </div>
     )
