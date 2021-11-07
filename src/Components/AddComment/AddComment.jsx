@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
-import '../Notes/Notes.css'
+import '../Notes/Notes.scss'
 
 
 function AddComment({recipeId, reloadFlag, setReloadFlag, location}) {
@@ -83,12 +83,12 @@ function AddComment({recipeId, reloadFlag, setReloadFlag, location}) {
 
 
     return (
-        <div className="container border rounded" id='comments-component'>
-            <div className='container'>
-                <h3 className="mt-3 text-center text-white">Comentarios:</h3>
+        <div className="container" id='comments-component'>
+            <div className=''>
+                <h3 className="my-3 text-center py-2 rounded">Comentarios:</h3>
                 {comments && comments.length === 0 ? <div id="floatingAddComment" className="form-text">Esta receta aun no tiene comentarios</div>: 
                 comments && comments.map(({userName, userLastName, content}, index) => (
-                    <div>
+                    <div className="user-comment p-2 border border-dark rounded m-1">
                         <p key={index}><span className="fw-bold">{userName + " "} {userLastName}</span> {content}
                         <button className="float-end" type="button" onClick={() => deleteComment(index)}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
@@ -100,15 +100,15 @@ function AddComment({recipeId, reloadFlag, setReloadFlag, location}) {
                 ))}
             </div>
             <div className='d-flex justify-content-center my-4'>
-                <form action="" className=''>
+                <form className='w-100'>
                     <div className="form-floating">
                         <textarea className="form-control" placeholder="Leave a comment here" id="floatingAddComment" aria-describedby="addComent" value={data.comment} name="comment" onChange={getData} maxLength="500"></textarea>
-                        <label htmlFor="floatingAddComment">Danos tu opinión!</label>
+                        <label htmlFor="floatingAddComment">Dejá tu comentario aquí!</label>
                         <div id="floatingAddComment" className="form-text text-center">
-                            Tu comentario nos interesa! Contanos qué te pareció la receta (máx. 500 caracteres).
+                            Contanos qué te pareció la receta (máx. 500 caracteres).
                         </div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center p-3">
                         <button type="button" className="btn btn-light rounded-pill" onClick={()=> setComment()}>Enviar comentario</button>
                     </div>
                 </form>   

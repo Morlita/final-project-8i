@@ -84,16 +84,20 @@ function Recipe() {
                 </div>
             </article>
             
-            <article className='container border border-secondary my-4 p-1 text-center rounded'>
+            <article className='container  my-4 p-1 text-center rounded'>
                 <h6> <span></span>Conservación en freezer: <span>{timeFreezer}</span></h6>
                 <h6> <span></span>Conservación en heladera: <span>{timeFridge}</span> </h6>
                 <h6> <span></span>Subido el <span>{moment(createdAt).format('DD/MM/YYYY')}</span> </h6>
             </article>
-            <div className="container my-3">
-                <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} location={location}/>            
-            </div>                    
-            <div className="container my-3">
-                <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} recipeFaved={recipeFaved} location={location}/>
+            <div className="container">
+                <div className="row">
+                    <div className="col col-md-6 my-3">
+                        <AddComment recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} location={location}/>
+                    </div>
+                    <div className="col col-md-6 my-3">
+                        <Notes recipeId={idURL} reloadFlag={reloadFlag} setReloadFlag={setReloadFlag} recipeFaved={recipeFaved} location={location}/>
+                    </div>
+                </div>
             </div>
         </div>
     )
