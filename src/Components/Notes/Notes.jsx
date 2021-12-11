@@ -101,6 +101,7 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
         }
     } */
     const addNote = () => {
+        
         (async () => {
 
             const { value: note } = await Swal.fire({
@@ -116,33 +117,30 @@ function Notes({ recipeId, reloadFlag, setReloadFlag, recipeFaved, location }) {
             if (note) {
                 setNote(note)
                 Swal.fire('Nota agregada!')
-            }
+                fetch("https://polar-reaches-30197.herokuapp.com/notes", {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'x-access-token': tokenUser
+                    },
+                    body: JSON.stringify({
+                        content: note,
+                        recipe: recipeId,
+                        user: user._id
+                    })
+                })
+                    .then((response) => response.json())
+
+                    .then(data => {
+                        setReloadFlag(data)
+                        setNote({
+                            notes: ""
+                        })
+                    })
+                    }
 
         })()
-
-
-        fetch("https://polar-reaches-30197.herokuapp.com/notes", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'x-access-token': tokenUser
-            },
-            body: JSON.stringify({
-                content: note,
-                recipe: recipeId,
-                user: user._id
-            })
-        })
-            .then((response) => response.json())
-
-            .then(data => {
-                setReloadFlag(data)
-                setNote({
-                    notes: ""
-                })
-            })
-        console.log('notas', userNotes)
     }
 
     const notesFilter = userNotes.filter(note => note.recipe === recipeId);
